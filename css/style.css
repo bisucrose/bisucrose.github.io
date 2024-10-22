@@ -833,7 +833,7 @@ pre:hover::-webkit-scrollbar-thumb:hover,
 .header-bg-color,
 .no-img-top,
 .no-swiper {
-  background: #684562;
+  background: url("/medias/Wallpaper/4.jpg");
   transition: all 0.3s;
 }
 .header {
@@ -941,7 +941,7 @@ pre:hover::-webkit-scrollbar-thumb:hover,
   padding: 15px 10px;
 }
 .header .header-content .navbar .menu .menu-item .sub-menu li {
-  background: #684562;
+  background: url("/medias/Wallpaper/4.jpg");
   width: 140px;
   text-align: center;
   line-height: 1.2;
