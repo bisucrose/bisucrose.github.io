@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>目前挖的坑&amp;进度</title>
+      <link href="/2024/10/23/%E7%9B%AE%E5%89%8D%E6%8C%96%E7%9A%84%E5%9D%91&amp;%E8%BF%9B%E5%BA%A6/"/>
+      <url>/2024/10/23/%E7%9B%AE%E5%89%8D%E6%8C%96%E7%9A%84%E5%9D%91&amp;%E8%BF%9B%E5%BA%A6/</url>
+      
+        <content type="html"><![CDATA[<h1 id="目前挖的坑-进度"><a href="#目前挖的坑-进度" class="headerlink" title="目前挖的坑&amp;进度"></a>目前挖的坑&amp;进度</h1><ul><li><input checked disabled type="checkbox"> Visual Studio Code终端字体配置&amp;中文编码配置&amp;编辑器字体配置</li><li><input disabled type="checkbox"> 吉林大学校园网使用指南（2024版）</li><li><input disabled type="checkbox"> hexo 配置过程说明+macbook如何使用hexo</li><li><input disabled type="checkbox"> MacBook如何重装系统</li><li><input disabled type="checkbox"> macbook的MBR+GPT混合分区表作用 创建与恢复+维护</li><li><input disabled type="checkbox"> Windows下使用powershell的时候显示此系统上禁止运行脚本</li><li><input disabled type="checkbox"> 如何使用bootcamp模拟legacy环境</li><li><input disabled type="checkbox"> opencore基础配置</li><li><input disabled type="checkbox"> markdown基本语法</li><li><input disabled type="checkbox"> opencore legacy patcher的使用方式</li><li><input disabled type="checkbox"> 白嫖Github Education Pack的方式</li><li><input disabled type="checkbox"> 保研过程指南</li><li><input disabled type="checkbox"> IPA Chart 语言语音学习笔记</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> To-Do List </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Visual Studio Code终端字体&amp;编辑器字体&amp;中文编码配置</title>
+      <link href="/2024/10/22/VSCode%E7%BB%88%E7%AB%AF%E5%AD%97%E4%BD%93%E8%AE%BE%E7%BD%AE/"/>
+      <url>/2024/10/22/VSCode%E7%BB%88%E7%AB%AF%E5%AD%97%E4%BD%93%E8%AE%BE%E7%BD%AE/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Visual-Studio-Code终端字体-编辑器字体-中文编码配置"><a href="#Visual-Studio-Code终端字体-编辑器字体-中文编码配置" class="headerlink" title="Visual Studio Code终端字体&amp;编辑器字体&amp;中文编码配置"></a>Visual Studio Code终端字体&amp;编辑器字体&amp;中文编码配置</h1><h2 id="终端字体"><a href="#终端字体" class="headerlink" title="终端字体"></a>终端字体</h2><p>在Visual Studio Code使用过程中，可以发现打开终端的时候，字体显示看起来比较恶心，如下图所示  </p><img src="/2024/10/22/VSCode%E7%BB%88%E7%AB%AF%E5%AD%97%E4%BD%93%E8%AE%BE%E7%BD%AE/image-20241023101707874.png" class="lazyload" data-srcset="/2024/10/22/VSCode%E7%BB%88%E7%AB%AF%E5%AD%97%E4%BD%93%E8%AE%BE%E7%BD%AE/image-20241023101707874.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20241023101707874" style="zoom: 80%;"><p>这是由于Visual Studio Code的终端为了兼容性只支持等宽字体，比如在macOS Sierra之前的版本，使用非等宽字体就会直接乱码，但是在更新的操作系统上已经不必担心此事。  </p><h3 id="设置方法"><a href="#设置方法" class="headerlink" title="设置方法"></a>设置方法</h3><p>点击左下角的“设置”图标，在搜索框键入：<code>终端 字体</code>，找到<code>Font Family</code>，键入<code>monospace</code>，这个是Visual Studio Code中自带的字体，替换后效果如下</p><p><img src="/2024/10/22/VSCode%E7%BB%88%E7%AB%AF%E5%AD%97%E4%BD%93%E8%AE%BE%E7%BD%AE/image-20241023103017688.png" class="lazyload" data-srcset="/2024/10/22/VSCode%E7%BB%88%E7%AB%AF%E5%AD%97%E4%BD%93%E8%AE%BE%E7%BD%AE/image-20241023103017688.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20241023103017688"></p><p><img src="/2024/10/22/VSCode%E7%BB%88%E7%AB%AF%E5%AD%97%E4%BD%93%E8%AE%BE%E7%BD%AE/image-20241023103210158.png" class="lazyload" data-srcset="/2024/10/22/VSCode%E7%BB%88%E7%AB%AF%E5%AD%97%E4%BD%93%E8%AE%BE%E7%BD%AE/image-20241023103210158.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20241023103210158"></p><h2 id="编辑器字体"><a href="#编辑器字体" class="headerlink" title="编辑器字体"></a>编辑器字体</h2><p>之前使用JetBrain系列的IDE感觉它的字体非常好看，辨识度也很高，可以将VSCode的编辑器也应用这种字体。</p><h3 id="设置方法-1"><a href="#设置方法-1" class="headerlink" title="设置方法"></a>设置方法</h3><p>先在电脑内安装JetBrain系列字体</p><p>下载地址：<a href="https://www.jetbrains.com/lp/mono/">JetBrains Mono: A free and open source typeface for developers | JetBrains: Developer Tools for Professionals and Teams</a></p><p>解压文件后打开ttf文件，并安装。</p><p>点击左下角的“设置”图标，在搜索框键入：<code>Editor：Font Family</code>，在搜索框内键入<code>JetBrains Mono, &#39;Courier New&#39;, monospace</code>即可</p><h2 id="中文编码设置"><a href="#中文编码设置" class="headerlink" title="中文编码设置"></a>中文编码设置</h2><p>默认的VSCode中文编码是UTF-8，而Keil的默认编码是GB2132，可以将VSCode的默认编码也设置为GBK（GB2132的扩展），这样就不用次次更改编码了</p><h3 id="设置方法-2"><a href="#设置方法-2" class="headerlink" title="设置方法"></a>设置方法</h3><p>点击左下角的“设置”图标，在搜索框键入：</p><p>上方搜索框输入<code>编码</code>，出现如下选项：</p><img src="/2024/10/22/VSCode%E7%BB%88%E7%AB%AF%E5%AD%97%E4%BD%93%E8%AE%BE%E7%BD%AE/image-20241023232248866.png" class="lazyload" data-srcset="/2024/10/22/VSCode%E7%BB%88%E7%AB%AF%E5%AD%97%E4%BD%93%E8%AE%BE%E7%BD%AE/image-20241023232248866.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20241023232248866" style="zoom:80%;"><p>FIles:Encoding:下拉选择VS Code默认打开文件时选择的编码格式</p><p>Files:Auto Guess Encoding:VS Code会根据打开的文件自动猜测合适的编码格式并选择该格式打开文件，默认不开启，可以选择启用。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 工具配置 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 配置 </tag>
+            
+            <tag> VSCode </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hello World</title>
+      <link href="/2024/10/19/hello-world/"/>
+      <url>/2024/10/19/hello-world/</url>
+      
+        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+  
+  
+</search>
