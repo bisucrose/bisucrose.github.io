@@ -4,7 +4,86 @@
   
     
     <entry>
-      <title>吉林大学校园网使用指南（2024版）</title>
+      <title>吉林大学常用网站导航</title>
+      <link href="/2024/11/05/jlu_webpage_navi/"/>
+      <url>/2024/11/05/jlu_webpage_navi/</url>
+      
+        <content type="html"><![CDATA[<h1 id="常用网站"><a href="#常用网站" class="headerlink" title="常用网站"></a>常用网站</h1><p>校内办公 <a href="http://oa.jlu.edu.cn/">oa.jlu.edu.cn</a></p><p>教务管理系统 <a href="https://iedu.jlu.edu.cn/">iedu.jlu.edu.cn</a></p><p>吉林大学VPN <a href="https://vpn.jlu.edu.cn/">vpn.jlu.edu.cn</a></p><p>融合门户(网址大全) <a href="http://i.jlu.edu.cn/">i.jlu.edu.cn</a></p><p>上网登录页 <a href="http://10.100.61.3/">10.100.61.3</a></p><p>网络自助服务 <a href="http://ip.jlu.edu.cn/">ip.jlu.edu.cn</a></p><p>开放性创新实验管理 <a href="http://oep.jlu.edu.cn/">oep.jlu.edu.cn</a></p><p>吉大正版 <a href="http://zbhrj.jlu.edu.cn/">http://zbhrj.jlu.edu.cn/</a></p><p>超星学习通 <a href="http://passport2.chaoxing.com/login">http://passport2.chaoxing.com/login</a></p><p>智慧学工 <a href="https://zhxg.jlu.edu.cn/xg/login">https://zhxg.jlu.edu.cn/xg/login</a></p><p>知到&#x2F;智慧树 <a href="https://onlineweb.zhihuishu.com/onlinestuh5">https://onlineweb.zhihuishu.com/onlinestuh5</a></p><p>学在吉大 <a href="https://ilearntec.jlu.edu.cn/#/">https://ilearntec.jlu.edu.cn/#/</a></p><p>图书馆 <a href="http://lib.jlu.edu.cn/">lib.jlu.edu.cn</a></p><p>前卫南区李四光楼实验选课系统 <a href="http://59.72.114.91:8081/selectcur/index.jsp">登录页</a></p><h1 id="其他网站"><a href="#其他网站" class="headerlink" title="其他网站"></a>其他网站</h1><p>大数据和网络管理中心 <a href="http://nic.jlu.edu.cn/">nic.jlu.edu.cn</a></p><p>毕业论文提交 <a href="https://xwlw.jlu.edu.cn/">xwlw.jlu.edu.cn</a></p><p>旧教务管理系统 <a href="http://uims.jlu.edu.cn/">uims.jlu.edu.cn</a></p><p>研究生管理系统 <a href="http://yjs.jlu.edu.cn/">yjs.jlu.edu.cn</a></p><p>创新创业教育管理系统 <a href="https://jdcxcy.jlu.edu.cn/">jdcxcy.jlu.edu.cn</a></p><p>入党在线培训 <a href="http://10.100.66.31/">10.100.66.31</a></p><p>开放性创新实验 <a href="http://oep.jlu.edu.cn/">oep.jlu.edu.cn</a></p><p>研究生选课 <a href="http://yjsxk.jlu.edu.cn/">yjsxk.jlu.edu.cn</a></p><p>学位论文系统 <a href="http://lib.jlu.edu.cn/">lib.jlu.edu.cn</a></p><p>健康状况申报 <a href="http://ehall.jlu.edu.cn/">ehall.jlu.edu.cn</a></p><p>入党在线培训平台 <a href="http://10.100.66.31/">10.100.66.31</a></p><p>心理健康 <a href="http://xgpsy.jlu.edu.cn/">xgpsy.jlu.edu.cn</a></p><p>大数据实训平台 <a href="http://10.60.48.211/">10.60.48.211</a></p><p>实践教学管理系统 <a href="http://ptms.jlu.edu.cn/">ptms.jlu.edu.cn</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 吉林大学 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 吉林大学，实用页面 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>保研流程指南（正在施工）</title>
+      <link href="/2024/10/30/baoyan/"/>
+      <url>/2024/10/30/baoyan/</url>
+      
+        <content type="html"><![CDATA[<h1 id="保研流程指南"><a href="#保研流程指南" class="headerlink" title="保研流程指南"></a>保研流程指南</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>写这篇文章的目的一是为了回忆自己人生中的一小段重要经历，更重要的是因为自己想要记录一下这次宝贵的经历，避免后人重复踩坑。</p><p>在保研过程中就发现EE这边的信息代际传承做的和隔壁CS差的不是一星半点。电信保研的很多信息都是靠师哥师姐们口耳相传得到的，有可能是电信不太喜欢使用GitHub或者CSDN写文章的缘故罢。也希望电信的大家保研之后可以多多传授经验，这样知识才能代代传承下去。</p><p><strong>保研政策风云变幻，年年都不大一样。</strong>本文写于2024年10月，完结于11月，其内容仅仅与吉林大学电子科学与工程学院电子信息工程2024年保研形势完全符合，仅供参考，一切以你们保研当年的最新政策为准。<strong>若盲目按照本文操作，导致保研出现差错，后果自负。</strong></p><h2 id="保研前你需要做什么"><a href="#保研前你需要做什么" class="headerlink" title="保研前你需要做什么"></a>保研前你需要做什么</h2><p><strong>此处的“保研前”指的是夏令营开始前的几个月里需要做什么，如果想了解大一大二大三需要做什么，请转至《保研er们从大一开始就需要做的准备工作》</strong></p><h3 id="了解保研流程"><a href="#了解保研流程" class="headerlink" title="了解保研流程"></a>了解保研流程</h3><p>自2020年以来，常规保研总体分为三步走：夏令营，预推免，九推</p><h3 id="了解保研黑话"><a href="#了解保研黑话" class="headerlink" title="了解保研黑话"></a>了解保研黑话</h3><p><strong>这个是你必须要理解的内容，无论是保研群里面还是同学交流，大家都比较喜欢说这些词，你在保完研后也会习惯说这些词的</strong></p><ul><li><p>Rank&#x2F;rk：排名，分为学业排名（带上所有选修，体育，军理和专业课的排名，但不算素质加分；<strong>吉大2024年EE专业夏令营只给开这个排名证明</strong>）；专业课排名（不带选修，体育，军理，素质加分的排名）；综合排名（专业课排名+素质加分；<strong>吉大2024年EE专业预推免和正式推免只给开这个排名</strong>）。</p></li><li><p>offer：即优秀营员，有些学校优秀营员无效（西交微电子2024线上大海营），有些学校优秀营员以后还要进行二次选拔，有些学校超发offer（哈工大2024SEIE养鱼），有些学校会鸽offer（据说天大）。因此offer不代表拟录取。</p></li><li><p>铁offer：优秀营员即为拟录取通知。也就意味着得到了优营且不想继续冲刺就可以坐等9月28号填报系统了。<strong>（北大软微、吉大电院等）</strong></p></li><li></li><li><p>COM：committee，委员会。可以简单理解成学校的招办。</p></li><li><p>强com：强com的学校招办说了算（招办更强），也就意味着你必须先通过他们的面试，才有可能被录取。<strong>一般强com的学校无需提前联系老师，但是也有例外。你的主要目标应该是复习专业课知识，通过面试。</strong></p><p><strong>据反映强 com的学校更加看重出身，即 985&#x2F;211的学生更容易被强 com学校录取。其次通过面试以后少部分学校会组织导师双选，有些是开学以后双选。大部分都需要自己另行联系老师。有些学校即使面试通过</strong></p></li><li><p>弱com：弱com的学校导师说了算（招办更弱），也就意味着你必须提前联系老师，老师同意后才有可能被录取。<strong>大部分弱com的学校面试都是走流程，实际上老师已经提前和招办打好招呼，传了名单，面试只是看你有没有什么特别重大的问题。</strong></p></li></ul><p>弱com: 老师话语权大,录取方式由导师决定,如<a href="https://zhida.zhihu.com/search?content_id=240344998&content_type=Article&match_order=1&q=%E4%B8%AD%E5%9B%BD%E7%A7%91%E5%AD%A6%E9%99%A2%E5%A4%A7%E5%AD%A6&zhida_source=entity">中国科学院大学</a>大部分研究所、pku-cs、zju-cs等。</p><p>✅强com: 录取由<a href="https://zhida.zhihu.com/search?content_id=240344998&content_type=Article&match_order=1&q=%E6%8B%9B%E7%94%9F%E5%8A%9E&zhida_source=entity">招生办</a>决定，如北航、东南等。</p><p>✅bg:background，个人背景，也就是你个人陈述和简历里写的东西。</p><p>✅ title: 学校名头，如清北、<a href="https://zhida.zhihu.com/search?content_id=240344998&content_type=Article&match_order=1&q=%E5%8D%8E%E4%BA%94&zhida_source=entity">华五</a>、C9、两电一邮等。</p><p>✅双非：非985、211。</p><p>✅四非：非985、211、双一流。</p><p>✅bar: 入营门槛，能否过初筛由个人综合背景（rk、科研、学校、英语、竞赛等多方面）决定。</p><p>✅优营&#x2F;offer:优秀营员，夏令营进行评选，实际效力由学校决定，并不是每个优营都等于拟录取。</p><p>✅wl(waiting list)：候补队列，学校会留一部分做候补队列防止被鸽。</p><p>✅鸽子 ️：约定好&#x2F;签协议后单方面放鸽子。可以是学生鸽学校老师，也可能是老师鸽学生。</p><p>✅oq(over qualified):报名参加与自己能力相差过多的院校，很多院校会筛掉oq防被鸽。</p><p>✅mock: <a href="https://zhida.zhihu.com/search?content_id=240344998&content_type=Article&match_order=1&q=%E6%A8%A1%E6%8B%9F%E9%9D%A2%E8%AF%95&zhida_source=entity">模拟面试</a>。提前熟悉面试流程，进入面试状态。</p><p>✅学硕：<a href="https://zhida.zhihu.com/search?content_id=240344998&content_type=Article&match_order=1&q=%E5%AD%A6%E6%9C%AF%E5%9E%8B%E7%A1%95%E5%A3%AB&zhida_source=entity">学术型硕士</a>，一般是3年。</p><p>✅专硕：专业型研究生，偏向实际应用。</p><p>✅直博：5年或6年毕业，毕业时只有博士学位。</p><p>✅夏0营：夏令营无offer。</p><p>✅预推免：暑假末至九月开学期间举办的面试。</p><p>✅九推：推免系统开放后，部分院校生源不足会组织面试。</p><p>✅捡漏：929后因学校&#x2F;老师被鸽捡到很好的offer。</p><p>✅绿群&#x2F;蓝群&#x2F;紫群：计算机&#x2F;电信保研等交流群。 （计算机是绿裙）</p><p>✅保研春晚：填系统凌晨。</p><p>✅套磁：邮件联系老师，达成双选或获得入营资格。</p><p>✅羊导：放养导师。</p><p>✅被海：学生被海：院校超放大量offer&#x2F;入营后录取人数多很多；学校被海：学生有很多offer，但依然没有拒绝院校的offer</p><p>✅AP (Assistant Professor) 助理教授，可担任硕士生导师，通常年轻、有活力，且拥有一定的学术研究自由度。</p><h3 id="保研预备材料"><a href="#保研预备材料" class="headerlink" title="保研预备材料"></a>保研预备材料</h3><h3 id="决定方向，进一步收集材料"><a href="#决定方向，进一步收集材料" class="headerlink" title="决定方向，进一步收集材料"></a>决定方向，进一步收集材料</h3><h2 id="保研开始"><a href="#保研开始" class="headerlink" title="保研开始"></a>保研开始</h2><h3 id="夏令营"><a href="#夏令营" class="headerlink" title="夏令营"></a>夏令营</h3><h3 id="预推免"><a href="#预推免" class="headerlink" title="预推免"></a>预推免</h3><h3 id="九推"><a href="#九推" class="headerlink" title="九推"></a>九推</h3><h2 id="保研结束"><a href="#保研结束" class="headerlink" title="保研结束"></a>保研结束</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> 科普 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 科普 </tag>
+            
+            <tag> 保研 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>蓝牙音频编码以及传输模式</title>
+      <link href="/2024/10/30/bluetooth_audio/"/>
+      <url>/2024/10/30/bluetooth_audio/</url>
+      
+        <content type="html"><![CDATA[<h1 id="蓝牙音频编码以及传输模式"><a href="#蓝牙音频编码以及传输模式" class="headerlink" title="蓝牙音频编码以及传输模式"></a>蓝牙音频编码以及传输模式</h1><h2 id="碎碎念"><a href="#碎碎念" class="headerlink" title="碎碎念"></a>碎碎念</h2><p>在选购蓝牙耳机的时候，经常看到蓝牙耳机有很多传输协议。自己以前也曾痴迷过HiFi，对一些蓝牙音频协议有所了解，也做了一些功课。现在在这里总结一下，小伙伴们选购耳机的时候也可以有所参考。</p><p>本文将从参数与主观体验方面评估各个编码的好坏。</p><h2 id="蓝牙音频传输协议"><a href="#蓝牙音频传输协议" class="headerlink" title="蓝牙音频传输协议"></a>蓝牙音频传输协议</h2><p>目前从低到高的通用协议为SBC&lt;AAC&lt;aptX&lt;LDAC≈LHDC，另外还有三星的SSC和苹果的Airport，这些基本都用过。</p><p>要查看手机是否支持一个编码，只需要打开 <strong>设置-开发者选项-蓝牙音频解码器</strong> 即可查看，如下图所示，我的手机（一加ACE3V）支持所有的通用协议。</p><img src="/2024/10/30/bluetooth_audio/Screenshot_2024-10-31-21-50-53-54_fc704e6b13c4fb2.jpg" class="lazyload" data-srcset="/2024/10/30/bluetooth_audio/Screenshot_2024-10-31-21-50-53-54_fc704e6b13c4fb2.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Screenshot_2024-10-31-21-50-53-54_fc704e6b13c4fb2" style="zoom: 25%;"><h3 id="SBC"><a href="#SBC" class="headerlink" title="SBC"></a>SBC</h3><h4 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h4><p>SBC，Sub-Band Coding，全称子带编码。SBC是所有编码中音质最差的一个，但是它的兼容性是最好的。原因在于SBC占用的带宽最小，而且Bluetooth在其A2DP (Advanced Audio Distribution Profile) 中规定：<strong>SBC是必须支持的编码</strong></p><p>A2DP中规定SBC编码支持最大比特率是单声道320kbps，立体声512kbps。但按其推荐，实际上使用最多的是44.1KHz，328kbps的立体声传输。</p><p>SBC的优点是舍弃或减小人耳听觉不敏感的频率部分，在敏感频率处采用较细的量化，在低比特率条件下获得更好的听觉效果。</p><h4 id="实际听感"><a href="#实际听感" class="headerlink" title="实际听感"></a>实际听感</h4><p>SBC协议可以明显听出高频的欠采样咔哒声以及低频缺失严重。再加上市面上只支持SBC的蓝牙耳机普遍都是PDD价值10元左右的耳机，解码芯片和发声单元的问题更为严重。因此听感较差，约为听个响级别</p><h3 id="AAC"><a href="#AAC" class="headerlink" title="AAC"></a>AAC</h3><h4 id="参数-1"><a href="#参数-1" class="headerlink" title="参数"></a>参数</h4><p>AAC，Advanced Audio Coding，高级音频编码。AAC在蓝牙中常用的比特率是256Kbps。但是有一点，即使使用AAC音频源，蓝牙并不能直接传输其原数据流，而是先将AAC解码成PCM，然后再编码成蓝牙支持的AAC编码再传输。应用上，AAC编码最大的支持者是苹果，iPhone、iPad和 AirPods 等设备都支持AAC, <strong>AAC协议是现在10-150元价位中大多数耳机支持的最高协议</strong></p><h4 id="实际听感-1"><a href="#实际听感-1" class="headerlink" title="实际听感"></a>实际听感</h4><p>AAC协议是现在10-150元价位中大多数耳机支持的最高协议，说实话除了使用WH1000XM3和WI1000XM2，我在其他设备上感觉AAC与LDAC&#x2F;LHDC没什么太大区别。AAC的音质日常听感完全够用，而且不会因为信道质量不佳而时常断连。个人认为是各个指标都比较均衡的一款编码。</p><h3 id="aptX"><a href="#aptX" class="headerlink" title="aptX"></a>aptX</h3><h4 id="参数-2"><a href="#参数-2" class="headerlink" title="参数"></a>参数</h4><p>aptX（音频数据缩减技术）是上个世纪80年代设计的编解码器，用于电影院和广播中。编解码器后来被CSR收购，而CSR公司又于2015年8月被高通公司收购。</p><p>aptX目前分化成了三种：aptX低延迟，aptX HD，aptX自适应。</p><p><strong>aptX LL（低延迟）：</strong>延迟接近30毫秒。SBC的延迟为170 ms。</p><p><strong>aptX HD（高清晰度）：</strong>在24位和192 kHz时，最大比特率高达576 kbps。</p><p><strong>aptX Adaptive（自适应）：</strong>旨在替代传统的aptX和aptX HD。能够改变比特率，它的最小比特率为276 Kbps，最大为420 kbps。但是，由于压缩方面的改进，可以达到与aptX HD 576 Kbps相同的质量。</p><p><img src="/2024/10/30/bluetooth_audio/47b8d3e3b2f3cce1e5ab4a8e29ddcc0e.jpeg" class="lazyload" data-srcset="/2024/10/30/bluetooth_audio/47b8d3e3b2f3cce1e5ab4a8e29ddcc0e.jpeg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p><h4 id="实际听感-2"><a href="#实际听感-2" class="headerlink" title="实际听感"></a>实际听感</h4><p>由于我手头唯一一个支持aptX的设备单元极差（漫步者某TWS），故无法评价。单看参数，aptX HD达到了较高清晰度，理论上可以媲美LDAC。但不知是不是我手头设备的问题，感觉aptX HD集百家之短：既没有AAC的低延迟，又有LDAC的容易断联，而且自从索尼不再对LDAC收取授权费，大家都纷纷转向了LDAC和LHDC。</p><h3 id="LDAC"><a href="#LDAC" class="headerlink" title="LDAC"></a>LDAC</h3><h4 id="参数-3"><a href="#参数-3" class="headerlink" title="参数"></a>参数</h4><p>LDAC是索尼开发的一种音频编码，实现了以最高 <strong>990Kbps</strong> 的比特率通过蓝牙传输 24bit&#x2F;96kHz 的高分辨率音频(Hi-Res Audio)。高传输码率使得高解析度的音频文件不会被过分压缩，保证了音质。</p><p><img src="/2024/10/30/bluetooth_audio/02.png" class="lazyload" data-srcset="/2024/10/30/bluetooth_audio/02.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Comparison between LDAC &amp; SBC"></p><p>其实在上图中，索尼有点过分吹嘘LDAC的作用了。因为对于4.5Mbps的Hi-Res音频，要通过最高990Kbps的带宽传输，压缩率需要达到1:4.5，而目前最好的无损压缩率也只有1:2。所以说，<strong>LDAC可以传输CD级音质，但是并不能无损传输Hi-Res音频，只能是接近</strong>。</p><p>LDAC提升传输速率的原理是增加了蓝牙通信的信道，频带宽度提升了，但是这对蓝牙天线的要求也提高了。实际上，在信号较差，或者是受到干扰的时候，LDAC还会以660Kbps或330Kbps的比特率通信，保证连接性。**<del>但是索尼自家的耳机优化的稀烂，会持续断联2-3秒后再卡顿一下才会切比特率</del>**</p><h4 id="实际听感-3"><a href="#实际听感-3" class="headerlink" title="实际听感"></a>实际听感</h4><p>本人木耳，但是仍然能听出LDAC编码器和AAC的区别。设备为WI1000XM2。LDAC在各方面都是顶级水准，除了在信号不好的时候经常卡顿断连之外，其他的都无可挑剔。</p><p>LDAC设备在使用过程中延迟非常高，自我感觉约有300-500ms，不适合打游戏。</p><p>另外WI1000XM2设备听感也不错，属于入耳式蓝牙耳机里面听着最舒服的一档了。</p><h3 id="LHDC"><a href="#LHDC" class="headerlink" title="LHDC"></a>LHDC</h3><h4 id="参数-4"><a href="#参数-4" class="headerlink" title="参数"></a>参数</h4><p>LHDC支持通过速度最高达<strong>900kbps</strong>的蓝牙连接传输 24bit&#x2F;96kHz 的串流音频（也称高解析度音频）。与LDAC会先把原始音频进行升&#x2F;降频到 24bit&#x2F;96kHz不同，LHDC则可依照原始取样率输出，减少SRC过程的延迟。2019年9月，LHDC通过了JRS的Hi-Res Audio Wireless标准认证。</p><p>LHDC根据信号情况支持400&#x2F;560&#x2F;900 kbps的比特率。此外还有低延迟音频编解码器（LLAC）版本，也称为LHDC LL，端到端延迟约为30毫秒。</p><h4 id="实际听感-4"><a href="#实际听感-4" class="headerlink" title="实际听感"></a>实际听感</h4><p>与LDAC相同，且连接更稳定。</p><p>同样的，LHDC的延迟也非常感人，不适合玩游戏。不过有LHDC LL模式，设备为漫步者·花再的头戴式耳机，实测延迟可以降低到与AAC相似的水平。</p><h2 id="蓝牙耳机常用工作模式"><a href="#蓝牙耳机常用工作模式" class="headerlink" title="蓝牙耳机常用工作模式"></a>蓝牙耳机常用工作模式</h2><h3 id="Low-Latency（低延迟）"><a href="#Low-Latency（低延迟）" class="headerlink" title="Low-Latency（低延迟）"></a>Low-Latency（低延迟）</h3><p>此工作模式仅有一些支持LHDC LL，aptX LL的设备支持，在切换到低延迟模式（有些设备称之为“游戏模式”）后，会主动降低音质以换取更低的延迟。</p><h3 id="Stereo-A2DP（电脑上的标准模式）"><a href="#Stereo-A2DP（电脑上的标准模式）" class="headerlink" title="Stereo&#x2F;A2DP（电脑上的标准模式）"></a>Stereo&#x2F;A2DP（电脑上的标准模式）</h3><p>此模式下使用SBC或AAC编码方式传输音频，但是只能单向传输，即只能从电脑到手机传输，因此无法使用蓝牙耳机自带麦克风。</p><h3 id="Hand-Free-AG模式（通话模式）"><a href="#Hand-Free-AG模式（通话模式）" class="headerlink" title="Hand-Free AG模式（通话模式）"></a>Hand-Free AG模式（通话模式）</h3><p>此模式下使用56kbps的码率进行单声道音频传输，音质感人。Hand-Free AG是比A2DP更旧的编码方式，很多手机都不支持了。在连接上Windows10电脑的时候，可以看到音量菜单上面有Hand-Free AG的选项。</p><p>有些电脑APP在语音通话的时候，并不会直接切换到Hand-Free AG模式，此时蓝牙耳机和电脑都工作在Stereo模式下，使用电脑内置麦克风通话。此时需要点击任务栏中的音量，然后选择设备，手动切换到Hand-Free AG，才可以正常调用蓝牙耳机的麦克风通话。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 科普 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 科普 </tag>
+            
+            <tag> 选购指南 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>吉林大学入网指南（2024版）</title>
       <link href="/2024/10/28/jlunet_manual/"/>
       <url>/2024/10/28/jlunet_manual/</url>
       
@@ -35,7 +114,7 @@
       <link href="/2024/10/23/todo_list/"/>
       <url>/2024/10/23/todo_list/</url>
       
-        <content type="html"><![CDATA[<h1 id="目前挖的坑-进度"><a href="#目前挖的坑-进度" class="headerlink" title="目前挖的坑&amp;进度"></a>目前挖的坑&amp;进度</h1><ul><li><input checked disabled type="checkbox"> Visual Studio Code终端字体配置&amp;中文编码配置&amp;编辑器字体配置</li><li><input disabled type="checkbox"> 吉林大学校园网使用指南（2024版）</li><li><input disabled type="checkbox"> hexo 配置过程说明+macbook如何使用hexo</li><li><input disabled type="checkbox"> MacBook如何重装系统</li><li><input disabled type="checkbox"> macbook的MBR+GPT混合分区表作用 创建与恢复+维护</li><li><input disabled type="checkbox"> Windows下使用powershell的时候显示此系统上禁止运行脚本</li><li><input disabled type="checkbox"> 如何使用bootcamp模拟legacy环境</li><li><input disabled type="checkbox"> opencore基础配置</li><li><input disabled type="checkbox"> markdown基本语法</li><li><input disabled type="checkbox"> opencore legacy patcher的使用方式</li><li><input disabled type="checkbox"> 白嫖Github Education Pack的方式</li><li><input disabled type="checkbox"> 保研过程指南</li><li><input disabled type="checkbox"> IPA Chart 语言语音学习笔记</li><li><input disabled type="checkbox"> 吉林大学常用网站导航</li></ul>]]></content>
+        <content type="html"><![CDATA[<h1 id="目前挖的坑-进度"><a href="#目前挖的坑-进度" class="headerlink" title="目前挖的坑&amp;进度"></a>目前挖的坑&amp;进度</h1><ul><li><input checked disabled type="checkbox"> Visual Studio Code终端字体配置&amp;中文编码配置&amp;编辑器字体配置</li><li><input checked disabled type="checkbox"> 吉林大学校园网使用指南（2024版）</li><li><input disabled type="checkbox"> hexo 配置过程说明+macbook如何使用hexo</li><li><input disabled type="checkbox"> MacBook如何重装系统</li><li><input disabled type="checkbox"> macbook的MBR+GPT混合分区表作用 创建与恢复+维护</li><li><input disabled type="checkbox"> Windows下使用powershell的时候显示此系统上禁止运行脚本</li><li><input disabled type="checkbox"> 如何使用bootcamp模拟legacy环境</li><li><input disabled type="checkbox"> opencore基础配置</li><li><input disabled type="checkbox"> markdown基本语法</li><li><input disabled type="checkbox"> opencore legacy patcher的使用方式</li><li><input disabled type="checkbox"> 白嫖Github Education Pack的方式</li><li><input disabled type="checkbox"> 保研过程指南</li><li><input disabled type="checkbox"> IPA Chart 语言语音学习笔记</li><li><input checked disabled type="checkbox"> 吉林大学常用网站导航</li><li><input disabled type="checkbox"> 手机Root和必备软件安装</li><li><input checked disabled type="checkbox"> 蓝牙耳机协议及模式</li><li><input disabled type="checkbox"> </li></ul>]]></content>
       
       
       <categories>
@@ -71,19 +150,6 @@
             <tag> 配置 </tag>
             
         </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Hello World</title>
-      <link href="/2024/10/19/hello-world/"/>
-      <url>/2024/10/19/hello-world/</url>
-      
-        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
-      
-      
       
     </entry>
     

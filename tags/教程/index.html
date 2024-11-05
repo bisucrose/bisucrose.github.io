@@ -472,7 +472,7 @@
 
 <div class="tag-header" style="background-image: url('/medias/Wallpaper/3.jpg');">
   <div class="tag-header-title">
-    tag
+    喵，进来了哦♡
   </div>
   <div class="tag-header-desc">
   
@@ -518,7 +518,7 @@
             <span class="post-time">2024-10-28</span>
           </div>
           <div class="post-title">
-            <a class="post-title-link" href="/2024/10/28/jlunet_manual/">吉林大学校园网使用指南（2024版）</a>
+            <a class="post-title-link" href="/2024/10/28/jlunet_manual/">吉林大学入网指南（2024版）</a>
           </div>
           <div class="post-meta">
             <div class="post-tags">
@@ -869,7 +869,7 @@
   fixed='true'
   autoplay='true'
   theme='#42b983'
-  loop='one'
+  loop='all'
   order='list'
   preload='auto'
   volume='0.07'
@@ -1308,69 +1308,6 @@
 <!-- 评论所需js -->
 
   
-        <script type="text/javascript">
-  var utteranceComment = {};
-
-  function check_utterance() {
-    let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('false');
-    if (isDark) {
-      utteranceComment.Theme = 'github-dark';
-    } else {
-      utteranceComment.Theme = 'github-light';
-    }
-
-    return document.getElementById("gitment-container");
-  }
-  comment_el = '#gitment-container';
-  load_utterance = function () {
-    if ($(comment_el).length) {
-      // 匿名函数，防止污染全局变量
-      const HEAD = check_utterance();
-
-      var utterances = document.createElement('script');
-      utterances.type = 'text/javascript';
-      utterances.async = true;
-      utterances.setAttribute('issue-term', 'pathname')
-      utterances.setAttribute('theme', utteranceComment.Theme)
-      utterances.setAttribute('repo', '')
-      utterances.crossorigin = 'anonymous';
-      utterances.src = 'https://utteranc.es/client.js';
-      // content 是要插入评论的地方
-      document.getElementById('gitment-container').appendChild(utterances);
-
-    }
-  }
-
-  function dark_utterance() {
-    const HEAD = check_utterance();
-    if (!HEAD) return;
-    const message = {
-      type: 'set-theme',
-      theme: utteranceComment.Theme
-    };
-    const utteranceIframe = document.querySelector('iframe');
-    utteranceIframe.contentWindow.postMessage(message, 'https://utteranc.es');
-  }
-
-  $(document).ready(load_utterance);
-  document.addEventListener('pjax:complete', function () {
-    load_utterance();
-  });
-
-  $('.dark').click(function () {
-    setTimeout(() => {
-      dark_utterance();
-    });
-  })
-
-</script>
-
-<style>
-  .utterances {
-    max-width: inherit !important;
-  }
-</style>
-      
 
 
 <!-- 鼠标点击特效 -->
