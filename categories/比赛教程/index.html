@@ -11,7 +11,7 @@
   <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-  <title>蓝牙音频编码以及传输模式 | 苏可璐斯的小站</title>
+  <title>分类: 比赛教程 | 苏可璐斯的小站</title>
 
   <link rel="icon" type="image/png" href="/favi.png">
   <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
@@ -466,662 +466,107 @@
 </header>
         <!-- 内容区域 -->
         
-<!-- prismjs 代码高亮 -->
 
+<div class="bg-dark-floor" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -2;"></div>
+<div class="bg-light-floor-categoryDetail" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -3;"></div>
 
-
-
-<div class="bg-dark-floor" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -1;"></div>
-
-
-  <!-- 文章详情页顶部图片和标题 -->
-
-
-
-
-<div class="post-detail-header" id="thumbnail_canvas" style="background-repeat: no-repeat; background-size: cover; 
-  background-position: center center;position: relative;background-image:url('https://pic4.zhimg.com/80/v2-e434e3a2888fb4efb1844845b8791d1f_1440w.webp')">
-  <div class="post-detail-header-mask"></div>
-  <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
-  
-  <div class="post-detail-header_info-box">
-    <div class="title-box">
-      <span class="title">
-        蓝牙音频编码以及传输模式
-      </span>
-    </div>
-    
-    
-      
-        <span class="post-detail-header_date">
-          <i class="fas fa-calendar"></i> 发表于：2024-10-30 |
-        </span>
-      
-
-      
-        <span class="post-detail-header_categories">
-          <i class="iconfont iconbookmark1"></i> 分类：
-          
-            <a href="/categories/%E7%A7%91%E6%99%AE/" class="post-detail-header_category">
-              科普
-            </a>
-          
-        </span>
-      
-
-      
-        <div class="post-detail-header_wordcount">
-          <span class="totalcount">
-            <i class="fas fa-file-text-o"></i> 字数统计: 1.9k |
-          </span>
-  
-          <span class="min2read">
-            <i class="fas fa-clock"></i> 阅读时长: 6分钟 |
-          </span>
-  
-          
-            <span class="reading">
-              <i class="fas fa-eye"></i> 阅读量：<span id="busuanzi_value_page_pv"></span>
-            </span>
-          
-        </div>
-      
-    
+<div class="category-header"  style="background-image:url('/medias/Wallpaper/3.jpg')">
+  <div class="category-header-title">
+    喵，进来了哦♡
   </div>
-  
-  
-    <script defer src="/js/bubble/bubble.js"></script>
-  
-</div>
-
-
-
-
-
-<div class="post-detail-content post-row" 
-  style="padding-top: 0px;">
-  <div class="main-content">
-    <article class="post post-detail">
-      <div class="post-content">
-        <h1 id="蓝牙音频编码以及传输模式"><a href="#蓝牙音频编码以及传输模式" class="headerlink" title="蓝牙音频编码以及传输模式"></a>蓝牙音频编码以及传输模式</h1><h2 id="碎碎念"><a href="#碎碎念" class="headerlink" title="碎碎念"></a>碎碎念</h2><p>在选购蓝牙耳机的时候，经常看到蓝牙耳机有很多传输协议。自己以前也曾痴迷过HiFi，对一些蓝牙音频协议有所了解，也做了一些功课。现在在这里总结一下，小伙伴们选购耳机的时候也可以有所参考。</p>
-<p>本文将从参数与主观体验方面评估各个编码的好坏。</p>
-<h2 id="蓝牙音频传输协议"><a href="#蓝牙音频传输协议" class="headerlink" title="蓝牙音频传输协议"></a>蓝牙音频传输协议</h2><p>目前从低到高的通用协议为SBC&lt;AAC&lt;aptX&lt;LDAC≈LHDC，另外还有三星的SSC和苹果的Airport，这些基本都用过。</p>
-<p>要查看手机是否支持一个编码，只需要打开 <strong>设置-开发者选项-蓝牙音频解码器</strong> 即可查看，如下图所示，我的手机（一加ACE3V）支持所有的通用协议。</p>
-<img src="/2024/bluetooth_audio/Screenshot_2024-10-31-21-50-53-54_fc704e6b13c4fb2.jpg" class="lazyload" data-srcset="/2024/bluetooth_audio/Screenshot_2024-10-31-21-50-53-54_fc704e6b13c4fb2.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Screenshot_2024-10-31-21-50-53-54_fc704e6b13c4fb2" style="zoom: 25%;">
-
-
-
-<h3 id="SBC"><a href="#SBC" class="headerlink" title="SBC"></a>SBC</h3><h4 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h4><p>SBC，Sub-Band Coding，全称子带编码。SBC是所有编码中音质最差的一个，但是它的兼容性是最好的。原因在于SBC占用的带宽最小，而且Bluetooth在其A2DP (Advanced Audio Distribution Profile) 中规定：<strong>SBC是必须支持的编码</strong></p>
-<p>A2DP中规定SBC编码支持最大比特率是单声道320kbps，立体声512kbps。但按其推荐，实际上使用最多的是44.1KHz，328kbps的立体声传输。</p>
-<p>SBC的优点是舍弃或减小人耳听觉不敏感的频率部分，在敏感频率处采用较细的量化，在低比特率条件下获得更好的听觉效果。</p>
-<h4 id="实际听感"><a href="#实际听感" class="headerlink" title="实际听感"></a>实际听感</h4><p>SBC协议可以明显听出高频的欠采样咔哒声以及低频缺失严重。再加上市面上只支持SBC的蓝牙耳机普遍都是PDD价值10元左右的耳机，解码芯片和发声单元的问题更为严重。因此听感较差，约为听个响级别</p>
-<h3 id="AAC"><a href="#AAC" class="headerlink" title="AAC"></a>AAC</h3><h4 id="参数-1"><a href="#参数-1" class="headerlink" title="参数"></a>参数</h4><p>AAC，Advanced Audio Coding，高级音频编码。AAC在蓝牙中常用的比特率是256Kbps。但是有一点，即使使用AAC音频源，蓝牙并不能直接传输其原数据流，而是先将AAC解码成PCM，然后再编码成蓝牙支持的AAC编码再传输。应用上，AAC编码最大的支持者是苹果，iPhone、iPad和 AirPods 等设备都支持AAC, <strong>AAC协议是现在10-150元价位中大多数耳机支持的最高协议</strong></p>
-<h4 id="实际听感-1"><a href="#实际听感-1" class="headerlink" title="实际听感"></a>实际听感</h4><p>AAC协议是现在10-150元价位中大多数耳机支持的最高协议，说实话除了使用WH1000XM3和WI1000XM2，我在其他设备上感觉AAC与LDAC&#x2F;LHDC没什么太大区别。AAC的音质日常听感完全够用，而且不会因为信道质量不佳而时常断连。个人认为是各个指标都比较均衡的一款编码。</p>
-<h3 id="aptX"><a href="#aptX" class="headerlink" title="aptX"></a>aptX</h3><h4 id="参数-2"><a href="#参数-2" class="headerlink" title="参数"></a>参数</h4><p>aptX（音频数据缩减技术）是上个世纪80年代设计的编解码器，用于电影院和广播中。编解码器后来被CSR收购，而CSR公司又于2015年8月被高通公司收购。</p>
-<p>aptX目前分化成了三种：aptX低延迟，aptX HD，aptX自适应。</p>
-<p><strong>aptX LL（低延迟）：</strong>延迟接近30毫秒。SBC的延迟为170 ms。</p>
-<p><strong>aptX HD（高清晰度）：</strong>在24位和192 kHz时，最大比特率高达576 kbps。</p>
-<p><strong>aptX Adaptive（自适应）：</strong>旨在替代传统的aptX和aptX HD。能够改变比特率，它的最小比特率为276 Kbps，最大为420 kbps。但是，由于压缩方面的改进，可以达到与aptX HD 576 Kbps相同的质量。</p>
-<p><img src="/2024/bluetooth_audio/47b8d3e3b2f3cce1e5ab4a8e29ddcc0e.jpeg" class="lazyload" data-srcset="/2024/bluetooth_audio/47b8d3e3b2f3cce1e5ab4a8e29ddcc0e.jpeg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p>
-<h4 id="实际听感-2"><a href="#实际听感-2" class="headerlink" title="实际听感"></a>实际听感</h4><p>由于我手头唯一一个支持aptX的设备单元极差（漫步者某TWS），故无法评价。单看参数，aptX HD达到了较高清晰度，理论上可以媲美LDAC。但不知是不是我手头设备的问题，感觉aptX HD集百家之短：既没有AAC的低延迟，又有LDAC的容易断联，而且自从索尼不再对LDAC收取授权费，大家都纷纷转向了LDAC和LHDC。</p>
-<h3 id="LDAC"><a href="#LDAC" class="headerlink" title="LDAC"></a>LDAC</h3><h4 id="参数-3"><a href="#参数-3" class="headerlink" title="参数"></a>参数</h4><p>LDAC是索尼开发的一种音频编码，实现了以最高 <strong>990Kbps</strong> 的比特率通过蓝牙传输 24bit&#x2F;96kHz 的高分辨率音频(Hi-Res Audio)。高传输码率使得高解析度的音频文件不会被过分压缩，保证了音质。</p>
-<p><img src="/2024/bluetooth_audio/02.png" class="lazyload" data-srcset="/2024/bluetooth_audio/02.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Comparison between LDAC &amp; SBC"></p>
-<p>其实在上图中，索尼有点过分吹嘘LDAC的作用了。因为对于4.5Mbps的Hi-Res音频，要通过最高990Kbps的带宽传输，压缩率需要达到1:4.5，而目前最好的无损压缩率也只有1:2。所以说，<strong>LDAC可以传输CD级音质，但是并不能无损传输Hi-Res音频，只能是接近</strong>。</p>
-<p>LDAC提升传输速率的原理是增加了蓝牙通信的信道，频带宽度提升了，但是这对蓝牙天线的要求也提高了。实际上，在信号较差，或者是受到干扰的时候，LDAC还会以660Kbps或330Kbps的比特率通信，保证连接性。**<del>但是索尼自家的耳机优化的稀烂，会持续断联2-3秒后再卡顿一下才会切比特率</del>**</p>
-<h4 id="实际听感-3"><a href="#实际听感-3" class="headerlink" title="实际听感"></a>实际听感</h4><p>本人木耳，但是仍然能听出LDAC编码器和AAC的区别。设备为WI1000XM2。LDAC在各方面都是顶级水准，除了在信号不好的时候经常卡顿断连之外，其他的都无可挑剔。</p>
-<p>LDAC设备在使用过程中延迟非常高，自我感觉约有300-500ms，不适合打游戏。</p>
-<p>另外WI1000XM2设备听感也不错，属于入耳式蓝牙耳机里面听着最舒服的一档了。</p>
-<h3 id="LHDC"><a href="#LHDC" class="headerlink" title="LHDC"></a>LHDC</h3><h4 id="参数-4"><a href="#参数-4" class="headerlink" title="参数"></a>参数</h4><p>LHDC支持通过速度最高达<strong>900kbps</strong>的蓝牙连接传输 24bit&#x2F;96kHz 的串流音频（也称高解析度音频）。与LDAC会先把原始音频进行升&#x2F;降频到 24bit&#x2F;96kHz不同，LHDC则可依照原始取样率输出，减少SRC过程的延迟。2019年9月，LHDC通过了JRS的Hi-Res Audio Wireless标准认证。</p>
-<p>LHDC根据信号情况支持400&#x2F;560&#x2F;900 kbps的比特率。此外还有低延迟音频编解码器（LLAC）版本，也称为LHDC LL，端到端延迟约为30毫秒。</p>
-<h4 id="实际听感-4"><a href="#实际听感-4" class="headerlink" title="实际听感"></a>实际听感</h4><p>与LDAC相同，且连接更稳定。</p>
-<p>同样的，LHDC的延迟也非常感人，不适合玩游戏。不过有LHDC LL模式，设备为漫步者·花再的头戴式耳机，实测延迟可以降低到与AAC相似的水平。</p>
-<h2 id="蓝牙耳机常用工作模式"><a href="#蓝牙耳机常用工作模式" class="headerlink" title="蓝牙耳机常用工作模式"></a>蓝牙耳机常用工作模式</h2><h3 id="Low-Latency（低延迟）"><a href="#Low-Latency（低延迟）" class="headerlink" title="Low-Latency（低延迟）"></a>Low-Latency（低延迟）</h3><p>此工作模式仅有一些支持LHDC LL，aptX LL的设备支持，在切换到低延迟模式（有些设备称之为“游戏模式”）后，会主动降低音质以换取更低的延迟。</p>
-<h3 id="Stereo-A2DP（电脑上的标准模式）"><a href="#Stereo-A2DP（电脑上的标准模式）" class="headerlink" title="Stereo&#x2F;A2DP（电脑上的标准模式）"></a>Stereo&#x2F;A2DP（电脑上的标准模式）</h3><p>此模式下使用SBC或AAC编码方式传输音频，但是只能单向传输，即只能从电脑到手机传输，因此无法使用蓝牙耳机自带麦克风。</p>
-<h3 id="Hand-Free-AG模式（通话模式）"><a href="#Hand-Free-AG模式（通话模式）" class="headerlink" title="Hand-Free AG模式（通话模式）"></a>Hand-Free AG模式（通话模式）</h3><p>此模式下使用56kbps的码率进行单声道音频传输，音质感人。Hand-Free AG是比A2DP更旧的编码方式，很多手机都不支持了。在连接上Windows10电脑的时候，可以看到音量菜单上面有Hand-Free AG的选项。</p>
-<p>有些电脑APP在语音通话的时候，并不会直接切换到Hand-Free AG模式，此时蓝牙耳机和电脑都工作在Stereo模式下，使用电脑内置麦克风通话。此时需要点击任务栏中的音量，然后选择设备，手动切换到Hand-Free AG，才可以正常调用蓝牙耳机的麦克风通话。</p>
-
-      </div>
-      <div class="post-tags-categories">
-        
-        <div class="tags">
-          
-            <a href="/tags/%E7%A7%91%E6%99%AE/" class="">
-              科普
-            </a>
-          
-            <a href="/tags/%E9%80%89%E8%B4%AD%E6%8C%87%E5%8D%97/" class="">
-              选购指南
-            </a>
-          
-        </div>
-        
-      </div>
-      
-        <div class="copyright">
-  <ul class="post-copyright">
-    <li class="post-copyright-author">
-    <strong>作者:  </strong>bisucrose</a>
-    </li>
-    <li class="post-copyright-link">
-    <strong>文章链接:  </strong>
-    <a href="/2024/bluetooth_audio/" target="_blank" title="蓝牙音频编码以及传输模式">https://bisucrose.github.io/2024/bluetooth_audio/</a>
-    </li>
-    <li class="post-copyright-license">
-      <strong>版权声明:   </strong>
-      本网站所有文章除特别声明外,均采用 <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
-      许可协议。转载请注明出处!
-    </li>
-  </ul>
-<div>
-      
-    </article>
-    <!-- 上一篇文章和下一篇文章 -->
+  <div class="category-header-desc">
     
-      <!-- 文章详情页的上一页和下一页 -->
-<div class="post-nav">
-
-
-
-  
-  <div class="post-nav-prev post-nav-item">
-    <div class="post-nav-img" style="background-size: cover; 
-      background-position: center center;">
-      <img class="lazyload lazyload" src="https://pic3.zhimg.com/80/v2-5f7cb7e900b9dcf5354c3d4d2c5cc3c2_1440w.webp" class="lazyload" data-srcset="https://pic3.zhimg.com/80/v2-5f7cb7e900b9dcf5354c3d4d2c5cc3c2_1440w.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="">
-    </div>
-    <a href="/2024/baoyan/" class="post-nav-link">
-      <div class="title">
-        <i class="fas fa-angle-left"></i> 上一篇:
-        <div class="title-text">保研流程指南（正在施工）</div>
-      </div>
-      
-      <!-- <div class="content">
-        保研流程指南前言写这篇文章的目的一是为了回忆自己人生中的一小段重要经历，更重要的是因为自己想要记录一下这次宝贵的经历，避
-      </div> -->
-    </a>
-  </div>
-
-
-
-  
-  <div class="post-nav-next post-nav-item">
-    <div class="post-nav-img" style="background-size: cover; 
-      background-position: center center;">
-      <img class="lazyload lazyload" src="/medias/Wallpaper/3.jpg" class="lazyload" data-srcset="/medias/Wallpaper/3.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" src="" alt="">
-    </div>
-    <a href="/2024/jlunet_manual/" class="post-nav-link">
-      <div class="title">
-        下一篇: <i class="fas fa-angle-right"></i>
-        <div class="title-text">吉林大学入网指南（2024版）</div>
-      </div>
-      <!-- <div class="content">
-        吉林大学入网指南概述你吉校园网使用月租制，即：每月扣费20元，每年计费10个月，共计200元，通过校园卡在 http:/
-      </div> -->
-    </a>
-  </div>
-
-</div>
-
-    
-    
-
-    <!-- 打赏 -->
-    
-      <div id="appDonate" class="post-donate">
-  <div id="donate_board" class="donate_bar center" ref="donate">
-    <a id="btn_donate" class="btn_donate" href="javascript:;" title="打赏" @click="showDialogDrawer()"></a>
-  </div>
-  <transition name="fade">
-    <div 
-      class="donate-box-mask"
-      v-cloak 
-      v-show="visible"
-      @click="cancelDialogDrawer()"
-    >
-    </div>
-  </transition>
-  <transition name="bounce">
-    <div class="donate-box" v-cloak v-show="visible">
-      <div class="donate-box_close">
-        <i class="fas fa-times" aria-hidden="true" @click="cancelDialogDrawer" pointer></i>
-      </div>
-      <div class="donate-box_title">
-        <h4>
-          哇，有小可爱喜欢我的文章，感谢支持！
-        </h4>
-      </div>
-      <div class="donate-box_tab">
-        <div class="Alipay" pointer :class="{'active': tabActive === 'Alipay'}" @click="changeTabActive('Alipay')">
-          支付宝
-        </div>
-        <div class="WeChatpay" pointer :class="{'active': tabActive === 'WeChatpay'}" @click="changeTabActive('WeChatpay')">
-          微信
-        </div>
-      </div>
-      <div class="donate-box_img">
-        <div class="AlipayImg" v-show="tabActive === 'Alipay'">
-          <img src="/medias/AliPay.png" class="lazyload" data-srcset="/medias/AliPay.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="支付宝打赏" />
-        </div> 
-        <div class="WeChatpayImg" v-show="tabActive === 'WeChatpay'">
-          <img src="/medias/WeChatPay.png" class="lazyload" data-srcset="/medias/WeChatPay.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="微信打赏" />
-        </div>
-      </div>
-    </div>
-  </transition>
-</div>
-
-<script>
-  var body = document.body || document.documentElement || window;
-  var vm = new Vue({
-    el: '#appDonate',
-    data: {
-      visible: false,
-      tabActive: 'Alipay',
-      top: 0,
-    },
-    computed: {
-    },
-    mounted() {
-    },
-    methods: {
-      showDialogDrawer() {
-        this.visible = true;
-        // 防止页面滚动，只能让弹框滚动
-        // function getScroll() {
-        //   return {
-        //     left: window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0,
-        //     top: window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0
-        //   };
-        // }
-        this.top = $(document).scrollTop() // or getScroll().top
-        // console.log('aa', $('.main-content'));
-        body.style.cssText = 'overflow: hidden;';
-      },
-      cancelDialogDrawer() {
-        this.visible = false;
-        body.removeAttribute('style');
-        $(document).scrollTop(this.top)
-      },
-      changeTabActive(name) {
-        this.tabActive = name;
-      }
-    },
-    created() {}
-  })
-</script>
-    
-
-    <!-- 分享 -->
-    
-      <!-- https://github.com/overtrue/share.js -->
-<!-- 文章详情页的分享 -->
-<div class="social-share" data-sites="qq,qzone,wechat,weibo,twitter,facebook,google,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
-
-<script defer src="/js/shareJs/social-share.min.js"></script>
-</script>
-
-<style>
-  .social-share {
-    margin: 20px 0;
+      <span class="title" id="category-header-desc"></span>
+      <script>
+  function typedFn() {
+    const el = '#category-header-desc';
+    const type = 'categoryDetail';
+    let desc = '愿你如风，被人温柔以待'
+    var typed = new Typed(el, {
+      strings: [desc],
+      startDelay: 100,
+      typeSpeed: 100,
+      loop: true,
+      backSpeed: 50,
+      showCursor: true
+    });
   }
-</style>
-
-
-    
-    
-    <!-- 评论 -->
-    <!-- 评论 -->
-
-  <div id="myComment">
-    
+  typedFn();
+</script>
+      
   </div>
+  <div class="mask-box"></div>
+</div>
 
 
-<!-- 还需要在后面这个地址里设置script, comment script in themes\hexo-theme-bamboo\layout\_partial\scripts\index.ejs -->
-
-
+<div class="category">
+  <div class="category-name">
+    <div class="name" style="background-color: #A3E4D7;">比赛教程 分类</div>
   </div>
+  <!-- 每一篇文章卡片 -->
+  <!-- hash算法 -->
 
-  <!-- 目录 -->
-  <aside id='l_side'>
+<section class="posts">
   
     
-      <section class="widget side_blogger">
-  <div class='content'>
-    
-      
-        <a class='avatar flat-box circle' href='/about/'>
-          <img src='/medias/Profile.jpg'/>
+    <article class="post reveal" style="flex-direction: row-reverse;   ">
+      <div class="post-main">
+        <div class="post-info">
+          <div class="post-time">
+            <i class="fas fa-clock" aria-hidden="true"></i>
+            <span class="post-time">2024-11-05</span>
+          </div>
+          <div class="post-title">
+            <a class="post-title-link" href="/2024/TICUP_article/">2022年全国大学生电子设计大赛B题思路</a>
+          </div>
+          <div class="post-meta">
+            <div class="post-tags">
+              <!-- 文章详情页的标签 -->
+
+    <i class="iconfont icontag"></i>
+    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%99%E7%A8%8B%EF%BC%8C%E6%A8%A1%E6%9D%BF/" rel="tag">教程，模板</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AB%9E%E8%B5%9B/" rel="tag">竞赛</a></li></ul>
+
+            </div>
+            <div class="post-categories">
+              <!-- 文章详情页的分类 -->
+
+<div class="article-category">
+  <i class="iconfont iconbookmark1"></i>
+  <a class="article-category-link" href="/categories/%E6%AF%94%E8%B5%9B%E6%95%99%E7%A8%8B/">比赛教程</a>
+</div>
+
+
+            </div>
+          </div>
+          <div class="post-img-mobile">
+            <a href="/2024/TICUP_article/" style="background-size: cover; 
+              background-position: center center;">
+              <img class="lazyload lazyload" src="https://pic3.zhimg.com/v2-a5267dfbf175991d4b3a69b41f3f678a_b.jpg" class="lazyload" data-srcset="https://pic3.zhimg.com/v2-a5267dfbf175991d4b3a69b41f3f678a_b.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="">
+            </a>
+          </div>
+          <div class="post-content">
+            2022年全国大学生电子设计大赛B题思路__同轴电缆长度与终端负载检测装置（B题）__，本文为该题提供思路，其内容基本与当年所提交论文一致。思路还不错，最终也有人使用我们这套方案得奖。所有硬件设计以及计算均为本人设计并推导，但由于最后器件不
+          </div>
+        </div>
+        <div class="post-more">
+          <a href="/2024/TICUP_article/">
+            <i class="iconfont iconmore" pointer style="float: right;  " title="阅读更多"></i>
+          </a>
+        </div>
+      </div>
+      <div class="post-img">
+        <a href="/2024/TICUP_article/" style="background-size: cover; 
+          background-position: center center;">
+          <img class="lazyload lazyload" src="https://pic3.zhimg.com/v2-a5267dfbf175991d4b3a69b41f3f678a_b.jpg" class="lazyload" data-srcset="https://pic3.zhimg.com/v2-a5267dfbf175991d4b3a69b41f3f678a_b.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="">
         </a>
-      
-    
-    
-      <div class='text'>
-        
-          <h2>bisucrose</h2>
-        
-        
-          <p>♡给你双倍的甜度哦♡</p>
-
-        
-        
       </div>
-    
-    
-      <div class="social-wrapper">
-        
-          
-            <a href="/atom.xml"
-              class="social fas fa-rss flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="mailto:bidonghui0010@outlook.com"
-              class="social fas fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="https://github.com/bisucrose/"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="tencent://AddContact/?fromId=50&amp;fromSubId=1&amp;subcmd=all&amp;uin=1968717280"
-              class="social fab fa-qq flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-      </div>
-    
-  </div>
+    </article>
+  
 </section>
-
-    
-  
-  
-  
-
-  <div class="layout_sticky">    
-    
-      
-<section class="widget side_toc">
-  
-  <header>
-    
-      <i style="color: " class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name' style="color: ">本文目录</span>
-    
-  </header>
-
-
-  <div class='content'>
-    <div class="toc-main">
-      <div class="toc-content">
-        <!-- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%93%9D%E7%89%99%E9%9F%B3%E9%A2%91%E7%BC%96%E7%A0%81%E4%BB%A5%E5%8F%8A%E4%BC%A0%E8%BE%93%E6%A8%A1%E5%BC%8F"><span class="toc-text">蓝牙音频编码以及传输模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A2%8E%E7%A2%8E%E5%BF%B5"><span class="toc-text">碎碎念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%93%9D%E7%89%99%E9%9F%B3%E9%A2%91%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE"><span class="toc-text">蓝牙音频传输协议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#SBC"><span class="toc-text">SBC</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%82%E6%95%B0"><span class="toc-text">参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E9%99%85%E5%90%AC%E6%84%9F"><span class="toc-text">实际听感</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AAC"><span class="toc-text">AAC</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%82%E6%95%B0-1"><span class="toc-text">参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E9%99%85%E5%90%AC%E6%84%9F-1"><span class="toc-text">实际听感</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#aptX"><span class="toc-text">aptX</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%82%E6%95%B0-2"><span class="toc-text">参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E9%99%85%E5%90%AC%E6%84%9F-2"><span class="toc-text">实际听感</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LDAC"><span class="toc-text">LDAC</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%82%E6%95%B0-3"><span class="toc-text">参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E9%99%85%E5%90%AC%E6%84%9F-3"><span class="toc-text">实际听感</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LHDC"><span class="toc-text">LHDC</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%82%E6%95%B0-4"><span class="toc-text">参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E9%99%85%E5%90%AC%E6%84%9F-4"><span class="toc-text">实际听感</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%93%9D%E7%89%99%E8%80%B3%E6%9C%BA%E5%B8%B8%E7%94%A8%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8F"><span class="toc-text">蓝牙耳机常用工作模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Low-Latency%EF%BC%88%E4%BD%8E%E5%BB%B6%E8%BF%9F%EF%BC%89"><span class="toc-text">Low-Latency（低延迟）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Stereo-A2DP%EF%BC%88%E7%94%B5%E8%84%91%E4%B8%8A%E7%9A%84%E6%A0%87%E5%87%86%E6%A8%A1%E5%BC%8F%EF%BC%89"><span class="toc-text">Stereo&#x2F;A2DP（电脑上的标准模式）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Hand-Free-AG%E6%A8%A1%E5%BC%8F%EF%BC%88%E9%80%9A%E8%AF%9D%E6%A8%A1%E5%BC%8F%EF%BC%89"><span class="toc-text">Hand-Free AG模式（通话模式）</span></a></li></ol></li></ol></li></ol> -->
-        <div class="toc"></div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- 手机端目录按钮 -->
-<div id="toc-mobile-btn">
-  <i class="fas fa-list-ul" aria-hidden="true"></i>
 </div>
-
-      
-  <section class="widget side_recent_post">
-    
-  <header>
-    
-      <a style="color: " href='/tags/'><i class="fas fa-book fa-fw" aria-hidden="true"></i><span class='name'>最近发布</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      
-      <!-- hash算法 -->
-      
-      <div class="aside-list">
-        
-          <div class="aside-list-item">
-            
-            
-            
-
-            <div class="post-img-box">
-              <a href="/2024/TICUP_article/" class="post-img " style="background-size: cover; 
-                background-position: center center;">
-                <img class="lazyload lazyload" style="width:100%;height:100%;object-fit:cover;" data-src="https://pic3.zhimg.com/v2-a5267dfbf175991d4b3a69b41f3f678a_b.jpg" class="lazyload" data-srcset="https://pic3.zhimg.com/v2-a5267dfbf175991d4b3a69b41f3f678a_b.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="">
-              </a>
-            </div>
-            <div class="post-date-title">
-              <div>
-                
-                  <span class="post-date">11-05</span>
-                
-              </div>
-              <a class="post-title" href="/2024/TICUP_article/">2022年全国大学生电子设计大赛B题思路</a>
-            </div>
-          </div>
-        
-          <div class="aside-list-item">
-            
-            
-            
-
-            <div class="post-img-box">
-              <a href="/2024/jlu_webpage_navi/" class="post-img " style="background-size: cover; 
-                background-position: center center;">
-                <img class="lazyload lazyload" style="width:100%;height:100%;object-fit:cover;" data-src="/medias/Wallpaper/3.jpg" class="lazyload" data-srcset="/medias/Wallpaper/3.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="">
-              </a>
-            </div>
-            <div class="post-date-title">
-              <div>
-                
-                  <span class="post-date">11-05</span>
-                
-              </div>
-              <a class="post-title" href="/2024/jlu_webpage_navi/">吉林大学常用网站导航</a>
-            </div>
-          </div>
-        
-          <div class="aside-list-item">
-            
-            
-            
-
-            <div class="post-img-box">
-              <a href="/2024/baoyan/" class="post-img " style="background-size: cover; 
-                background-position: center center;">
-                <img class="lazyload lazyload" style="width:100%;height:100%;object-fit:cover;" data-src="https://pic3.zhimg.com/80/v2-5f7cb7e900b9dcf5354c3d4d2c5cc3c2_1440w.webp" class="lazyload" data-srcset="https://pic3.zhimg.com/80/v2-5f7cb7e900b9dcf5354c3d4d2c5cc3c2_1440w.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="">
-              </a>
-            </div>
-            <div class="post-date-title">
-              <div>
-                
-                  <span class="post-date">10-30</span>
-                
-              </div>
-              <a class="post-title" href="/2024/baoyan/">保研流程指南（正在施工）</a>
-            </div>
-          </div>
-        
-      </div>
-    </div>
-  </section>
-
-    
-  </div>
-</aside>
-
-  <!-- 图片放大 Wrap images with fancybox support -->
-  <script defer src="/js/wrapImage.js"></script>
-</div>
-
-<!-- 文章详情页背景图 -->
-<div id="appBgSwiper" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -2;"
-	:style="{'background-color': bgColor ? bgColor : 'transparent'}">
-	<transition-group tag="ul" :name="names">
-		<li v-for='(image,index) in img' :key='index' v-show="index === mark" class="bg-swiper-box">
-			<img :src="image" class="bg-swiper-img no-lazy">
-		</li>
-	</transition-group>
-</div>
-<script>
-	var vm = new Vue({
-		el: '#appBgSwiper',
-		data: {
-			names: '' || 'fade' || 'fade', // translate-fade fade
-			mark: 0,
-			img: [],
-			bgColor: '',
-			time: null
-		},
-		methods: {   //添加方法
-			change(i, m) {
-				if (i > m) {
-					// this.names = 'fade';
-				} else if (i < m) {
-					// this.names = 'fade';
-				} else {
-					return;
-				}
-				this.mark = i;
-			},
-			prev() {
-				// this.names = 'fade';
-				this.mark--;
-				if (this.mark === -1) {
-					this.mark = 3;
-					return
-				}
-			},
-			next() {
-				// this.names = 'fade';
-				this.mark++;
-				if (this.mark === this.img.length) {
-					this.mark = 0;
-					return
-				}
-			},
-			autoPlay() {
-				// this.names = 'fade';
-				this.mark++;
-				if (this.mark === this.img.length) {
-					this.mark = 0;
-					return
-				}
-			},
-			play() {
-				let bgImgDelay = '' || '180000'
-				let delay = parseInt(bgImgDelay) || 180000;
-				this.time = setInterval(this.autoPlay, delay);
-			},
-			enter() {
-				clearInterval(this.time);
-			},
-			leave() {
-				this.play();
-			}
-		},
-		created() {
-			this.play()
-		},
-		beforeDestroy() {
-			clearInterval(this.time);
-		},
-		mounted() {
-			let prop = '' || '';
-			let isImg = prop.includes('.bmp') || prop.includes('.jpg') || prop.includes('.png') || prop.includes('.tif') || prop.includes('.gif') || prop.includes('.pcx') || prop.includes('.tga') || prop.includes('.exif') || prop.includes('.fpx') || prop.includes('.psd') || prop.includes('.cdr') || prop.includes('.pcd') || prop.includes('.dxf') || prop.includes('.ufo') || prop.includes('.eps') || prop.includes('.ai') || prop.includes('.raw') || prop.includes('.WMF') || prop.includes('.webp') || prop.includes('.jpeg') || prop.includes('http://') || prop.includes('https://')
-			if (isImg) {
-				let img = prop.split(',');
-				let configRoot = '/'
-				let arrImg = [];
-				img.forEach(el => {
-					var Expression = /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/;
-					var objExp = new RegExp(Expression);
-
-					if (objExp.test(el)) {
-						// http or https
-						arrImg.push(el);
-					} else {
-						// 非http or https开头
-						// 本地文件
-						let firstStr = el.charAt(0);
-						if (firstStr == '/') {
-							el = el.substr(1); // 删除第一个字符 '/',因为 configRoot最后一个字符为 /
-						}
-						el = configRoot + el;
-						arrImg.push(el);
-					}
-				})
-				this.img = arrImg;
-			} else {
-				this.bgColor = prop;
-			}
-		}
-	})
-</script>
-
-<style>
-	.bg-swiper-box {
-		position: absolute;
-		display: block;
-		width: 100%;
-		height: 100%;
-	}
-
-	.bg-swiper-img {
-		object-fit: cover;
-		width: 100%;
-		height: 100%;
-	}
-</style>
-
-
-
-
-  <script>
-  function loadMermaid() {
-    if (document.getElementsByClassName('mermaid').length) {
-      if (window.mermaidJsLoad) mermaid.init()
-      else {
-        loadScript('https://unpkg.com/mermaid/dist/mermaid.min.js').then(() => {
-          window.mermaidJsLoad = true
-          mermaid.initialize({
-            theme: 'default',
-          })
-          if ('true') {
-            mermaid.init();
-          }
-        })
-      }
-    }
-  };
-  document.addEventListener("DOMContentLoaded", function () {
-    loadMermaid();
-  })
-
-  document.addEventListener('pjax:complete', function () {
-    loadMermaid();
-  })
+<div class="w-70">
   
-</script>
-
+</div>
 
       </main>
     </div>

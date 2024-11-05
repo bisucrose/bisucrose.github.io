@@ -11,7 +11,7 @@
   <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-  <title>蓝牙音频编码以及传输模式 | 苏可璐斯的小站</title>
+  <title>2022年全国大学生电子设计大赛B题思路 | 苏可璐斯的小站</title>
 
   <link rel="icon" type="image/png" href="/favi.png">
   <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
@@ -480,21 +480,21 @@
 
 
 <div class="post-detail-header" id="thumbnail_canvas" style="background-repeat: no-repeat; background-size: cover; 
-  background-position: center center;position: relative;background-image:url('https://pic4.zhimg.com/80/v2-e434e3a2888fb4efb1844845b8791d1f_1440w.webp')">
+  background-position: center center;position: relative;background-image:url('https://pic3.zhimg.com/v2-a5267dfbf175991d4b3a69b41f3f678a_b.jpg')">
   <div class="post-detail-header-mask"></div>
   <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
   
   <div class="post-detail-header_info-box">
     <div class="title-box">
       <span class="title">
-        蓝牙音频编码以及传输模式
+        2022年全国大学生电子设计大赛B题思路
       </span>
     </div>
     
     
       
         <span class="post-detail-header_date">
-          <i class="fas fa-calendar"></i> 发表于：2024-10-30 |
+          <i class="fas fa-calendar"></i> 发表于：2024-11-05 |
         </span>
       
 
@@ -502,8 +502,8 @@
         <span class="post-detail-header_categories">
           <i class="iconfont iconbookmark1"></i> 分类：
           
-            <a href="/categories/%E7%A7%91%E6%99%AE/" class="post-detail-header_category">
-              科普
+            <a href="/categories/%E6%AF%94%E8%B5%9B%E6%95%99%E7%A8%8B/" class="post-detail-header_category">
+              比赛教程
             </a>
           
         </span>
@@ -512,11 +512,11 @@
       
         <div class="post-detail-header_wordcount">
           <span class="totalcount">
-            <i class="fas fa-file-text-o"></i> 字数统计: 1.9k |
+            <i class="fas fa-file-text-o"></i> 字数统计: 3.9k |
           </span>
   
           <span class="min2read">
-            <i class="fas fa-clock"></i> 阅读时长: 6分钟 |
+            <i class="fas fa-clock"></i> 阅读时长: 14分钟 |
           </span>
   
           
@@ -543,54 +543,163 @@
   <div class="main-content">
     <article class="post post-detail">
       <div class="post-content">
-        <h1 id="蓝牙音频编码以及传输模式"><a href="#蓝牙音频编码以及传输模式" class="headerlink" title="蓝牙音频编码以及传输模式"></a>蓝牙音频编码以及传输模式</h1><h2 id="碎碎念"><a href="#碎碎念" class="headerlink" title="碎碎念"></a>碎碎念</h2><p>在选购蓝牙耳机的时候，经常看到蓝牙耳机有很多传输协议。自己以前也曾痴迷过HiFi，对一些蓝牙音频协议有所了解，也做了一些功课。现在在这里总结一下，小伙伴们选购耳机的时候也可以有所参考。</p>
-<p>本文将从参数与主观体验方面评估各个编码的好坏。</p>
-<h2 id="蓝牙音频传输协议"><a href="#蓝牙音频传输协议" class="headerlink" title="蓝牙音频传输协议"></a>蓝牙音频传输协议</h2><p>目前从低到高的通用协议为SBC&lt;AAC&lt;aptX&lt;LDAC≈LHDC，另外还有三星的SSC和苹果的Airport，这些基本都用过。</p>
-<p>要查看手机是否支持一个编码，只需要打开 <strong>设置-开发者选项-蓝牙音频解码器</strong> 即可查看，如下图所示，我的手机（一加ACE3V）支持所有的通用协议。</p>
-<img src="/2024/bluetooth_audio/Screenshot_2024-10-31-21-50-53-54_fc704e6b13c4fb2.jpg" class="lazyload" data-srcset="/2024/bluetooth_audio/Screenshot_2024-10-31-21-50-53-54_fc704e6b13c4fb2.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Screenshot_2024-10-31-21-50-53-54_fc704e6b13c4fb2" style="zoom: 25%;">
-
-
-
-<h3 id="SBC"><a href="#SBC" class="headerlink" title="SBC"></a>SBC</h3><h4 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h4><p>SBC，Sub-Band Coding，全称子带编码。SBC是所有编码中音质最差的一个，但是它的兼容性是最好的。原因在于SBC占用的带宽最小，而且Bluetooth在其A2DP (Advanced Audio Distribution Profile) 中规定：<strong>SBC是必须支持的编码</strong></p>
-<p>A2DP中规定SBC编码支持最大比特率是单声道320kbps，立体声512kbps。但按其推荐，实际上使用最多的是44.1KHz，328kbps的立体声传输。</p>
-<p>SBC的优点是舍弃或减小人耳听觉不敏感的频率部分，在敏感频率处采用较细的量化，在低比特率条件下获得更好的听觉效果。</p>
-<h4 id="实际听感"><a href="#实际听感" class="headerlink" title="实际听感"></a>实际听感</h4><p>SBC协议可以明显听出高频的欠采样咔哒声以及低频缺失严重。再加上市面上只支持SBC的蓝牙耳机普遍都是PDD价值10元左右的耳机，解码芯片和发声单元的问题更为严重。因此听感较差，约为听个响级别</p>
-<h3 id="AAC"><a href="#AAC" class="headerlink" title="AAC"></a>AAC</h3><h4 id="参数-1"><a href="#参数-1" class="headerlink" title="参数"></a>参数</h4><p>AAC，Advanced Audio Coding，高级音频编码。AAC在蓝牙中常用的比特率是256Kbps。但是有一点，即使使用AAC音频源，蓝牙并不能直接传输其原数据流，而是先将AAC解码成PCM，然后再编码成蓝牙支持的AAC编码再传输。应用上，AAC编码最大的支持者是苹果，iPhone、iPad和 AirPods 等设备都支持AAC, <strong>AAC协议是现在10-150元价位中大多数耳机支持的最高协议</strong></p>
-<h4 id="实际听感-1"><a href="#实际听感-1" class="headerlink" title="实际听感"></a>实际听感</h4><p>AAC协议是现在10-150元价位中大多数耳机支持的最高协议，说实话除了使用WH1000XM3和WI1000XM2，我在其他设备上感觉AAC与LDAC&#x2F;LHDC没什么太大区别。AAC的音质日常听感完全够用，而且不会因为信道质量不佳而时常断连。个人认为是各个指标都比较均衡的一款编码。</p>
-<h3 id="aptX"><a href="#aptX" class="headerlink" title="aptX"></a>aptX</h3><h4 id="参数-2"><a href="#参数-2" class="headerlink" title="参数"></a>参数</h4><p>aptX（音频数据缩减技术）是上个世纪80年代设计的编解码器，用于电影院和广播中。编解码器后来被CSR收购，而CSR公司又于2015年8月被高通公司收购。</p>
-<p>aptX目前分化成了三种：aptX低延迟，aptX HD，aptX自适应。</p>
-<p><strong>aptX LL（低延迟）：</strong>延迟接近30毫秒。SBC的延迟为170 ms。</p>
-<p><strong>aptX HD（高清晰度）：</strong>在24位和192 kHz时，最大比特率高达576 kbps。</p>
-<p><strong>aptX Adaptive（自适应）：</strong>旨在替代传统的aptX和aptX HD。能够改变比特率，它的最小比特率为276 Kbps，最大为420 kbps。但是，由于压缩方面的改进，可以达到与aptX HD 576 Kbps相同的质量。</p>
-<p><img src="/2024/bluetooth_audio/47b8d3e3b2f3cce1e5ab4a8e29ddcc0e.jpeg" class="lazyload" data-srcset="/2024/bluetooth_audio/47b8d3e3b2f3cce1e5ab4a8e29ddcc0e.jpeg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p>
-<h4 id="实际听感-2"><a href="#实际听感-2" class="headerlink" title="实际听感"></a>实际听感</h4><p>由于我手头唯一一个支持aptX的设备单元极差（漫步者某TWS），故无法评价。单看参数，aptX HD达到了较高清晰度，理论上可以媲美LDAC。但不知是不是我手头设备的问题，感觉aptX HD集百家之短：既没有AAC的低延迟，又有LDAC的容易断联，而且自从索尼不再对LDAC收取授权费，大家都纷纷转向了LDAC和LHDC。</p>
-<h3 id="LDAC"><a href="#LDAC" class="headerlink" title="LDAC"></a>LDAC</h3><h4 id="参数-3"><a href="#参数-3" class="headerlink" title="参数"></a>参数</h4><p>LDAC是索尼开发的一种音频编码，实现了以最高 <strong>990Kbps</strong> 的比特率通过蓝牙传输 24bit&#x2F;96kHz 的高分辨率音频(Hi-Res Audio)。高传输码率使得高解析度的音频文件不会被过分压缩，保证了音质。</p>
-<p><img src="/2024/bluetooth_audio/02.png" class="lazyload" data-srcset="/2024/bluetooth_audio/02.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Comparison between LDAC &amp; SBC"></p>
-<p>其实在上图中，索尼有点过分吹嘘LDAC的作用了。因为对于4.5Mbps的Hi-Res音频，要通过最高990Kbps的带宽传输，压缩率需要达到1:4.5，而目前最好的无损压缩率也只有1:2。所以说，<strong>LDAC可以传输CD级音质，但是并不能无损传输Hi-Res音频，只能是接近</strong>。</p>
-<p>LDAC提升传输速率的原理是增加了蓝牙通信的信道，频带宽度提升了，但是这对蓝牙天线的要求也提高了。实际上，在信号较差，或者是受到干扰的时候，LDAC还会以660Kbps或330Kbps的比特率通信，保证连接性。**<del>但是索尼自家的耳机优化的稀烂，会持续断联2-3秒后再卡顿一下才会切比特率</del>**</p>
-<h4 id="实际听感-3"><a href="#实际听感-3" class="headerlink" title="实际听感"></a>实际听感</h4><p>本人木耳，但是仍然能听出LDAC编码器和AAC的区别。设备为WI1000XM2。LDAC在各方面都是顶级水准，除了在信号不好的时候经常卡顿断连之外，其他的都无可挑剔。</p>
-<p>LDAC设备在使用过程中延迟非常高，自我感觉约有300-500ms，不适合打游戏。</p>
-<p>另外WI1000XM2设备听感也不错，属于入耳式蓝牙耳机里面听着最舒服的一档了。</p>
-<h3 id="LHDC"><a href="#LHDC" class="headerlink" title="LHDC"></a>LHDC</h3><h4 id="参数-4"><a href="#参数-4" class="headerlink" title="参数"></a>参数</h4><p>LHDC支持通过速度最高达<strong>900kbps</strong>的蓝牙连接传输 24bit&#x2F;96kHz 的串流音频（也称高解析度音频）。与LDAC会先把原始音频进行升&#x2F;降频到 24bit&#x2F;96kHz不同，LHDC则可依照原始取样率输出，减少SRC过程的延迟。2019年9月，LHDC通过了JRS的Hi-Res Audio Wireless标准认证。</p>
-<p>LHDC根据信号情况支持400&#x2F;560&#x2F;900 kbps的比特率。此外还有低延迟音频编解码器（LLAC）版本，也称为LHDC LL，端到端延迟约为30毫秒。</p>
-<h4 id="实际听感-4"><a href="#实际听感-4" class="headerlink" title="实际听感"></a>实际听感</h4><p>与LDAC相同，且连接更稳定。</p>
-<p>同样的，LHDC的延迟也非常感人，不适合玩游戏。不过有LHDC LL模式，设备为漫步者·花再的头戴式耳机，实测延迟可以降低到与AAC相似的水平。</p>
-<h2 id="蓝牙耳机常用工作模式"><a href="#蓝牙耳机常用工作模式" class="headerlink" title="蓝牙耳机常用工作模式"></a>蓝牙耳机常用工作模式</h2><h3 id="Low-Latency（低延迟）"><a href="#Low-Latency（低延迟）" class="headerlink" title="Low-Latency（低延迟）"></a>Low-Latency（低延迟）</h3><p>此工作模式仅有一些支持LHDC LL，aptX LL的设备支持，在切换到低延迟模式（有些设备称之为“游戏模式”）后，会主动降低音质以换取更低的延迟。</p>
-<h3 id="Stereo-A2DP（电脑上的标准模式）"><a href="#Stereo-A2DP（电脑上的标准模式）" class="headerlink" title="Stereo&#x2F;A2DP（电脑上的标准模式）"></a>Stereo&#x2F;A2DP（电脑上的标准模式）</h3><p>此模式下使用SBC或AAC编码方式传输音频，但是只能单向传输，即只能从电脑到手机传输，因此无法使用蓝牙耳机自带麦克风。</p>
-<h3 id="Hand-Free-AG模式（通话模式）"><a href="#Hand-Free-AG模式（通话模式）" class="headerlink" title="Hand-Free AG模式（通话模式）"></a>Hand-Free AG模式（通话模式）</h3><p>此模式下使用56kbps的码率进行单声道音频传输，音质感人。Hand-Free AG是比A2DP更旧的编码方式，很多手机都不支持了。在连接上Windows10电脑的时候，可以看到音量菜单上面有Hand-Free AG的选项。</p>
-<p>有些电脑APP在语音通话的时候，并不会直接切换到Hand-Free AG模式，此时蓝牙耳机和电脑都工作在Stereo模式下，使用电脑内置麦克风通话。此时需要点击任务栏中的音量，然后选择设备，手动切换到Hand-Free AG，才可以正常调用蓝牙耳机的麦克风通话。</p>
+        <h1 id="2022年全国大学生电子设计大赛B题思路"><a href="#2022年全国大学生电子设计大赛B题思路" class="headerlink" title="2022年全国大学生电子设计大赛B题思路"></a>2022年全国大学生电子设计大赛B题思路</h1><p>__同轴电缆长度与终端负载检测装置（B题）__，本文为该题提供思路，其内容基本与当年所提交论文一致。思路还不错，最终也有人使用我们这套方案得奖。所有硬件设计以及计算均为本人设计并推导，但由于最后器件不合规以及软件问题失利。这里也请大家引以为戒，不要只注重一个方面的完美。</p>
+<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a><strong>摘要</strong></h2><p>本系统采用STM32F103RCT6作为主控控制器，以高频信号发生器作为激励信号输入同轴电缆，使用电磁场基本理论与基本电路分析基础求解得出电缆长度，终端所接器件类型，终端器件参数等，具有快速，方便，成本低廉的优势。</p>
+<p>主要使用的器件以及模块有：STM32主控，AD9850，BNC、SMA接头，阻抗匹配器等。</p>
+<p>长度识别部分主要采用终端开路的同轴电缆中电磁波发生全反射形成驻波的原理，再进行频率扫描使得波节与波腹沿电缆进行位移，从而在输入端的三通处测得波形峰值变化。再经过AD637真有效值转换芯片输出，经ADC采样后识别出波节位置所对应的频率差即可得出电缆总长度。系统采用差分的方法来减小误差。</p>
+<p>阻容识别部分主要采用电容隔直通交的理论，通过测定始端电阻电压值的大小从而判断出器件类型，同时利用欧姆定律可以计算出阻值。</p>
+<p>电容容值测量部分主要利用电磁场理论中输入段阻抗等效计算实现，通过测定电容等效导线长度结合入段阻抗计算式计算出电容容值。</p>
+<p><strong>关键词：STM32F103RCT6、AD637、高频、电磁场基本理论，驻波，真有效值，入段阻抗，同轴电缆，差分</strong></p>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a><strong>目录</strong></h2><p><a href="#_Toc142156106">1系统方案	1</a></p>
+<p><a href="#_Toc142156107">1.1 电缆长度识别方式的论证与选择	1</a></p>
+<p><a href="#_Toc142156108">1.2 电容电阻测量方式的论证与选择	1</a></p>
+<p><a href="#_Toc142156109">1.3 控制系统的论证与选择	1</a></p>
+<p><a href="#_Toc142156110">2系统理论分析与计算	2</a></p>
+<p><a href="#_Toc142156111">2.1  电缆内驻波的分析	2</a></p>
+<p><a href="#_Toc142156112">2.1.1 终端开路时电缆内部驻波的分析	2</a></p>
+<p><a href="#_Toc142156113">2.1.2 加上电容以后内部驻波的分析（电容计算法）	2</a></p>
+<p><a href="#_Toc142156114">2.1.3 电阻电容的判断方式	2</a></p>
+<p><a href="#_Toc142156115">2.2 电缆长度的计算	3</a></p>
+<p><a href="#_Toc142156116">2.3 终端器件参数的计算	3</a></p>
+<p><a href="#_Toc142156117">2.3.1 电容器的参数计算	3</a></p>
+<p><a href="#_Toc142156118">2.3.2电阻的参数计算	4</a></p>
+<p><a href="#_Toc142156119">3电路与程序设计	4</a></p>
+<p><a href="#_Toc142156120">3.1电路的设计	4</a></p>
+<p><a href="#_Toc142156121">3.1.1系统总体框图	4</a></p>
+<p><a href="#_Toc142156122">3.1.2 激励信号发生电路系统设计	4</a></p>
+<p><a href="#_Toc142156123">3.1.3 信号检测及处理电路系统框图与电路原理图	4</a></p>
+<p><a href="#_Toc142156124">3.1.4电源	5</a></p>
+<p><a href="#_Toc142156125">3.2程序的设计	5</a></p>
+<p><a href="#_Toc142156126">3.2.1程序功能描述与设计思路	5</a></p>
+<p><a href="#_Toc142156127">3.2.2程序流程	6</a></p>
+<p><a href="#_Toc142156128">4测试方案与测试结果	6</a></p>
+<p><a href="#_Toc142156129">4.1测试方案	6</a></p>
+<p><a href="#_Toc142156130">4.2 测试条件与仪器	7</a></p>
+<p><a href="#_Toc142156131">4.3 测试结果及分析	7</a></p>
+<p><a href="#_Toc142156132">4.3.1测试结果(数据)	7</a></p>
+<p><a href="#_Toc142156133">4.3.2测试分析与结论	7</a></p>
+<h2 id="1-系统方案"><a href="#1-系统方案" class="headerlink" title="1.系统方案"></a><a id="_Toc142156106"></a>1.系统方案</h2><p>本系统主要可以分为以下几个部分：STM32主控，电缆长度识别部分，终端负载识别部分，阻抗匹配器部分和电源模块。下面分别论证这几个模块的选择。</p>
+<h3 id="1-1-电缆长度识别方式的论证与选择"><a href="#1-1-电缆长度识别方式的论证与选择" class="headerlink" title="1.1 电缆长度识别方式的论证与选择"></a><a id="_Toc142156107"></a>1.1 电缆长度识别方式的论证与选择</h3><p>方案一：通过检测正向波与逆向波的相位差判断长度。此方案将导线内的入射波与反射波通过互感装置分离，形成两路行波，通过测量两路行波的相位差即可计算出电缆长度。此方案好处在于将两路分离，但是这也正是其难点。两个方向的波需要依靠互感装置分离导致电缆测量过程中引入了附加电感，使得波形特性出现漂移，且手绕电感导致长度难以标定，影响后续测量。故舍弃。</p>
+<p>方案二：通过检测正向波与逆向波在电缆内直接叠加的驻波判断导线长度。此方案不分离导线内的入射波和反射波，而是让其在电缆内部直接叠加成驻波。通过测量驻波波节波腹的位置计算线缆长度。但由于线缆只能从始端测量，故需要使用频率变化来将位置参数转化为频率（波长）参数。</p>
+<p>方案三：直接测试同轴电缆的电容值来判断导线长度。导线入段电容测试方法较易，但是由于电缆长度1000cm-2000cm，其分布参数影响极大，线缆长度和电容不成正相关，因此难以标定。</p>
+<p>综合以上三种方案，选择方案二。</p>
+<h3 id="1-2-电容电阻测量方式的论证与选择"><a href="#1-2-电容电阻测量方式的论证与选择" class="headerlink" title="1.2 电容电阻测量方式的论证与选择"></a><a id="_Toc142156108"></a>1.2 电容电阻测量方式的论证与选择</h3><p>电容的测量方式有固定的套路，即在已测得线缆长度的条件下测得对应频率下电压的幅值与最大值之比即可测出所处驻波相位，由此即可计算得出电容容值。</p>
+<p>电阻测量方案商榷如下：</p>
+<p>方案一：使用直流恒流源加上ADC采样直接标定电阻阻值。此方法简单易行，但是由于需要切换电路，故电路复杂性会增加，整个系统不稳定因素增加。</p>
+<p>方案二：使用高频信号测试驻波比从而确定失配度，由失配度可反向计算出电阻阻值。此方案计算繁琐，而且在高频状态下元件分布参数影响较大，测量误差可能较大。</p>
+<p>方案三：使用AD5933模块直接测量电路参数。但是AD5933模块测量范围在本题要求之外，使用运算放大器调整参数过后测量精度较差。</p>
+<p>综合以上三种方案，选择方案一。</p>
+<h3 id="1-3-控制系统的论证与选择"><a href="#1-3-控制系统的论证与选择" class="headerlink" title="1.3 控制系统的论证与选择"></a><a id="_Toc142156109"></a>1.3 控制系统的论证与选择</h3><p>方案一：使用Arduino。Arduino可以大大缩短开发时间，提升开发效率。但是由于其内部ADC默认采样频率较低，在高频环境中难以应用，故不采用。</p>
+<p>方案二：使用STM32。STM32开发难度适中，且有HAL库支持便于移植驱动。为了解决上述AD采样精度低的问题，使用了时钟频率较高的STM32F103RCT6，且该型号单片机引脚较多便于后期拓展。</p>
+<p>综合考虑采用STM32F103RCT6。</p>
+<h2 id="2系统理论分析与计算"><a href="#2系统理论分析与计算" class="headerlink" title="2系统理论分析与计算"></a><a id="_Toc142156110"></a>2系统理论分析与计算</h2><h3 id="2-1-电缆内驻波的分析"><a href="#2-1-电缆内驻波的分析" class="headerlink" title="2.1  电缆内驻波的分析"></a><a id="_Toc142156111"></a>2.1  电缆内驻波的分析</h3><h4 id="2-1-1-终端开路时电缆内部驻波的分析"><a href="#2-1-1-终端开路时电缆内部驻波的分析" class="headerlink" title="2.1.1 终端开路时电缆内部驻波的分析"></a><a id="_Toc142156112"></a>2.1.1 终端开路时电缆内部驻波的分析</h4><p>长线终端短路、开路或端接纯电抗负载时，由于反射系数Γ&#x3D;1 ，所以入射波在终端都将被全反射。入射波与反射波叠加，沿线形成驻波分布，驻波比S&#x3D;∞。</p>
+<p>终端开路时沿线电压、电流振幅值和阻抗的分布如图所示。由图1可见终端为电压波腹点、电流波节点，阻抗为无穷大。<img src="/2024/TICUP_article/1-17308215645181.png" class="lazyload" data-srcset="/2024/TICUP_article/1-17308215645181.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="图1 终端断路时的驻波分布"></p>
+<p>利用驻波的开路段永远是电压波腹点和相邻波节波腹的间距都是λ&#x2F;2这个特性，我们可以通过调整波长λ的值使得波节与波腹的位置左右移动。随着频率的增加，波长不断减小，当波长减小至λ*&#x3D;*4l时理论上输入端应当出现第一个零点，即波节位置移动至检测位置。继续缩小到λ&#x3D;4&#x2F;3l时出现第二个零点。但是若终端出现某些干扰，会导致整个驻波出现相移，即开路的终端不再是波腹位置，这样就会出现偏差。如果取两次的值作差就可以减小误差。</p>
+<h4 id="2-1-2-加上电容以后内部驻波的分析（电容计算法）"><a href="#2-1-2-加上电容以后内部驻波的分析（电容计算法）" class="headerlink" title="2.1.2 加上电容以后内部驻波的分析（电容计算法）"></a><a id="_Toc142156113"></a>2.1.2 加上电容以后内部驻波的分析（电容计算法）</h4><p>上文提到过起始端接入纯电抗负载时，也会发生全反射。电容元件会对信号进行相移，驻波也随之相移，入段阻抗改变，如图2所示。因此电容容值可以等效成导线长度。通过测量导线的等效长度即可算出电容的值。具体推算过程如下文2.3.1所示。<img src="/2024/TICUP_article/%E5%9B%BE%E7%89%871.png" class="lazyload" data-srcset="/2024/TICUP_article/%E5%9B%BE%E7%89%871.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="图2 终端接电容时的驻波分布"></p>
+<h4 id="2-1-3-电阻电容的判断方式"><a href="#2-1-3-电阻电容的判断方式" class="headerlink" title="2.1.3 电阻电容的判断方式"></a><a id="_Toc142156114"></a>2.1.3 电阻电容的判断方式</h4><p>利用电容隔直通交的特性，当末端接入的是电容器时，若向电缆内通入直流电，应无电流存在。若终端接入量级为数十欧的电阻，则电路则会产生明显的电流。对于直流电来讲，20m电缆的阻值可视为集总参数，从而规避掉了分布参数的复杂运算。</p>
+<h3 id="2-2-电缆长度的计算"><a href="#2-2-电缆长度的计算" class="headerlink" title="2.2 电缆长度的计算"></a><a id="_Toc142156115"></a>2.2 电缆长度的计算</h3><p>利用作差可以很简单地求出导线的长度，由频率差计算导线长度的具体推导过程如下：</p>
+<p>当第一个驻波波节到达电缆始端时，观测到最小幅值，此时记频率为f1，有：<br>$$<br>l&#x3D;\frac{\lambda_1}{4}<br>$$<br>当第二个驻波波节到达电缆始端时记频率为f2：<br>$$<br>l&#x3D;\frac{3\lambda_2}{4}<br>$$<br>联立以下基本物理学公式：<br>$$<br>\lambda&#x3D;\frac{u}{f}<br>$$</p>
+<p>$$<br>c&#x3D;\sqrt{\varepsilon_r\mu_r}u<br>$$</p>
+<p>即可得到：<br>$$<br>l&#x3D;\frac{u}{2(f_2-f_1)}&#x3D;\frac{c}{2\sqrt{\varepsilon_r\mu_r}\Delta f}<br>$$<br>只需计算出f2-f1，即可由已知参数确定<em>l</em>的值</p>
+<h3 id="2-3-终端器件参数的计算"><a href="#2-3-终端器件参数的计算" class="headerlink" title="2.3 终端器件参数的计算"></a><a id="_Toc142156116"></a>2.3 终端器件参数的计算</h3><h4 id="2-3-1-电容器的参数计算"><a href="#2-3-1-电容器的参数计算" class="headerlink" title="2.3.1 电容器的参数计算"></a><a id="_Toc142156117"></a>2.3.1 电容器的参数计算</h4><p>计算反射系数：<br>$$<br>\dot{\Gamma_L}&#x3D;\frac{Z_0-jX_L}{Z_0+jX_L}<br>$$<br>代入电抗器件得到：<br>$$<br>|\dot{\Gamma_L}|&#x3D;1<br>$$<br>则电压电流矢量形式可以表记为：<br>$$<br>\dot{U_Z}&#x3D;\dot{U^+}(e^{-j\beta z}+\Gamma_Le^{j\beta z})<br>$$</p>
+<p>$$<br>\dot{I_Z}&#x3D;\frac{\dot{I^+}}{Z_0}(e^{-j\beta z}-\dot{\Gamma_L}e^{-j\beta z})<br>$$</p>
+<p>其中，β为相位常数：</p>
+<p>由终端开路的入段阻抗计算式<br>$$<br>\dot{Z_{in}}&#x3D;Z_0\frac{Z_Lcos\beta l+Z_0sin\beta l}{Z_0cos\beta l+Z_Lsin\beta l}<br>$$<br>得：<br>$$<br>l_0&#x3D;\frac{tan\frac{2\pi}{\lambda}}{\omega CZ_0}<br>$$<br>其中<em>l­0</em>就是电容的等效长度，可以由第二问的长度测量装置测得。</p>
+<h4 id="2-3-2电阻的参数计算"><a href="#2-3-2电阻的参数计算" class="headerlink" title="2.3.2电阻的参数计算"></a><a id="_Toc142156118"></a>2.3.2电阻的参数计算</h4><p>由于采用直流分压的方法测试电阻，故电阻只需用欧姆定律分压计算即可，此处不再赘述。</p>
+<h2 id="3电路与程序设计"><a href="#3电路与程序设计" class="headerlink" title="3电路与程序设计"></a><a id="_Toc142156119"></a>3电路与程序设计</h2><h3 id="3-1电路的设计"><a href="#3-1电路的设计" class="headerlink" title="3.1电路的设计"></a><a id="_Toc142156120"></a>3.1电路的设计</h3><h4 id="3-1-1系统总体框图"><a href="#3-1-1系统总体框图" class="headerlink" title="3.1.1系统总体框图"></a><a id="_Toc142156121"></a>3.1.1系统总体框图</h4><p>系统总体框图如图3所示，</p>
+<p><img src="/2024/TICUP_article/%E5%9B%BE%E7%89%872.jpg" class="lazyload" data-srcset="/2024/TICUP_article/%E5%9B%BE%E7%89%872.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="图3  系统总体框图"></p>
+<h4 id="3-1-2-激励信号发生电路系统设计"><a href="#3-1-2-激励信号发生电路系统设计" class="headerlink" title="3.1.2 激励信号发生电路系统设计"></a><a id="_Toc142156122"></a>3.1.2 激励信号发生电路系统设计</h4><p>激励信号为3MHz~30MHz的连续扫频信号，由于频率较高，故采用DDS模块直接产生。由STM32主控向DDS发送频率相位等信息，DDS即可直接产生相应的波形作为激励信号。</p>
+<h4 id="3-1-3-信号检测及处理电路系统框图与电路原理图"><a href="#3-1-3-信号检测及处理电路系统框图与电路原理图" class="headerlink" title="3.1.3 信号检测及处理电路系统框图与电路原理图"></a><a id="_Toc142156123"></a>3.1.3 信号检测及处理电路系统框图与电路原理图</h4><p><strong>1、阻容负载判断及电阻测量子系统电路</strong></p>
+<p>三极管基极接入单片机IO接口控制继电器开关，R3R4之间接入单片机ADC测量电压值。</p>
+<p><img src="/2024/TICUP_article/%E5%9B%BE%E7%89%873.png" class="lazyload" data-srcset="/2024/TICUP_article/%E5%9B%BE%E7%89%873.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="图4   阻容负载判断及电阻测量子系统电路"></p>
+<p> <img src="/2024/TICUP_article/%E5%9B%BE%E7%89%874.png" class="lazyload" data-srcset="/2024/TICUP_article/%E5%9B%BE%E7%89%874.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="图4   阻容负载判断及电阻测量子系统电路"></p>
+<p><strong>2、电缆长度检测及电容容值测量子系统框图</strong></p>
+<p><img src="/2024/TICUP_article/%E5%9B%BE%E7%89%875.jpg" class="lazyload" data-srcset="/2024/TICUP_article/%E5%9B%BE%E7%89%875.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="图5  电缆长度检测及电容容值测量系统框图"></p>
+<h4 id="3-1-4电源"><a href="#3-1-4电源" class="headerlink" title="3.1.4电源"></a><a id="_Toc142156124"></a>3.1.4电源</h4><p>电源部分由外部输入5V供电，可以从外部仪器电源接入，也可从单片机Type-C接口接入。由于电路比较简单，此处不再详细说明。</p>
+<h3 id="3-2程序的设计"><a href="#3-2程序的设计" class="headerlink" title="3.2程序的设计"></a><a id="_Toc142156125"></a>3.2程序的设计</h3><h4 id="3-2-1程序功能描述与设计思路"><a href="#3-2-1程序功能描述与设计思路" class="headerlink" title="3.2.1程序功能描述与设计思路"></a><a id="_Toc142156126"></a>3.2.1程序功能描述与设计思路</h4><p>1、程序功能描述</p>
+<p>根据题目要求软件部分主要实现OLED的显示和使用ADC读取电压值对应频率值并处理。</p>
+<p>1）键盘实现功能：开启电缆长度检测、负载类型及参数检测。</p>
+<p>2）显示部分：显示工作状态，电缆长度，负载类型及其参数。</p>
+<p>2、程序设计思路</p>
+<p>设计DDS频率扫描函数，控制DDS输出频率变化的正弦信号；设计ADC采样模块，用于采集电缆内形成的驻波信号，与对应DDS频率建立关系求得电缆长度</p>
+<h4 id="3-2-2程序流程"><a href="#3-2-2程序流程" class="headerlink" title="3.2.2程序流程"></a><a id="_Toc142156127"></a>3.2.2程序流程</h4><p>1、主程序流程图					</p>
+<p><img src="/2024/TICUP_article/%E5%9B%BE%E7%89%876.jpg" class="lazyload" data-srcset="/2024/TICUP_article/%E5%9B%BE%E7%89%876.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="图片6"></p>
+<p>2、终端开路电缆长度测量子程序流程图</p>
+<p><img src="/2024/TICUP_article/%E5%9B%BE%E7%89%877.png" class="lazyload" data-srcset="/2024/TICUP_article/%E5%9B%BE%E7%89%877.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="图片7"></p>
+<p>3、电容容值测量子程序流程</p>
+<p>在已经测量完长度和判断过负载为电容的前提下，再次测量长度并计算出新的等效长度，套用2.3.1的公式即可计算出电容容值。</p>
+<p>4、电阻阻值测量子程序流程</p>
+<p>在已经测量完长度和判断过负载为电容的前提下，读取ADC的值，利用ADC读取的电压套用欧姆定律即可解出电阻阻值。套用时可结合长度修正电缆阻值。</p>
+<h2 id="4测试方案与测试结果"><a href="#4测试方案与测试结果" class="headerlink" title="4测试方案与测试结果"></a><a id="_Toc142156128"></a>4测试方案与测试结果</h2><h3 id="4-1测试方案"><a href="#4-1测试方案" class="headerlink" title="4.1测试方案"></a><a id="_Toc142156129"></a>4.1测试方案</h3><p>本题软件主要负责产生波形，计算时间和频率差</p>
+<p>1、硬件测试</p>
+<p>硬件部分在和DDS联调测量之前使用高频信号发生器作为其激励源，经检波以后输入示波器观察一个周期内的极小值，并直接采用2.2, 2.3中所述算法计算出对应的长度、阻值或容值。</p>
+<p>2、软件测试</p>
+<p>软件控制DDS产生相应的定频波形与步进扫频波形，并用示波器观察生成状态。</p>
+<p>3、硬件软件联调</p>
+<p>通过样机对20m电缆进行检测，将20m电缆以半米为单位逐次剪短并用硬件电路测试，分别测试其长度、终端电阻值、终端电容值。通过所得长度结果，调节电介质常数，直到所得值稳定在目标值附近，误差最小时，开始对电容、电阻值进行测量，并对电容、电阻的系数进行调整，得到有效电容电阻值，并对以上数据记录，求得测量误差。</p>
+<h3 id="4-2-测试条件与仪器"><a href="#4-2-测试条件与仪器" class="headerlink" title="4.2 测试条件与仪器"></a><a id="_Toc142156130"></a>4.2 测试条件与仪器</h3><p>测试条件：测试条件：通过信号发生器对电缆进行验证测试，通过实验对前期理论进行验证，在测试后确认具体方案后，再设计硬件电路。</p>
+<p>测试仪器：频谱分析仪，频率计，200MHz数字示波器，LCR测试仪，200MHz信号发生器，直流稳压电源。</p>
+<h3 id="4-3-测试结果及分析"><a href="#4-3-测试结果及分析" class="headerlink" title="4.3 测试结果及分析"></a><a id="_Toc142156131"></a>4.3 测试结果及分析</h3><h4 id="4-3-1测试结果-数据"><a href="#4-3-1测试结果-数据" class="headerlink" title="4.3.1测试结果(数据)"></a><a id="_Toc142156132"></a>4.3.1测试结果(数据)</h4><p>由于测量数据较多，现摘录部分长度测量数据如下：</p>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>实际长度(m)</strong></th>
+<th align="center"><strong>测量长度(m)</strong></th>
+<th align="center">相对误差</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">19.00</td>
+<td align="center">18.98</td>
+<td align="center">-0.11%</td>
+</tr>
+<tr>
+<td align="center">18.00</td>
+<td align="center">18.06</td>
+<td align="center">0.33%</td>
+</tr>
+<tr>
+<td align="center">17.00</td>
+<td align="center">17.03</td>
+<td align="center">0.18%</td>
+</tr>
+<tr>
+<td align="center">16.00</td>
+<td align="center">16.08</td>
+<td align="center">0.50%</td>
+</tr>
+<tr>
+<td align="center">15.00</td>
+<td align="center">15.61</td>
+<td align="center">0.71%</td>
+</tr>
+<tr>
+<td align="center">14.00</td>
+<td align="center">14.54</td>
+<td align="center">0.28%</td>
+</tr>
+<tr>
+<td align="center">……</td>
+<td align="center">……</td>
+<td align="center">……</td>
+</tr>
+</tbody></table>
+<h4 id="4-3-2测试分析与结论"><a href="#4-3-2测试分析与结论" class="headerlink" title="4.3.2测试分析与结论"></a><a id="_Toc142156133"></a>4.3.2测试分析与结论</h4><p>根据测试结果，开路时测量长度在1000cm到2000cm之间电缆的误差绝对值均在1%以内，且检测时间大约为四秒；负载测量中，电阻测量值误差不大于10%，检测时间大约为四秒，电容测量值误差不大于7%，测量时间大约为四秒，由此可以得出以下结论：</p>
+<p>1、最佳扫频测量值为3MHz-30MHz，在此频率范围内扫频，可以获得已与测量的反射波；</p>
+<p>2、同轴电缆长度、电阻、电容的测量值受到温度漂移影响，在室温正常变化范围内，误差不大于2%；</p>
+<p>综上所述，本设计达到设计要求。</p>
 
       </div>
       <div class="post-tags-categories">
         
         <div class="tags">
           
-            <a href="/tags/%E7%A7%91%E6%99%AE/" class="">
-              科普
+            <a href="/tags/%E7%AB%9E%E8%B5%9B/" class="">
+              竞赛
             </a>
           
-            <a href="/tags/%E9%80%89%E8%B4%AD%E6%8C%87%E5%8D%97/" class="">
-              选购指南
+            <a href="/tags/%E6%95%99%E7%A8%8B%EF%BC%8C%E6%A8%A1%E6%9D%BF/" class="">
+              教程，模板
             </a>
           
         </div>
@@ -604,7 +713,7 @@
     </li>
     <li class="post-copyright-link">
     <strong>文章链接:  </strong>
-    <a href="/2024/bluetooth_audio/" target="_blank" title="蓝牙音频编码以及传输模式">https://bisucrose.github.io/2024/bluetooth_audio/</a>
+    <a href="/2024/TICUP_article/" target="_blank" title="2022年全国大学生电子设计大赛B题思路">https://bisucrose.github.io/2024/TICUP_article/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明:   </strong>
@@ -622,24 +731,6 @@
 
 
 
-  
-  <div class="post-nav-prev post-nav-item">
-    <div class="post-nav-img" style="background-size: cover; 
-      background-position: center center;">
-      <img class="lazyload lazyload" src="https://pic3.zhimg.com/80/v2-5f7cb7e900b9dcf5354c3d4d2c5cc3c2_1440w.webp" class="lazyload" data-srcset="https://pic3.zhimg.com/80/v2-5f7cb7e900b9dcf5354c3d4d2c5cc3c2_1440w.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="">
-    </div>
-    <a href="/2024/baoyan/" class="post-nav-link">
-      <div class="title">
-        <i class="fas fa-angle-left"></i> 上一篇:
-        <div class="title-text">保研流程指南（正在施工）</div>
-      </div>
-      
-      <!-- <div class="content">
-        保研流程指南前言写这篇文章的目的一是为了回忆自己人生中的一小段重要经历，更重要的是因为自己想要记录一下这次宝贵的经历，避
-      </div> -->
-    </a>
-  </div>
-
 
 
   
@@ -648,13 +739,15 @@
       background-position: center center;">
       <img class="lazyload lazyload" src="/medias/Wallpaper/3.jpg" class="lazyload" data-srcset="/medias/Wallpaper/3.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" src="" alt="">
     </div>
-    <a href="/2024/jlunet_manual/" class="post-nav-link">
+    <a href="/2024/jlu_webpage_navi/" class="post-nav-link">
       <div class="title">
         下一篇: <i class="fas fa-angle-right"></i>
-        <div class="title-text">吉林大学入网指南（2024版）</div>
+        <div class="title-text">吉林大学常用网站导航</div>
       </div>
       <!-- <div class="content">
-        吉林大学入网指南概述你吉校园网使用月租制，即：每月扣费20元，每年计费10个月，共计200元，通过校园卡在 http:/
+        常用网站校内办公 oa.jlu.edu.cn
+教务管理系统 iedu.jlu.edu.cn
+吉林大学VPN vpn.jl
       </div> -->
     </a>
   </div>
@@ -870,7 +963,7 @@
   <div class='content'>
     <div class="toc-main">
       <div class="toc-content">
-        <!-- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%93%9D%E7%89%99%E9%9F%B3%E9%A2%91%E7%BC%96%E7%A0%81%E4%BB%A5%E5%8F%8A%E4%BC%A0%E8%BE%93%E6%A8%A1%E5%BC%8F"><span class="toc-text">蓝牙音频编码以及传输模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A2%8E%E7%A2%8E%E5%BF%B5"><span class="toc-text">碎碎念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%93%9D%E7%89%99%E9%9F%B3%E9%A2%91%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE"><span class="toc-text">蓝牙音频传输协议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#SBC"><span class="toc-text">SBC</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%82%E6%95%B0"><span class="toc-text">参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E9%99%85%E5%90%AC%E6%84%9F"><span class="toc-text">实际听感</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AAC"><span class="toc-text">AAC</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%82%E6%95%B0-1"><span class="toc-text">参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E9%99%85%E5%90%AC%E6%84%9F-1"><span class="toc-text">实际听感</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#aptX"><span class="toc-text">aptX</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%82%E6%95%B0-2"><span class="toc-text">参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E9%99%85%E5%90%AC%E6%84%9F-2"><span class="toc-text">实际听感</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LDAC"><span class="toc-text">LDAC</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%82%E6%95%B0-3"><span class="toc-text">参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E9%99%85%E5%90%AC%E6%84%9F-3"><span class="toc-text">实际听感</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LHDC"><span class="toc-text">LHDC</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%82%E6%95%B0-4"><span class="toc-text">参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E9%99%85%E5%90%AC%E6%84%9F-4"><span class="toc-text">实际听感</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%93%9D%E7%89%99%E8%80%B3%E6%9C%BA%E5%B8%B8%E7%94%A8%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8F"><span class="toc-text">蓝牙耳机常用工作模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Low-Latency%EF%BC%88%E4%BD%8E%E5%BB%B6%E8%BF%9F%EF%BC%89"><span class="toc-text">Low-Latency（低延迟）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Stereo-A2DP%EF%BC%88%E7%94%B5%E8%84%91%E4%B8%8A%E7%9A%84%E6%A0%87%E5%87%86%E6%A8%A1%E5%BC%8F%EF%BC%89"><span class="toc-text">Stereo&#x2F;A2DP（电脑上的标准模式）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Hand-Free-AG%E6%A8%A1%E5%BC%8F%EF%BC%88%E9%80%9A%E8%AF%9D%E6%A8%A1%E5%BC%8F%EF%BC%89"><span class="toc-text">Hand-Free AG模式（通话模式）</span></a></li></ol></li></ol></li></ol> -->
+        <!-- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#2022%E5%B9%B4%E5%85%A8%E5%9B%BD%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%94%B5%E5%AD%90%E8%AE%BE%E8%AE%A1%E5%A4%A7%E8%B5%9BB%E9%A2%98%E6%80%9D%E8%B7%AF"><span class="toc-text">2022年全国大学生电子设计大赛B题思路</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%91%98%E8%A6%81"><span class="toc-text">摘要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95"><span class="toc-text">目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E7%B3%BB%E7%BB%9F%E6%96%B9%E6%A1%88"><span class="toc-text">1.系统方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E7%94%B5%E7%BC%86%E9%95%BF%E5%BA%A6%E8%AF%86%E5%88%AB%E6%96%B9%E5%BC%8F%E7%9A%84%E8%AE%BA%E8%AF%81%E4%B8%8E%E9%80%89%E6%8B%A9"><span class="toc-text">1.1 电缆长度识别方式的论证与选择</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E7%94%B5%E5%AE%B9%E7%94%B5%E9%98%BB%E6%B5%8B%E9%87%8F%E6%96%B9%E5%BC%8F%E7%9A%84%E8%AE%BA%E8%AF%81%E4%B8%8E%E9%80%89%E6%8B%A9"><span class="toc-text">1.2 电容电阻测量方式的论证与选择</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F%E7%9A%84%E8%AE%BA%E8%AF%81%E4%B8%8E%E9%80%89%E6%8B%A9"><span class="toc-text">1.3 控制系统的论证与选择</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E7%B3%BB%E7%BB%9F%E7%90%86%E8%AE%BA%E5%88%86%E6%9E%90%E4%B8%8E%E8%AE%A1%E7%AE%97"><span class="toc-text">2系统理论分析与计算</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E7%94%B5%E7%BC%86%E5%86%85%E9%A9%BB%E6%B3%A2%E7%9A%84%E5%88%86%E6%9E%90"><span class="toc-text">2.1  电缆内驻波的分析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-1-%E7%BB%88%E7%AB%AF%E5%BC%80%E8%B7%AF%E6%97%B6%E7%94%B5%E7%BC%86%E5%86%85%E9%83%A8%E9%A9%BB%E6%B3%A2%E7%9A%84%E5%88%86%E6%9E%90"><span class="toc-text">2.1.1 终端开路时电缆内部驻波的分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-2-%E5%8A%A0%E4%B8%8A%E7%94%B5%E5%AE%B9%E4%BB%A5%E5%90%8E%E5%86%85%E9%83%A8%E9%A9%BB%E6%B3%A2%E7%9A%84%E5%88%86%E6%9E%90%EF%BC%88%E7%94%B5%E5%AE%B9%E8%AE%A1%E7%AE%97%E6%B3%95%EF%BC%89"><span class="toc-text">2.1.2 加上电容以后内部驻波的分析（电容计算法）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-3-%E7%94%B5%E9%98%BB%E7%94%B5%E5%AE%B9%E7%9A%84%E5%88%A4%E6%96%AD%E6%96%B9%E5%BC%8F"><span class="toc-text">2.1.3 电阻电容的判断方式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E7%94%B5%E7%BC%86%E9%95%BF%E5%BA%A6%E7%9A%84%E8%AE%A1%E7%AE%97"><span class="toc-text">2.2 电缆长度的计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E7%BB%88%E7%AB%AF%E5%99%A8%E4%BB%B6%E5%8F%82%E6%95%B0%E7%9A%84%E8%AE%A1%E7%AE%97"><span class="toc-text">2.3 终端器件参数的计算</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-1-%E7%94%B5%E5%AE%B9%E5%99%A8%E7%9A%84%E5%8F%82%E6%95%B0%E8%AE%A1%E7%AE%97"><span class="toc-text">2.3.1 电容器的参数计算</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-2%E7%94%B5%E9%98%BB%E7%9A%84%E5%8F%82%E6%95%B0%E8%AE%A1%E7%AE%97"><span class="toc-text">2.3.2电阻的参数计算</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E7%94%B5%E8%B7%AF%E4%B8%8E%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1"><span class="toc-text">3电路与程序设计</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1%E7%94%B5%E8%B7%AF%E7%9A%84%E8%AE%BE%E8%AE%A1"><span class="toc-text">3.1电路的设计</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-1%E7%B3%BB%E7%BB%9F%E6%80%BB%E4%BD%93%E6%A1%86%E5%9B%BE"><span class="toc-text">3.1.1系统总体框图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-2-%E6%BF%80%E5%8A%B1%E4%BF%A1%E5%8F%B7%E5%8F%91%E7%94%9F%E7%94%B5%E8%B7%AF%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1"><span class="toc-text">3.1.2 激励信号发生电路系统设计</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-3-%E4%BF%A1%E5%8F%B7%E6%A3%80%E6%B5%8B%E5%8F%8A%E5%A4%84%E7%90%86%E7%94%B5%E8%B7%AF%E7%B3%BB%E7%BB%9F%E6%A1%86%E5%9B%BE%E4%B8%8E%E7%94%B5%E8%B7%AF%E5%8E%9F%E7%90%86%E5%9B%BE"><span class="toc-text">3.1.3 信号检测及处理电路系统框图与电路原理图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-4%E7%94%B5%E6%BA%90"><span class="toc-text">3.1.4电源</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2%E7%A8%8B%E5%BA%8F%E7%9A%84%E8%AE%BE%E8%AE%A1"><span class="toc-text">3.2程序的设计</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-1%E7%A8%8B%E5%BA%8F%E5%8A%9F%E8%83%BD%E6%8F%8F%E8%BF%B0%E4%B8%8E%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF"><span class="toc-text">3.2.1程序功能描述与设计思路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-2%E7%A8%8B%E5%BA%8F%E6%B5%81%E7%A8%8B"><span class="toc-text">3.2.2程序流程</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4%E6%B5%8B%E8%AF%95%E6%96%B9%E6%A1%88%E4%B8%8E%E6%B5%8B%E8%AF%95%E7%BB%93%E6%9E%9C"><span class="toc-text">4测试方案与测试结果</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1%E6%B5%8B%E8%AF%95%E6%96%B9%E6%A1%88"><span class="toc-text">4.1测试方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-%E6%B5%8B%E8%AF%95%E6%9D%A1%E4%BB%B6%E4%B8%8E%E4%BB%AA%E5%99%A8"><span class="toc-text">4.2 测试条件与仪器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-%E6%B5%8B%E8%AF%95%E7%BB%93%E6%9E%9C%E5%8F%8A%E5%88%86%E6%9E%90"><span class="toc-text">4.3 测试结果及分析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-3-1%E6%B5%8B%E8%AF%95%E7%BB%93%E6%9E%9C-%E6%95%B0%E6%8D%AE"><span class="toc-text">4.3.1测试结果(数据)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-3-2%E6%B5%8B%E8%AF%95%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%93%E8%AE%BA"><span class="toc-text">4.3.2测试分析与结论</span></a></li></ol></li></ol></li></ol></li></ol> -->
         <div class="toc"></div>
       </div>
     </div>
@@ -1091,6 +1184,59 @@
 		height: 100%;
 	}
 </style>
+
+
+  <script>
+  // https://github.com/theme-next/hexo-theme-next/blob/master/layout/_third-party/math/mathjax.swig
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = 'https://unpkg.com/mathjax@3.0/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    // 文章章节标题不能为 “MathJax” ，否则会报错。
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
 
 
 
