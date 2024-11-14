@@ -576,9 +576,12 @@
 <p><img src="/2024/WSL_installation/fe8ca171e6ff08b4e1d987b1ced4b011.png" class="lazyload" data-srcset="/2024/WSL_installation/fe8ca171e6ff08b4e1d987b1ced4b011.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p>
 <p>经查询全网都没有解决方法，也没有人提出相关问题。自己以前倒是遇到过此类情况，原因为安装软件时软件错误地配置了注册表键值权限，导致它自己没有足够的权限，无法配置。我在电脑上重新安装了WSL2，发现这些键值会重新出现，因此个人认为直接删除这几个目录即可。<span style="color:red"><strong>注意：如有疑虑请自行考虑解决方法。</strong></span></p>
 <p>以管理员身份运行终端，输入：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">reg delete HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Drive\shell\WSL /f</span><br><span class="line">reg delete HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\background\shell\WSL /f</span><br><span class="line">reg delete HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\shell\WSL /f</span><br><span class="line">            </span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">reg delete HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Drive\shell\WSL /f</span><br><span class="line">reg delete HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\background\shell\WSL /f</span><br><span class="line">reg delete HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\shell\WSL /f</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p>执行完毕后问题解决。</p>
+</li>
+<li><p>报错**%1 is not a valid Win32 application**</p>
+<p>请移步<a target="_blank" rel="noopener" href="https://glasswarm.github.io/2024/11/05/WSL/wsl%E7%9A%84%E5%AE%89%E8%A3%85/#%E6%8A%A5%E9%94%99">wsl的安装 | T琉璃T</a>，琉璃姐姐有记录此问题，我未能复现，无法提供帮助。</p>
 </li>
 </ol>
 </blockquote>
