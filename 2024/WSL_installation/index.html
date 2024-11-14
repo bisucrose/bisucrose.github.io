@@ -11,7 +11,7 @@
   <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-  <title>STM32LearningNoteOld | 苏可璐斯的小站</title>
+  <title>Windows Subsystem for Linux安装教程与使用方法（GUI与终端安装） | 苏可璐斯的小站</title>
 
   <link rel="icon" type="image/png" href="/favi.png">
   <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
@@ -480,43 +480,34 @@
 
 
 <div class="post-detail-header" id="thumbnail_canvas" style="background-repeat: no-repeat; background-size: cover; 
-  background-position: center center;position: relative;background-image:url('https://pic1.zhimg.com/80/v2-03a22891ccba9bccf6424dfd7cbf4be7_1440w.webp')">
+  background-position: center center;position: relative;background-image:url('https://pic2.zhimg.com/80/v2-63bbdb5b76b8d349ad35ff4281efbd37_1440w.webp')">
   <div class="post-detail-header-mask"></div>
   <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
   
   <div class="post-detail-header_info-box">
     <div class="title-box">
       <span class="title">
-        STM32LearningNoteOld
+        Windows Subsystem for Linux安装教程与使用方法（GUI与终端安装）
       </span>
     </div>
     
     
       
         <span class="post-detail-header_date">
-          <i class="fas fa-calendar"></i> 发表于：2023-07-24 |
+          <i class="fas fa-calendar"></i> 发表于：2024-11-13 |
         </span>
       
 
-      
-        <span class="post-detail-header_categories">
-          <i class="iconfont iconbookmark1"></i> 分类：
-          
-            <a href="/categories/Archived/" class="post-detail-header_category">
-              Archived
-            </a>
-          
-        </span>
       
 
       
         <div class="post-detail-header_wordcount">
           <span class="totalcount">
-            <i class="fas fa-file-text-o"></i> 字数统计: 505 |
+            <i class="fas fa-file-text-o"></i> 字数统计: 2.4k |
           </span>
   
           <span class="min2read">
-            <i class="fas fa-clock"></i> 阅读时长: 1分钟 |
+            <i class="fas fa-clock"></i> 阅读时长: 9分钟 |
           </span>
   
           
@@ -543,21 +534,151 @@
   <div class="main-content">
     <article class="post post-detail">
       <div class="post-content">
-        <h1 id="记录这几天学习STM32的玄幻经历"><a href="#记录这几天学习STM32的玄幻经历" class="headerlink" title="记录这几天学习STM32的玄幻经历"></a>记录这几天学习STM32的玄幻经历</h1><p>第一天安装keil5，告诉我keil4没有卸载干净，需要先卸载keil4。清理了半天没找到在哪里有残留文件，遂手动解包配置，折腾一整天安装完成。</p>
-<p>第二天测试例程发现烧不进去，检查pack安装无误，所有功能一切正常，全网搜不到相关错误遂转投STM32CubeIDE。之前安装过一次没有用过，这次安装完以后调试的时候无法使用，报错信息全网仅有5条全是unsolved。后来怀疑是之前安装的汉化包的问题，遂通宵重装系统(软件全安C盘了，所以重装系统花了好长时间)</p>
-<p>第三天软件全部安装完毕，开始正式学习，从闪灯学起，遇到问题，一运行到HAL_Delay函数整个程序就莫名其妙卡死无法继续运行，结果烧进去例程就能正常运行。上网搜索竟然还有一大堆看起来很有道理的解释，比如ticktock中断优先级是15，闪灯时有其他的中断把函数阻塞了。研究了一整天未果，结果换了STM32F103C8T6就全好使了。开始怀疑是板子有问题</p>
-<p>第四天培训完以后向老师说明，老师A说我心不诚，老师B说板子坏了的可能性很小，大多都是我软件配置有问题，让老师A帮忙看一下，但老师A着急吃饭，略微瞥了一眼说我配置有问题，遂回去研究了一整天时钟配置未果。</p>
-<p>第五天开始向周围人请求解答，大家都忙，无人解答。樊佬抽了时间帮忙看了一下，说我配置没有问题。发现郑佬有相同的板子，将程序发给他烧进去就能用。确定板子损坏。</p>
-<p>第六天更换了板子，一切正常。</p>
-<p>自此，学习兴趣全无。</p>
+        <h1 id="WSL2安装教程与使用方法（GUI与终端安装）"><a href="#WSL2安装教程与使用方法（GUI与终端安装）" class="headerlink" title="WSL2安装教程与使用方法（GUI与终端安装）"></a>WSL2安装教程与使用方法（GUI与终端安装）</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><span style="color:red"><strong>注意，本教程会过时！！！</strong></span><strong>请永远以官方文档 <a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/windows/wsl/install">安装 WSL | Microsoft Learn</a> 为准。</strong><del>如果你要当时间警察当我没说。</del></p>
+<p>昨天与琉璃一起安装的时候盲目按照自己2021年初的方法配置，<del>自己硬造出来了一大堆bug，</del>现在看了官方文档以后发现很多地方都不一样了，特别是当年WSL1刚刚出的时候，配置极其繁琐与麻烦，现在的配置步骤相较于以前已经精简了许多。</p>
+<p>这里推荐一下Windows应用商店里面全新构建的终端<a target="_blank" rel="noopener" href="https://apps.microsoft.com/detail/9n0dx20hk701?launch=true&mode=full&hl=zh-cn&gl=cn&ocid=bingwebsearch">Windows Terminal|微软应用商店 </a>，长得颜值还可以，字体也比较好看，各种颜色都比较丰富，可以一试。<del>（本人极其颜控，软件长得丑会极大地衰减学习兴趣）</del></p>
+<h2 id="导航"><a href="#导航" class="headerlink" title="导航"></a>导航</h2><blockquote>
+<p>Windows 11 &amp; Windows 10 2004（内部版本19041）及以上用户请查看：<a href="#GUI%E7%89%88%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B%EF%BC%88%E5%BC%BA%E7%83%88%E6%8E%A8%E8%8D%90%EF%BC%89">GUI版安装教程</a></p>
+<p>Windows 10 LTSC 2021 用户请查看：<a href="#%E7%BB%88%E7%AB%AF%E8%87%AA%E5%8A%A8%E5%AE%89%E8%A3%85">终端自动安装教程</a>；或者在启用微软应用商店后查看<a href="#GUI%E7%89%88%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B%EF%BC%88%E5%BC%BA%E7%83%88%E6%8E%A8%E8%8D%90%EF%BC%89">GUI版安装教程</a></p>
+<p>Windows LTSC和Server和版本号低于2004的用户请查看<a href="#%E6%89%8B%E5%8A%A8%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B">手动安装教程</a></p>
+</blockquote>
+<h2 id="GUI版安装教程（小白强烈推荐）"><a href="#GUI版安装教程（小白强烈推荐）" class="headerlink" title="GUI版安装教程（小白强烈推荐）"></a>GUI版安装教程（小白强烈推荐）</h2><h3 id="常规安装步骤"><a href="#常规安装步骤" class="headerlink" title="常规安装步骤"></a>常规安装步骤</h3><ol>
+<li><p>首先请确保你的Windows版本大于Windows10 2004（内部版本号19041）。</p>
+<p>查看方法：按下Win+R，输入<code>winver</code>，弹出的对话框中即可显示当前的系统版本。</p>
+</li>
+<li><p>直接在Microsoft Store中搜索Ubuntu 24.04 LTS或者你想要的版本（Debian，ArchLinux等）如下图，点击安装。</p>
+<p><img src="/2024/WSL_installation/image-20241113112142656.png" class="lazyload" data-srcset="/2024/WSL_installation/image-20241113112142656.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20241113112142656"></p>
+</li>
+<li><p>微软应用商店会帮你处理所有事情，理论上来讲经历两次重启以后（第一次在点下安装的1分钟左右，第二次在安装完成之前），就可以用了。</p>
+</li>
+<li><p>按下Win+S，输入<code>Powershell</code>或<code>cmd</code>或者你自己安装的终端。输入</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl -l -v</span><br></pre></td></tr></table></figure>
+
+<p>应当显示如下内容：</p>
+<p><img src="/2024/WSL_installation/image-20241113112011487.png" class="lazyload" data-srcset="/2024/WSL_installation/image-20241113112011487.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20241113112011487"></p>
+</li>
+<li><p>安装完毕</p>
+</li>
+</ol>
+<h3 id="问题汇总："><a href="#问题汇总：" class="headerlink" title="问题汇总："></a>问题汇总：</h3><blockquote>
+<ol>
+<li><p>目前大部分WSL应用均要求WSL2，如果你在应用商店安装过后发现上述步骤三中的截图中Version显示为1，则应当使用以下命令将WSL版本切换为2</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl --set-version Ubuntu-24.04 2</span><br></pre></td></tr></table></figure>
+
+<p>请将上文中的 <code>Ubuntu-24.04</code> 更改为自己想切换的发行版</p>
+<p>想知道WSL1和WSL2的区别以及什么时候需要使用WSL1，请参考官方文档：<a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/windows/wsl/compare-versions?source=recommendations">比较 WSL 版本 | Microsoft Learn</a></p>
+</li>
+<li><p>如果你想安装的版本应用商店里面没有，或者是你没有微软应用商店，请参考下文终端自动安装方式。</p>
+</li>
+<li><p>在微软应用商店安装Ubuntu 20.04 LTS时，可能在执行 <code>wsl --update</code> 的时候报错，内容如下：</p>
+<p><img src="/2024/WSL_installation/2c0b83b5a2cae8ed3e3d7b50a7180510.png" class="lazyload" data-srcset="/2024/WSL_installation/2c0b83b5a2cae8ed3e3d7b50a7180510.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p>
+<p>再次执行 <code>wsl --install</code> 和其他的所有wsl操作时，会出现以下界面，报错1603，并永远卡死在这里：</p>
+<p><img src="/2024/WSL_installation/fe8ca171e6ff08b4e1d987b1ced4b011.png" class="lazyload" data-srcset="/2024/WSL_installation/fe8ca171e6ff08b4e1d987b1ced4b011.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p>
+<p>经查询全网都没有解决方法，也没有人提出相关问题。自己以前倒是遇到过此类情况，原因为安装软件时软件错误地配置了注册表键值权限，导致它自己没有足够的权限，无法配置。我在电脑上重新安装了WSL2，发现这些键值会重新出现，因此个人认为直接删除这几个目录即可。<span style="color:red"><strong>注意：如有疑虑请自行考虑解决方法。</strong></span></p>
+<p>以管理员身份运行终端，输入：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">reg delete HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Drive\shell\WSL /f</span><br><span class="line">reg delete HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\background\shell\WSL /f</span><br><span class="line">reg delete HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\shell\WSL /f</span><br><span class="line">            </span><br></pre></td></tr></table></figure>
+
+<p>执行完毕后问题解决。</p>
+</li>
+</ol>
+</blockquote>
+<h2 id="终端自动安装"><a href="#终端自动安装" class="headerlink" title="终端自动安装"></a>终端自动安装</h2><h3 id="常规步骤"><a href="#常规步骤" class="headerlink" title="常规步骤"></a>常规步骤</h3><ol>
+<li><p>首先请确保你的Windows版本大于Windows10 2004（内部版本号19041）。如果你没有微软应用商店，可能会出错，请转至<strong>问题汇总-LTSC</strong></p>
+</li>
+<li><p>执行命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl --install</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>该指令将会自动启用Windows相关功能并给你安装Ubuntu的最新LTS发行版。如果你不想安装Ubuntu，可以使用以下指令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wsl --install --no-distribution		#安装WSL但是不带任何发行版</span><br><span class="line">wsl --list --online		#列出所有可用的发行版</span><br><span class="line">wsl --install &lt;发行版名称&gt;	#安装选定的发行版</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装完成以后使用 <code>wsl -l -v</code>来查看安装的发行版，显示应该和上文中图片一样。</p>
+</li>
+</ol>
+<h3 id="问题汇总：-1"><a href="#问题汇总：-1" class="headerlink" title="问题汇总："></a>问题汇总：</h3><blockquote>
+<ol>
+<li><p>Windows 10 LTSC版在安装时因为没有微软应用商店可能会出现各种乱七八糟的问题。为了解决这个问题，我暂且提供三种方法。</p>
+<ul>
+<li><p>使用<code>wsreset -i</code>命令直接重置微软应用商店，稍后他会自动安装。</p>
+</li>
+<li><p>在第一行命令的末尾加上 <code>--inbox</code>，此命令将使用Windows更新来安装WSL而不是微软应用商店。<span style="color:red"><strong>注意：此命令将会开启Windows更新，如果你此前禁用了Windows更新，将会失效。</strong></span></p>
+<p>在第三行命令末尾加上<code>--web-download</code>，此命令将从网络下载而不是从Microsoft Store，但需要<strong>良好的网络环境</strong>。</p>
+</li>
+<li><p>使用下文的手动安装方法。</p>
+</li>
+</ul>
+</li>
+<li><p>在安装发行版的时候，LTSC版本也会因为没有微软应用商店而出很多错误。例如：在使用 <code>wsl --update</code>的时候也会出现一大堆bug，请使用 <code>--web-download</code>参数来从网络下载而不是从Microsoft Store。因此强烈建议使用 <code>wsreset -i</code>安装微软应用商店。<del>你如果是“极客”当我没说。</del></p>
+</li>
+</ol>
+</blockquote>
+<h2 id="手动安装教程"><a href="#手动安装教程" class="headerlink" title="手动安装教程"></a>手动安装教程</h2><h3 id="常规步骤-1"><a href="#常规步骤-1" class="headerlink" title="常规步骤"></a>常规步骤</h3><ol>
+<li><p>检查自己的系统版本是否为：</p>
+<p>x64系统：1903 或更高版本（内部版本为 18362.1049 ）</p>
+<p>ARM系统：2004 或更高版本（内部版本为 19041）</p>
+<p><span style="color:red"><strong>请勿问出例如：“如何在不支持的系统上安装WSL这种系统级组件”这种弱智问题，你要是能做到可以去参与日本的Windows2000 Modernization计划</strong></span></p>
+</li>
+<li><p>输入以下命令以启用Windows的虚拟机服务和WSL服务</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart</span><br><span class="line">dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>下载WSL2的安装包</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi">适用于 x64 计算机的 WSL2 Linux 内核更新包</a></li>
+<li><a target="_blank" rel="noopener" href="https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_arm64.msi">适用于ARM计算机的 WSL2 Linux 内核更新包</a></li>
+<li>此处的链接可能会过时，若想安装最新版或者链接失效，请访问：<a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package">https://learn.microsoft.com/zh-cn/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package</a></li>
+</ul>
+</li>
+<li><p>将WSL2设置为默认</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl --set-default-version 2</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>下载发行版 .appx 安装包</p>
+<blockquote>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://aka.ms/wslubuntu">Ubuntu</a></li>
+<li><a target="_blank" rel="noopener" href="https://wslstorestorage.blob.core.windows.net/wslblob/Ubuntu2404-240425.AppxBundle">Ubuntu 24.04</a></li>
+<li><a target="_blank" rel="noopener" href="https://aka.ms/wslubuntu2204">Ubuntu 22.04 LTS</a></li>
+<li><a target="_blank" rel="noopener" href="https://aka.ms/wslubuntu2004">Ubuntu 20.04</a></li>
+<li><a target="_blank" rel="noopener" href="https://aka.ms/wslubuntu2004arm">Ubuntu 20.04 ARM</a></li>
+<li><a target="_blank" rel="noopener" href="https://aka.ms/wsl-ubuntu-1804">Ubuntu 18.04</a></li>
+<li><a target="_blank" rel="noopener" href="https://aka.ms/wsl-ubuntu-1804-arm">Ubuntu 18.04 ARM</a></li>
+<li><a target="_blank" rel="noopener" href="https://aka.ms/wsl-ubuntu-1604">Ubuntu 16.04</a></li>
+<li><a target="_blank" rel="noopener" href="https://aka.ms/wsl-debian-gnulinux">Debian GNU&#x2F;Linux</a></li>
+<li><a target="_blank" rel="noopener" href="https://aka.ms/wsl-kali-linux-new">Kali Linux</a></li>
+<li><a target="_blank" rel="noopener" href="https://aka.ms/wsl-sles-12">SUSE Linux Enterprise Server 12</a></li>
+<li><a target="_blank" rel="noopener" href="https://aka.ms/wsl-SUSELinuxEnterpriseServer15SP2">SUSE Linux Enterprise Server 15 SP2</a></li>
+<li><a target="_blank" rel="noopener" href="https://aka.ms/wsl-SUSELinuxEnterpriseServer15SP3">SUSE Linux Enterprise Server 15 SP3</a></li>
+<li><a target="_blank" rel="noopener" href="https://aka.ms/wsl-opensuse-tumbleweed">openSUSE Tumbleweed</a></li>
+<li><a target="_blank" rel="noopener" href="https://aka.ms/wsl-opensuseleap15-3">openSUSE Leap 15.3</a></li>
+<li><a target="_blank" rel="noopener" href="https://aka.ms/wsl-opensuseleap15-2">openSUSE Leap 15.2</a></li>
+<li><a target="_blank" rel="noopener" href="https://aka.ms/wsl-oraclelinux-8-5">Oracle Linux 8.5</a></li>
+<li><a target="_blank" rel="noopener" href="https://aka.ms/wsl-oraclelinux-7-9">Oracle Linux 7.9</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/WhitewaterFoundry/WSLFedoraRemix/releases/">Fedora Remix for WSL</a></li>
+</ul>
+</blockquote>
+</li>
+<li><p>打开Windows Powershell（或者其他什么的终端也行），切换到 .appx 包所在的目录并运行：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Add-AppxPackage .\&lt;包名&gt;.appx</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>等待安装完成后可以输入 <code>wsl -l -v</code>查看是否安装完成。</p>
+</li>
+</ol>
+<h3 id="问题汇总"><a href="#问题汇总" class="headerlink" title="问题汇总"></a>问题汇总</h3><ol>
+<li>在执行 <code>wsl --update</code>的时候可能会报错，请使用 <code>--web-download</code>参数来从网络下载而不是从Microsoft Store。</li>
+<li>步骤二以后如果无法安装WSL2的msi包可以尝试重启</li>
+</ol>
+<h2 id="WSL常用命令汇总"><a href="#WSL常用命令汇总" class="headerlink" title="WSL常用命令汇总"></a>WSL常用命令汇总</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">安装WSL并指定Linux发行版</span></span><br><span class="line">wsl --install  # 默认安装Ubuntu</span><br><span class="line"> --distribution &lt;发行版名称&gt;：指定安装的发行版</span><br><span class="line"> --no-launch：安装后不自动启动</span><br><span class="line"> --web-download：在线下载安装</span><br><span class="line"> --inbox：使用Windows组件安装WSL（非Microsoft Store）</span><br><span class="line"> --enable-wsl1：启用WSL 1组件</span><br><span class="line"> --no-distribution：不安装任何发行版</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看在线可用发行版列表</span></span><br><span class="line">wsl --list --online  # 别名：wsl -l -o</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看已安装的Linux发行版列表及状态</span></span><br><span class="line">wsl --list --verbose  # 别名：wsl -l -v</span><br><span class="line"> --all：列出所有发行版</span><br><span class="line"> --running：仅列出当前运行的发行版</span><br><span class="line"> --quiet：仅显示发行版名称</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">将指定发行版设置为WSL1或WSL2</span></span><br><span class="line">wsl --set-version &lt;发行版名称&gt; &lt;1/2&gt;  # 切换WSL版本</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">设置WSL默认版本</span></span><br><span class="line">wsl --set-default-version &lt;1/2&gt;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">设置默认Linux发行版</span></span><br><span class="line">wsl --set-default &lt;发行版名称&gt;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">将目录切换至主目录</span></span><br><span class="line">wsl ~  # 启动WSL并切换至主目录</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">以指定用户身份运行特定发行版</span></span><br><span class="line">wsl --distribution &lt;发行版名称&gt; --user &lt;用户名&gt;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">更新WSL至最新版本</span></span><br><span class="line">wsl --update</span><br><span class="line"> --web-download：从GitHub而非Microsoft Store下载更新</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">检查WSL状态</span></span><br><span class="line">wsl --status</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">检查WSL版本</span></span><br><span class="line">wsl --version</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">帮助命令</span></span><br><span class="line">wsl --help</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">以特定用户身份运行WSL</span></span><br><span class="line">wsl --user &lt;用户名&gt;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">更改发行版默认用户</span></span><br><span class="line">&lt;发行版名称&gt; config --default-user &lt;用户名&gt;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">关闭所有运行的WSL进程</span></span><br><span class="line">wsl --shutdown  </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">终止指定发行版</span></span><br><span class="line">wsl --terminate &lt;发行版名称&gt;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">获取WSL 2安装的Linux发行版IP地址</span></span><br><span class="line">wsl hostname -I  </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">导出发行版</span></span><br><span class="line">wsl --export &lt;发行版名称&gt; &lt;文件名&gt;  </span><br><span class="line"> --vhd：导出为.vhdx文件（仅WSL2支持）</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">导入发行版</span></span><br><span class="line">wsl --import &lt;发行版名称&gt; &lt;安装路径&gt; &lt;文件名&gt;  </span><br><span class="line"> --vhd：导入.vhdx文件</span><br><span class="line"> --version &lt;1/2&gt;：导入WSL1或WSL2</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">即时导入VHDX文件作为发行版</span></span><br><span class="line">wsl --import-in-place &lt;发行版名称&gt; &lt;文件名&gt;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">注销或卸载发行版</span></span><br><span class="line">wsl --unregister &lt;发行版名称&gt;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">挂载磁盘至WSL</span></span><br><span class="line">wsl --mount &lt;磁盘路径&gt;</span><br><span class="line"> --vhd：虚拟硬盘</span><br><span class="line"> --name &lt;名称&gt;：挂载点名称</span><br><span class="line"> --bare：仅附加磁盘，不挂载</span><br><span class="line"> --type &lt;文件系统类型&gt;：文件系统类型</span><br><span class="line"> --partition &lt;分区号&gt;：指定挂载分区</span><br><span class="line"> --options &lt;挂载选项&gt;：特定文件系统的挂载选项</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">卸载磁盘</span></span><br><span class="line">wsl --unmount &lt;磁盘路径&gt;  </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 
       </div>
       <div class="post-tags-categories">
         
         <div class="tags">
           
-            <a href="/tags/Archived/" class="">
-              Archived
+            <a href="/tags/%E6%95%99%E7%A8%8B/" class="">
+              教程
+            </a>
+          
+            <a href="/tags/WSL/" class="">
+              WSL
             </a>
           
         </div>
@@ -571,7 +692,7 @@
     </li>
     <li class="post-copyright-link">
     <strong>文章链接:  </strong>
-    <a href="/2023/STM32LearningNoteOld/" target="_blank" title="STM32LearningNoteOld">https://bisucrose.github.io/2023/STM32LearningNoteOld/</a>
+    <a href="/2024/WSL_installation/" target="_blank" title="Windows Subsystem for Linux安装教程与使用方法（GUI与终端安装）">https://bisucrose.github.io/2024/WSL_installation/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明:   </strong>
@@ -593,21 +714,38 @@
   <div class="post-nav-prev post-nav-item">
     <div class="post-nav-img" style="background-size: cover; 
       background-position: center center;">
-      <img class="lazyload lazyload" src="/medias/Wallpaper/1.jpg" class="lazyload" data-srcset="/medias/Wallpaper/1.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="">
+      <img class="lazyload lazyload" src="https://pic3.zhimg.com/80/v2-e5c15010b8ba4608a1974403a02a2da0_1440w.webp" class="lazyload" data-srcset="https://pic3.zhimg.com/80/v2-e5c15010b8ba4608a1974403a02a2da0_1440w.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="">
     </div>
-    <a href="/2024/vscode_font_configuration/" class="post-nav-link">
+    <a href="/2024/WSL_Troubleshooting&DailyCommand/" class="post-nav-link">
       <div class="title">
         <i class="fas fa-angle-left"></i> 上一篇:
-        <div class="title-text">Visual Studio Code终端字体&amp;编辑器字体&amp;中文编码配置</div>
+        <div class="title-text">WSL使用指南&amp;常用命令（持续更新）</div>
       </div>
       
       <!-- <div class="content">
-        Visual Studio Code终端字体&amp;编辑器字体&amp;中文编码配置终端字体在Visual Studi
+        WSL使用指南WSL的图形化文件管理WSL2是有图形化文件管理界面的，在安装完WSL后在此电脑左边的导航栏里面应该有个L
       </div> -->
     </a>
   </div>
 
 
+
+  
+  <div class="post-nav-next post-nav-item">
+    <div class="post-nav-img" style="background-size: cover; 
+      background-position: center center;">
+      <img class="lazyload lazyload" src="https://picx.zhimg.com/80/v2-b44931ea513e5f7b3b06f2703f79653c_1440w.webp" class="lazyload" data-srcset="https://picx.zhimg.com/80/v2-b44931ea513e5f7b3b06f2703f79653c_1440w.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" src="" alt="">
+    </div>
+    <a href="/2024/STM32LearningNote/" class="post-nav-link">
+      <div class="title">
+        下一篇: <i class="fas fa-angle-right"></i>
+        <div class="title-text">STM32学习笔记（一）【施工中】</div>
+      </div>
+      <!-- <div class="content">
+        STM32学习笔记（一）【施工中】前言细数自己的STM32学习之路，可谓是无比艰辛。各种硬件软件上的问题层出不穷，借来的
+      </div> -->
+    </a>
+  </div>
 
 </div>
 
@@ -820,7 +958,7 @@
   <div class='content'>
     <div class="toc-main">
       <div class="toc-content">
-        <!-- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%B0%E5%BD%95%E8%BF%99%E5%87%A0%E5%A4%A9%E5%AD%A6%E4%B9%A0STM32%E7%9A%84%E7%8E%84%E5%B9%BB%E7%BB%8F%E5%8E%86"><span class="toc-text">记录这几天学习STM32的玄幻经历</span></a></li></ol> -->
+        <!-- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#WSL2%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B%E4%B8%8E%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%EF%BC%88GUI%E4%B8%8E%E7%BB%88%E7%AB%AF%E5%AE%89%E8%A3%85%EF%BC%89"><span class="toc-text">WSL2安装教程与使用方法（GUI与终端安装）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%BC%E8%88%AA"><span class="toc-text">导航</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GUI%E7%89%88%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B%EF%BC%88%E5%B0%8F%E7%99%BD%E5%BC%BA%E7%83%88%E6%8E%A8%E8%8D%90%EF%BC%89"><span class="toc-text">GUI版安装教程（小白强烈推荐）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%84%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4"><span class="toc-text">常规安装步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB%EF%BC%9A"><span class="toc-text">问题汇总：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%88%E7%AB%AF%E8%87%AA%E5%8A%A8%E5%AE%89%E8%A3%85"><span class="toc-text">终端自动安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%84%E6%AD%A5%E9%AA%A4"><span class="toc-text">常规步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB%EF%BC%9A-1"><span class="toc-text">问题汇总：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%8B%E5%8A%A8%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B"><span class="toc-text">手动安装教程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%84%E6%AD%A5%E9%AA%A4-1"><span class="toc-text">常规步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB"><span class="toc-text">问题汇总</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#WSL%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%B1%87%E6%80%BB"><span class="toc-text">WSL常用命令汇总</span></a></li></ol></li></ol> -->
         <div class="toc"></div>
       </div>
     </div>
