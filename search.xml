@@ -4,6 +4,7 @@
   
     
     <entry>
+<<<<<<< HEAD
       <title>吉林大学校园网使用指南（2024版）</title>
       <link href="/2024/10/28/jlunet_manual/"/>
       <url>/2024/10/28/jlunet_manual/</url>
@@ -31,11 +32,13 @@
     
     
     <entry>
+=======
+>>>>>>> parent of 8b95490 (Site updated: 2024-10-28 20:14:00)
       <title>目前挖的坑&amp;进度</title>
       <link href="/2024/10/23/todo_list/"/>
       <url>/2024/10/23/todo_list/</url>
       
-        <content type="html"><![CDATA[<h1 id="目前挖的坑-进度"><a href="#目前挖的坑-进度" class="headerlink" title="目前挖的坑&amp;进度"></a>目前挖的坑&amp;进度</h1><ul><li><input checked disabled type="checkbox"> Visual Studio Code终端字体配置&amp;中文编码配置&amp;编辑器字体配置</li><li><input disabled type="checkbox"> 吉林大学校园网使用指南（2024版）</li><li><input disabled type="checkbox"> hexo 配置过程说明+macbook如何使用hexo</li><li><input disabled type="checkbox"> MacBook如何重装系统</li><li><input disabled type="checkbox"> macbook的MBR+GPT混合分区表作用 创建与恢复+维护</li><li><input disabled type="checkbox"> Windows下使用powershell的时候显示此系统上禁止运行脚本</li><li><input disabled type="checkbox"> 如何使用bootcamp模拟legacy环境</li><li><input disabled type="checkbox"> opencore基础配置</li><li><input disabled type="checkbox"> markdown基本语法</li><li><input disabled type="checkbox"> opencore legacy patcher的使用方式</li><li><input disabled type="checkbox"> 白嫖Github Education Pack的方式</li><li><input disabled type="checkbox"> 保研过程指南</li><li><input disabled type="checkbox"> IPA Chart 语言语音学习笔记</li><li><input disabled type="checkbox"> 吉林大学常用网站导航</li></ul>]]></content>
+        <content type="html"><![CDATA[<h1 id="目前挖的坑-进度"><a href="#目前挖的坑-进度" class="headerlink" title="目前挖的坑&amp;进度"></a>目前挖的坑&amp;进度</h1><ul><li><input checked disabled type="checkbox"> Visual Studio Code终端字体配置&amp;中文编码配置&amp;编辑器字体配置</li><li><input disabled type="checkbox"> 吉林大学校园网使用指南（2024版）</li><li><input disabled type="checkbox"> hexo 配置过程说明+macbook如何使用hexo</li><li><input disabled type="checkbox"> MacBook如何重装系统</li><li><input disabled type="checkbox"> macbook的MBR+GPT混合分区表作用 创建与恢复+维护</li><li><input disabled type="checkbox"> Windows下使用powershell的时候显示此系统上禁止运行脚本</li><li><input disabled type="checkbox"> 如何使用bootcamp模拟legacy环境</li><li><input disabled type="checkbox"> opencore基础配置</li><li><input disabled type="checkbox"> markdown基本语法</li><li><input disabled type="checkbox"> opencore legacy patcher的使用方式</li><li><input disabled type="checkbox"> 白嫖Github Education Pack的方式</li><li><input disabled type="checkbox"> 保研过程指南</li><li><input disabled type="checkbox"> IPA Chart 语言语音学习笔记</li></ul>]]></content>
       
       
       <categories>
@@ -66,9 +69,9 @@
       
         <tags>
             
-            <tag> VSCode </tag>
-            
             <tag> 配置 </tag>
+            
+            <tag> VSCode </tag>
             
         </tags>
       
