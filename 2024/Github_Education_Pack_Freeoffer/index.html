@@ -11,7 +11,7 @@
   <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-  <title>2022年全国大学生电子设计大赛B题思路 | 苏可璐斯的小站</title>
+  <title>GitHub Education Pack白嫖教程 | 苏可璐斯的小站</title>
 
   <link rel="icon" type="image/png" href="/favi.png">
   <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
@@ -480,21 +480,21 @@
 
 
 <div class="post-detail-header" id="thumbnail_canvas" style="background-repeat: no-repeat; background-size: cover; 
-  background-position: center center;position: relative;background-image:url('https://pic3.zhimg.com/v2-a5267dfbf175991d4b3a69b41f3f678a_b.jpg')">
+  background-position: center center;position: relative;background-image:url('https://picx.zhimg.com/80/v2-85c31120acff76826ab53ea8934ef4bb_1440w.webp')">
   <div class="post-detail-header-mask"></div>
   <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
   
   <div class="post-detail-header_info-box">
     <div class="title-box">
       <span class="title">
-        2022年全国大学生电子设计大赛B题思路
+        GitHub Education Pack白嫖教程
       </span>
     </div>
     
     
       
         <span class="post-detail-header_date">
-          <i class="fas fa-calendar"></i> 发表于：2024-11-05 |
+          <i class="fas fa-calendar"></i> 发表于：2024-11-18 |
         </span>
       
 
@@ -502,8 +502,8 @@
         <span class="post-detail-header_categories">
           <i class="iconfont iconbookmark1"></i> 分类：
           
-            <a href="/categories/%E6%AF%94%E8%B5%9B%E6%95%99%E7%A8%8B/" class="post-detail-header_category">
-              比赛教程
+            <a href="/categories/Github/" class="post-detail-header_category">
+              Github
             </a>
           
         </span>
@@ -512,11 +512,11 @@
       
         <div class="post-detail-header_wordcount">
           <span class="totalcount">
-            <i class="fas fa-file-text-o"></i> 字数统计: 3.9k |
+            <i class="fas fa-file-text-o"></i> 字数统计: 1.1k |
           </span>
   
           <span class="min2read">
-            <i class="fas fa-clock"></i> 阅读时长: 14分钟 |
+            <i class="fas fa-clock"></i> 阅读时长: 4分钟 |
           </span>
   
           
@@ -543,167 +543,91 @@
   <div class="main-content">
     <article class="post post-detail">
       <div class="post-content">
-        <h1 id="2022年全国大学生电子设计大赛B题思路"><a href="#2022年全国大学生电子设计大赛B题思路" class="headerlink" title="2022年全国大学生电子设计大赛B题思路"></a>2022年全国大学生电子设计大赛B题思路</h1><p>__同轴电缆长度与终端负载检测装置（B题）__，本文为该题提供思路，其内容基本与当年所提交论文一致。思路还不错，最终也有人使用我们这套方案得奖。所有硬件设计以及计算均为本人设计并推导，但由于最后器件不合规以及软件问题失利。这里也请大家引以为戒，不要只注重一个方面的完美。</p>
-<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a><strong>摘要</strong></h2><p>本系统采用STM32F103RCT6作为主控控制器，以高频信号发生器作为激励信号输入同轴电缆，使用电磁场基本理论与基本电路分析基础求解得出电缆长度，终端所接器件类型，终端器件参数等，具有快速，方便，成本低廉的优势。</p>
-<p>主要使用的器件以及模块有：STM32主控，AD9850，BNC、SMA接头，阻抗匹配器等。</p>
-<p>长度识别部分主要采用终端开路的同轴电缆中电磁波发生全反射形成驻波的原理，再进行频率扫描使得波节与波腹沿电缆进行位移，从而在输入端的三通处测得波形峰值变化。再经过AD637真有效值转换芯片输出，经ADC采样后识别出波节位置所对应的频率差即可得出电缆总长度。系统采用差分的方法来减小误差。</p>
-<p>阻容识别部分主要采用电容隔直通交的理论，通过测定始端电阻电压值的大小从而判断出器件类型，同时利用欧姆定律可以计算出阻值。</p>
-<p>电容容值测量部分主要利用电磁场理论中输入段阻抗等效计算实现，通过测定电容等效导线长度结合入段阻抗计算式计算出电容容值。</p>
-<p><strong>关键词：STM32F103RCT6、AD637、高频、电磁场基本理论，驻波，真有效值，入段阻抗，同轴电缆，差分</strong></p>
-<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a><strong>目录</strong></h2><p><a href="#_Toc142156106">1  系统方案	1</a></p>
-<p><a href="#_Toc142156107">1.1  电缆长度识别方式的论证与选择	1</a></p>
-<p><a href="#_Toc142156108">1.2   电容电阻测量方式的论证与选择	1</a></p>
-<p><a href="#_Toc142156109">1.3   控制系统的论证与选择	1</a></p>
-<p><a href="#_Toc142156110">2  系统理论分析与计算	2</a></p>
-<p><a href="#_Toc142156111">2.1  电缆内驻波的分析	2</a></p>
-<p><a href="#_Toc142156112">2.1.1 终端开路时电缆内部驻波的分析	2</a></p>
-<p><a href="#_Toc142156113">2.1.2 加上电容以后内部驻波的分析（电容计算法）	2</a></p>
-<p><a href="#_Toc142156114">2.1.3 电阻电容的判断方式	2</a></p>
-<p><a href="#_Toc142156115">2.2 电缆长度的计算	3</a></p>
-<p><a href="#_Toc142156116">2.3 终端器件参数的计算	3</a></p>
-<p><a href="#_Toc142156117">2.3.1 电容器的参数计算	3</a></p>
-<p><a href="#_Toc142156118">2.3.2电阻的参数计算	4</a></p>
-<p><a href="#_Toc142156119">3  电路与程序设计	4</a></p>
-<p><a href="#_Toc142156120">3.1电路的设计	4</a></p>
-<p><a href="#_Toc142156121">3.1.1系统总体框图	4</a></p>
-<p><a href="#_Toc142156122">3.1.2 激励信号发生电路系统设计	4</a></p>
-<p><a href="#_Toc142156123">3.1.3 信号检测及处理电路系统框图与电路原理图	4</a></p>
-<p><a href="#_Toc142156124">3.1.4电源	5</a></p>
-<p><a href="#_Toc142156125">3.2程序的设计	5</a></p>
-<p><a href="#_Toc142156126">3.2.1程序功能描述与设计思路	5</a></p>
-<p><a href="#_Toc142156127">3.2.2程序流程	6</a></p>
-<p><a href="#_Toc142156128">4  测试方案与测试结果	6</a></p>
-<p><a href="#_Toc142156129">4.1测试方案	6</a></p>
-<p><a href="#_Toc142156130">4.2 测试条件与仪器	7</a></p>
-<p><a href="#_Toc142156131">4.3 测试结果及分析	7</a></p>
-<p><a href="#_Toc142156132">4.3.1测试结果(数据)	7</a></p>
-<p><a href="#_Toc142156133">4.3.2测试分析与结论	7</a></p>
-<h2 id="1-系统方案"><a href="#1-系统方案" class="headerlink" title="1.系统方案"></a><a id="_Toc142156106"></a>1.系统方案</h2><p>本系统主要可以分为以下几个部分：STM32主控，电缆长度识别部分，终端负载识别部分，阻抗匹配器部分和电源模块。下面分别论证这几个模块的选择。</p>
-<h3 id="1-1-电缆长度识别方式的论证与选择"><a href="#1-1-电缆长度识别方式的论证与选择" class="headerlink" title="1.1 电缆长度识别方式的论证与选择"></a><a id="_Toc142156107"></a>1.1 电缆长度识别方式的论证与选择</h3><p>方案一：通过检测正向波与逆向波的相位差判断长度。此方案将导线内的入射波与反射波通过互感装置分离，形成两路行波，通过测量两路行波的相位差即可计算出电缆长度。此方案好处在于将两路分离，但是这也正是其难点。两个方向的波需要依靠互感装置分离导致电缆测量过程中引入了附加电感，使得波形特性出现漂移，且手绕电感导致长度难以标定，影响后续测量。故舍弃。</p>
-<p>方案二：通过检测正向波与逆向波在电缆内直接叠加的驻波判断导线长度。此方案不分离导线内的入射波和反射波，而是让其在电缆内部直接叠加成驻波。通过测量驻波波节波腹的位置计算线缆长度。但由于线缆只能从始端测量，故需要使用频率变化来将位置参数转化为频率（波长）参数。</p>
-<p>方案三：直接测试同轴电缆的电容值来判断导线长度。导线入段电容测试方法较易，但是由于电缆长度1000cm-2000cm，其分布参数影响极大，线缆长度和电容不成正相关，因此难以标定。</p>
-<p>综合以上三种方案，选择方案二。</p>
-<h3 id="1-2-电容电阻测量方式的论证与选择"><a href="#1-2-电容电阻测量方式的论证与选择" class="headerlink" title="1.2 电容电阻测量方式的论证与选择"></a><a id="_Toc142156108"></a>1.2 电容电阻测量方式的论证与选择</h3><p>电容的测量方式有固定的套路，即在已测得线缆长度的条件下测得对应频率下电压的幅值与最大值之比即可测出所处驻波相位，由此即可计算得出电容容值。</p>
-<p>电阻测量方案商榷如下：</p>
-<p>方案一：使用直流恒流源加上ADC采样直接标定电阻阻值。此方法简单易行，但是由于需要切换电路，故电路复杂性会增加，整个系统不稳定因素增加。</p>
-<p>方案二：使用高频信号测试驻波比从而确定失配度，由失配度可反向计算出电阻阻值。此方案计算繁琐，而且在高频状态下元件分布参数影响较大，测量误差可能较大。</p>
-<p>方案三：使用AD5933模块直接测量电路参数。但是AD5933模块测量范围在本题要求之外，使用运算放大器调整参数过后测量精度较差。</p>
-<p>综合以上三种方案，选择方案一。</p>
-<h3 id="1-3-控制系统的论证与选择"><a href="#1-3-控制系统的论证与选择" class="headerlink" title="1.3 控制系统的论证与选择"></a><a id="_Toc142156109"></a>1.3 控制系统的论证与选择</h3><p>方案一：使用Arduino。Arduino可以大大缩短开发时间，提升开发效率。但是由于其内部ADC默认采样频率较低，在高频环境中难以应用，故不采用。</p>
-<p>方案二：使用STM32。STM32开发难度适中，且有HAL库支持便于移植驱动。为了解决上述AD采样精度低的问题，使用了时钟频率较高的STM32F103RCT6，且该型号单片机引脚较多便于后期拓展。</p>
-<p>综合考虑采用STM32F103RCT6。</p>
-<h2 id="2系统理论分析与计算"><a href="#2系统理论分析与计算" class="headerlink" title="2系统理论分析与计算"></a><a id="_Toc142156110"></a>2系统理论分析与计算</h2><h3 id="2-1-电缆内驻波的分析"><a href="#2-1-电缆内驻波的分析" class="headerlink" title="2.1  电缆内驻波的分析"></a><a id="_Toc142156111"></a>2.1  电缆内驻波的分析</h3><h4 id="2-1-1-终端开路时电缆内部驻波的分析"><a href="#2-1-1-终端开路时电缆内部驻波的分析" class="headerlink" title="2.1.1 终端开路时电缆内部驻波的分析"></a><a id="_Toc142156112"></a>2.1.1 终端开路时电缆内部驻波的分析</h4><p>长线终端短路、开路或端接纯电抗负载时，由于反射系数Γ&#x3D;1 ，所以入射波在终端都将被全反射。入射波与反射波叠加，沿线形成驻波分布，驻波比S&#x3D;∞。</p>
-<p>终端开路时沿线电压、电流振幅值和阻抗的分布如图所示。由图1可见终端为电压波腹点、电流波节点，阻抗为无穷大。<img src="/2024/TICUP_article/1-17308215645181.png" class="lazyload" data-srcset="/2024/TICUP_article/1-17308215645181.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="图1 终端断路时的驻波分布"></p>
-<p>利用驻波的开路段永远是电压波腹点和相邻波节波腹的间距都是λ&#x2F;2这个特性，我们可以通过调整波长λ的值使得波节与波腹的位置左右移动。随着频率的增加，波长不断减小，当波长减小至λ*&#x3D;*4l时理论上输入端应当出现第一个零点，即波节位置移动至检测位置。继续缩小到λ&#x3D;4&#x2F;3l时出现第二个零点。但是若终端出现某些干扰，会导致整个驻波出现相移，即开路的终端不再是波腹位置，这样就会出现偏差。如果取两次的值作差就可以减小误差。</p>
-<h4 id="2-1-2-加上电容以后内部驻波的分析（电容计算法）"><a href="#2-1-2-加上电容以后内部驻波的分析（电容计算法）" class="headerlink" title="2.1.2 加上电容以后内部驻波的分析（电容计算法）"></a><a id="_Toc142156113"></a>2.1.2 加上电容以后内部驻波的分析（电容计算法）</h4><p>上文提到过起始端接入纯电抗负载时，也会发生全反射。电容元件会对信号进行相移，驻波也随之相移，入段阻抗改变，如图2所示。因此电容容值可以等效成导线长度。通过测量导线的等效长度即可算出电容的值。具体推算过程如下文2.3.1所示。<img src="/2024/TICUP_article/%E5%9B%BE%E7%89%871.png" class="lazyload" data-srcset="/2024/TICUP_article/%E5%9B%BE%E7%89%871.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="图2 终端接电容时的驻波分布"></p>
-<h4 id="2-1-3-电阻电容的判断方式"><a href="#2-1-3-电阻电容的判断方式" class="headerlink" title="2.1.3 电阻电容的判断方式"></a><a id="_Toc142156114"></a>2.1.3 电阻电容的判断方式</h4><p>利用电容隔直通交的特性，当末端接入的是电容器时，若向电缆内通入直流电，应无电流存在。若终端接入量级为数十欧的电阻，则电路则会产生明显的电流。对于直流电来讲，20m电缆的阻值可视为集总参数，从而规避掉了分布参数的复杂运算。</p>
-<h3 id="2-2-电缆长度的计算"><a href="#2-2-电缆长度的计算" class="headerlink" title="2.2 电缆长度的计算"></a><a id="_Toc142156115"></a>2.2 电缆长度的计算</h3><p>利用作差可以很简单地求出导线的长度，由频率差计算导线长度的具体推导过程如下：</p>
-<p>当第一个驻波波节到达电缆始端时，观测到最小幅值，此时记频率为f1，有：<br>$$<br>l&#x3D;\frac{\lambda_1}{4}<br>$$<br>当第二个驻波波节到达电缆始端时记频率为f2：<br>$$<br>l&#x3D;\frac{3\lambda_2}{4}<br>$$<br>联立以下基本物理学公式：<br>$$<br>\lambda&#x3D;\frac{u}{f}<br>$$</p>
-<p>$$<br>c&#x3D;\sqrt{\varepsilon_r\mu_r}u<br>$$</p>
-<p>即可得到：<br>$$<br>l&#x3D;\frac{u}{2(f_2-f_1)}&#x3D;\frac{c}{2\sqrt{\varepsilon_r\mu_r}\Delta f}<br>$$<br>只需计算出f2-f1，即可由已知参数确定<em>l</em>的值</p>
-<h3 id="2-3-终端器件参数的计算"><a href="#2-3-终端器件参数的计算" class="headerlink" title="2.3 终端器件参数的计算"></a><a id="_Toc142156116"></a>2.3 终端器件参数的计算</h3><h4 id="2-3-1-电容器的参数计算"><a href="#2-3-1-电容器的参数计算" class="headerlink" title="2.3.1 电容器的参数计算"></a><a id="_Toc142156117"></a>2.3.1 电容器的参数计算</h4><p>计算反射系数：<br>$$<br>\dot{\Gamma_L}&#x3D;\frac{Z_0-jX_L}{Z_0+jX_L}<br>$$<br>代入电抗器件得到：<br>$$<br>|\dot{\Gamma_L}|&#x3D;1<br>$$<br>则电压电流矢量形式可以表记为：<br>$$<br>\dot{U_Z}&#x3D;\dot{U^+}(e^{-j\beta z}+\Gamma_Le^{j\beta z})<br>$$</p>
-<p>$$<br>\dot{I_Z}&#x3D;\frac{\dot{I^+}}{Z_0}(e^{-j\beta z}-\dot{\Gamma_L}e^{-j\beta z})<br>$$</p>
-<p>其中，β为相位常数：</p>
-<p>由终端开路的入段阻抗计算式<br>$$<br>\dot{Z_{in}}&#x3D;Z_0\frac{Z_Lcos\beta l+Z_0sin\beta l}{Z_0cos\beta l+Z_Lsin\beta l}<br>$$<br>得：<br>$$<br>l_0&#x3D;\frac{tan\frac{2\pi}{\lambda}}{\omega CZ_0}<br>$$<br>其中<em>l­0</em>就是电容的等效长度，可以由第二问的长度测量装置测得。</p>
-<h4 id="2-3-2电阻的参数计算"><a href="#2-3-2电阻的参数计算" class="headerlink" title="2.3.2电阻的参数计算"></a><a id="_Toc142156118"></a>2.3.2电阻的参数计算</h4><p>由于采用直流分压的方法测试电阻，故电阻只需用欧姆定律分压计算即可，此处不再赘述。</p>
-<h2 id="3电路与程序设计"><a href="#3电路与程序设计" class="headerlink" title="3电路与程序设计"></a><a id="_Toc142156119"></a>3电路与程序设计</h2><h3 id="3-1电路的设计"><a href="#3-1电路的设计" class="headerlink" title="3.1电路的设计"></a><a id="_Toc142156120"></a>3.1电路的设计</h3><h4 id="3-1-1系统总体框图"><a href="#3-1-1系统总体框图" class="headerlink" title="3.1.1系统总体框图"></a><a id="_Toc142156121"></a>3.1.1系统总体框图</h4><p>系统总体框图如图3所示，</p>
-<p><img src="/2024/TICUP_article/%E5%9B%BE%E7%89%872.jpg" class="lazyload" data-srcset="/2024/TICUP_article/%E5%9B%BE%E7%89%872.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="图3  系统总体框图"></p>
-<h4 id="3-1-2-激励信号发生电路系统设计"><a href="#3-1-2-激励信号发生电路系统设计" class="headerlink" title="3.1.2 激励信号发生电路系统设计"></a><a id="_Toc142156122"></a>3.1.2 激励信号发生电路系统设计</h4><p>激励信号为3MHz~30MHz的连续扫频信号，由于频率较高，故采用DDS模块直接产生。由STM32主控向DDS发送频率相位等信息，DDS即可直接产生相应的波形作为激励信号。</p>
-<h4 id="3-1-3-信号检测及处理电路系统框图与电路原理图"><a href="#3-1-3-信号检测及处理电路系统框图与电路原理图" class="headerlink" title="3.1.3 信号检测及处理电路系统框图与电路原理图"></a><a id="_Toc142156123"></a>3.1.3 信号检测及处理电路系统框图与电路原理图</h4><p><strong>1、阻容负载判断及电阻测量子系统电路</strong></p>
-<p>三极管基极接入单片机IO接口控制继电器开关，R3R4之间接入单片机ADC测量电压值。</p>
-<p><img src="/2024/TICUP_article/%E5%9B%BE%E7%89%873.png" class="lazyload" data-srcset="/2024/TICUP_article/%E5%9B%BE%E7%89%873.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="图4   阻容负载判断及电阻测量子系统电路"></p>
-<p> <img src="/2024/TICUP_article/%E5%9B%BE%E7%89%874.png" class="lazyload" data-srcset="/2024/TICUP_article/%E5%9B%BE%E7%89%874.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="图4   阻容负载判断及电阻测量子系统电路"></p>
-<p><strong>2、电缆长度检测及电容容值测量子系统框图</strong></p>
-<p><img src="/2024/TICUP_article/%E5%9B%BE%E7%89%875.jpg" class="lazyload" data-srcset="/2024/TICUP_article/%E5%9B%BE%E7%89%875.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="图5  电缆长度检测及电容容值测量系统框图"></p>
-<h4 id="3-1-4电源"><a href="#3-1-4电源" class="headerlink" title="3.1.4电源"></a><a id="_Toc142156124"></a>3.1.4电源</h4><p>电源部分由外部输入5V供电，可以从外部仪器电源接入，也可从单片机Type-C接口接入。由于电路比较简单，此处不再详细说明。</p>
-<h3 id="3-2程序的设计"><a href="#3-2程序的设计" class="headerlink" title="3.2程序的设计"></a><a id="_Toc142156125"></a>3.2程序的设计</h3><h4 id="3-2-1程序功能描述与设计思路"><a href="#3-2-1程序功能描述与设计思路" class="headerlink" title="3.2.1程序功能描述与设计思路"></a><a id="_Toc142156126"></a>3.2.1程序功能描述与设计思路</h4><p>1、程序功能描述</p>
-<p>根据题目要求软件部分主要实现OLED的显示和使用ADC读取电压值对应频率值并处理。</p>
-<p>1）键盘实现功能：开启电缆长度检测、负载类型及参数检测。</p>
-<p>2）显示部分：显示工作状态，电缆长度，负载类型及其参数。</p>
-<p>2、程序设计思路</p>
-<p>设计DDS频率扫描函数，控制DDS输出频率变化的正弦信号；设计ADC采样模块，用于采集电缆内形成的驻波信号，与对应DDS频率建立关系求得电缆长度</p>
-<h4 id="3-2-2程序流程"><a href="#3-2-2程序流程" class="headerlink" title="3.2.2程序流程"></a><a id="_Toc142156127"></a>3.2.2程序流程</h4><p>1、主程序流程图					</p>
-<p><img src="/2024/TICUP_article/%E5%9B%BE%E7%89%876.jpg" class="lazyload" data-srcset="/2024/TICUP_article/%E5%9B%BE%E7%89%876.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="图片6"></p>
-<p>2、终端开路电缆长度测量子程序流程图</p>
-<p><img src="/2024/TICUP_article/%E5%9B%BE%E7%89%877.png" class="lazyload" data-srcset="/2024/TICUP_article/%E5%9B%BE%E7%89%877.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="图片7"></p>
-<p>3、电容容值测量子程序流程</p>
-<p>在已经测量完长度和判断过负载为电容的前提下，再次测量长度并计算出新的等效长度，套用2.3.1的公式即可计算出电容容值。</p>
-<p>4、电阻阻值测量子程序流程</p>
-<p>在已经测量完长度和判断过负载为电容的前提下，读取ADC的值，利用ADC读取的电压套用欧姆定律即可解出电阻阻值。套用时可结合长度修正电缆阻值。</p>
-<h2 id="4测试方案与测试结果"><a href="#4测试方案与测试结果" class="headerlink" title="4测试方案与测试结果"></a><a id="_Toc142156128"></a>4测试方案与测试结果</h2><h3 id="4-1测试方案"><a href="#4-1测试方案" class="headerlink" title="4.1测试方案"></a><a id="_Toc142156129"></a>4.1测试方案</h3><p>本题软件主要负责产生波形，计算时间和频率差</p>
-<p>1、硬件测试</p>
-<p>硬件部分在和DDS联调测量之前使用高频信号发生器作为其激励源，经检波以后输入示波器观察一个周期内的极小值，并直接采用2.2, 2.3中所述算法计算出对应的长度、阻值或容值。</p>
-<p>2、软件测试</p>
-<p>软件控制DDS产生相应的定频波形与步进扫频波形，并用示波器观察生成状态。</p>
-<p>3、硬件软件联调</p>
-<p>通过样机对20m电缆进行检测，将20m电缆以半米为单位逐次剪短并用硬件电路测试，分别测试其长度、终端电阻值、终端电容值。通过所得长度结果，调节电介质常数，直到所得值稳定在目标值附近，误差最小时，开始对电容、电阻值进行测量，并对电容、电阻的系数进行调整，得到有效电容电阻值，并对以上数据记录，求得测量误差。</p>
-<h3 id="4-2-测试条件与仪器"><a href="#4-2-测试条件与仪器" class="headerlink" title="4.2 测试条件与仪器"></a><a id="_Toc142156130"></a>4.2 测试条件与仪器</h3><p>测试条件：测试条件：通过信号发生器对电缆进行验证测试，通过实验对前期理论进行验证，在测试后确认具体方案后，再设计硬件电路。</p>
-<p>测试仪器：频谱分析仪，频率计，200MHz数字示波器，LCR测试仪，200MHz信号发生器，直流稳压电源。</p>
-<h3 id="4-3-测试结果及分析"><a href="#4-3-测试结果及分析" class="headerlink" title="4.3 测试结果及分析"></a><a id="_Toc142156131"></a>4.3 测试结果及分析</h3><h4 id="4-3-1测试结果-数据"><a href="#4-3-1测试结果-数据" class="headerlink" title="4.3.1测试结果(数据)"></a><a id="_Toc142156132"></a>4.3.1测试结果(数据)</h4><p>由于测量数据较多，现摘录部分长度测量数据如下：</p>
-<table>
-<thead>
-<tr>
-<th align="center"><strong>实际长度(m)</strong></th>
-<th align="center"><strong>测量长度(m)</strong></th>
-<th align="center">相对误差</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">19.00</td>
-<td align="center">18.98</td>
-<td align="center">-0.11%</td>
-</tr>
-<tr>
-<td align="center">18.00</td>
-<td align="center">18.06</td>
-<td align="center">0.33%</td>
-</tr>
-<tr>
-<td align="center">17.00</td>
-<td align="center">17.03</td>
-<td align="center">0.18%</td>
-</tr>
-<tr>
-<td align="center">16.00</td>
-<td align="center">16.08</td>
-<td align="center">0.50%</td>
-</tr>
-<tr>
-<td align="center">15.00</td>
-<td align="center">15.61</td>
-<td align="center">0.71%</td>
-</tr>
-<tr>
-<td align="center">14.00</td>
-<td align="center">14.54</td>
-<td align="center">0.28%</td>
-</tr>
-<tr>
-<td align="center">……</td>
-<td align="center">……</td>
-<td align="center">……</td>
-</tr>
-</tbody></table>
-<h4 id="4-3-2测试分析与结论"><a href="#4-3-2测试分析与结论" class="headerlink" title="4.3.2测试分析与结论"></a><a id="_Toc142156133"></a>4.3.2测试分析与结论</h4><p>根据测试结果，开路时测量长度在1000cm到2000cm之间电缆的误差绝对值均在1%以内，且检测时间大约为四秒；负载测量中，电阻测量值误差不大于10%，检测时间大约为四秒，电容测量值误差不大于7%，测量时间大约为四秒，由此可以得出以下结论：</p>
-<p>1、最佳扫频测量值为3MHz-30MHz，在此频率范围内扫频，可以获得已与测量的反射波；</p>
-<p>2、同轴电缆长度、电阻、电容的测量值受到温度漂移影响，在室温正常变化范围内，误差不大于2%；</p>
-<p>综上所述，本设计达到设计要求。</p>
+        <h1 id="GitHub-Education-Pack-白嫖教程"><a href="#GitHub-Education-Pack-白嫖教程" class="headerlink" title="GitHub Education Pack 白嫖教程"></a>GitHub Education Pack 白嫖教程</h1><h2 id="关于GitHub学生权益"><a href="#关于GitHub学生权益" class="headerlink" title="关于GitHub学生权益"></a>关于GitHub学生权益</h2><p>Github学生包是GitHub为了鼓励高校学生的开发而设立的免费权益。有了这个，你就可以享受到GitHub提供的诸多权益，同时还可以获得Github的“学生认证”（类似于中国大陆境内的学信网验证，支付宝学生身份验证，微信学生身份验证之类的东西），可以很方便地白嫖到很多境外学习包资源。</p>
+<p>目前Github官方提供的权益有（仅列出了我觉得比较有用的东西）：Github Pro（更多private仓库空间）Copilot（代码AI），DigitalOcean，JetBrain的professional权益，Namecheap的.me域名（一年），.tech的一年免费域名，Bootstrap Studio，1Password密码管理器，Arduino官网的教程和折扣。</p>
+<p>目前不确定是否可以使用的权益：Azure一年免费B1s服务器和$100优惠券（我第一年申请的时候还有，但是现在好像不行了）；NAME.com的域名（无限跳转重定向）。</p>
+<h2 id="申请条件"><a href="#申请条件" class="headerlink" title="申请条件"></a>申请条件</h2><blockquote>
+<ul>
+<li>目前就读于正规大学或学信网可以开出来文凭证明的学校</li>
+<li>有一个可以证明上述身份的文件</li>
+<li><strong>学校附近的定位（这个很重要）</strong></li>
+<li>网络允许的条件下，尽量使用校园网，不要挂梯子。</li>
+</ul>
+</blockquote>
+<h2 id="准备材料"><a href="#准备材料" class="headerlink" title="准备材料"></a>准备材料</h2><blockquote>
+<ul>
+<li>教育邮箱(最好是有)</li>
+<li>以下材料至少有其中一个，且最好是英文版</li>
+</ul>
+<ol>
+<li>带有学校名称，学校公章，个人信息及有效期的学生证</li>
+<li>带有学校名称，入学日期和学校公章的录取通知书（推荐）</li>
+<li>带有学校名称，日期和公章的奖学金证明或者其他奖项证明等（本人使用这个文件秒过，带英文）</li>
+<li>学信网的个人学籍报告（可以使用浏览器自动翻译）</li>
+<li>学校出具的在读证明（需要公章）</li>
+</ol>
+</blockquote>
+<h2 id="申请方法"><a href="#申请方法" class="headerlink" title="申请方法"></a>申请方法</h2><ol>
+<li><p>点击 <a target="_blank" rel="noopener" href="https://education.github.com/pack">GitHub Student Developer Pack - GitHub Education</a> 进入GitHub Student Developer Pack官网，点击 Sign up for Student Developer Pack. </p>
+<p><img src="/2024/Github_Education_Pack_Freeoffer/image-20241118225855038.png" class="lazyload" data-srcset="/2024/Github_Education_Pack_Freeoffer/image-20241118225855038.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20241118225855038"></p>
+</li>
+<li><p>选择你的身份，这里选择Student</p>
+<p><img src="/2024/Github_Education_Pack_Freeoffer/image-20241118231234580.png" class="lazyload" data-srcset="/2024/Github_Education_Pack_Freeoffer/image-20241118231234580.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20241118231234580"></p>
+</li>
+<li><p>选择你的邮箱，如果你有edu邮箱一定要用edu邮箱（如本人为@mails.jlu.edu.cn），可以大大提高注册成功率。如果没有列出来可以点击Add来添加。</p>
+</li>
+<li><p>填写学校的名字，英文全称。比如我这里填写 Jilin University （有些学校可能需要填写以前的全称，如BUAA全称似乎填写Beihang University会无法识别，需要填写Beijing University of Aeronautics and<br>Astronautics）</p>
+<p><img src="/2024/Github_Education_Pack_Freeoffer/image-20241118232142277.png" class="lazyload" data-srcset="/2024/Github_Education_Pack_Freeoffer/image-20241118232142277.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20241118232142277"></p>
+</li>
+<li><p>在获取定位的时候选允许（请勿使用360浏览器等“隐私保护浏览器”）</p>
+<p><img src="/2024/Github_Education_Pack_Freeoffer/image-20241118232226674.png" class="lazyload" data-srcset="/2024/Github_Education_Pack_Freeoffer/image-20241118232226674.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20241118232226674"></p>
+</li>
+<li><p>填写你想拿这个做什么，可以直接填写</p>
+<blockquote>
+<p>I wanna code and make contributions to our community.</p>
+</blockquote>
+</li>
+<li><p>上传证明材料，在下面的proof type里面选择你的证明材料类型，学信网的证明可以选择other</p>
+</li>
+<li><p>如果挂了VPN或者其他的原因导致你的定位不在学校，在这一步可能会问你“why are you not on campus”，挂了VPN的直接选择I am using a VPN即可，然后上传clash截图即可。如果其他原因请自行解决（会大大降低成功率）</p>
+</li>
+<li><p>填写学校信息</p>
+<p><img src="/2024/Github_Education_Pack_Freeoffer/image-20241118233544302.png" class="lazyload" data-srcset="/2024/Github_Education_Pack_Freeoffer/image-20241118233544302.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20241118233544302"></p>
+</li>
+<li><p>点击提交申请即可，之后你可以在 <a target="_blank" rel="noopener" href="https://education.github.com/discount_requests/application">Get your GitHub benefits - GitHub Education</a> 查看你的申请状态，一般申请以后1-2天就可以通过。通过了以后就会显示如下内容：</p>
+<img src="/2024/Github_Education_Pack_Freeoffer/image-20241118233759126.png" class="lazyload" data-srcset="/2024/Github_Education_Pack_Freeoffer/image-20241118233759126.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20241118233759126" style="zoom:80%;">
+</li>
+<li><p>之后可以在 <a target="_blank" rel="noopener" href="https://education.github.com/pack">GitHub Student Developer Pack - GitHub Education</a> 界面中下滑按照指示领取相应的权益。</p>
+</li>
+</ol>
+<h2 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h2><blockquote>
+<p>提交不到2分钟就接到了一个回复邮件上面说没有通过。</p>
+<p><strong>解决方法</strong>：按照邮件指引或者前往 <a target="_blank" rel="noopener" href="https://education.github.com/discount_requests/application">Get your GitHub benefits - GitHub Education</a> 查看你的申请状态，应该是这个样子的。</p>
+<p><img src="/2024/Github_Education_Pack_Freeoffer/image-20241118234217136.png" class="lazyload" data-srcset="/2024/Github_Education_Pack_Freeoffer/image-20241118234217136.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20241118234217136"></p>
+<p>请按照上面的每一条指引修改。例如我这个需要使用：</p>
+<ul>
+<li>上传的图像种类应该选择Other。</li>
+<li>必须设置2FA（两步验证），点击链接设置即可。</li>
+<li>使用设备摄像头来拍证书或者学生证而不是上传。</li>
+<li>在自己的简介信息里面直接把profile名称设置成自己证书上的真名，然后退出重登一遍。</li>
+</ul>
+<p>经验证上面的并不需要全部达成，比如我就只设置了2FA和把自己的名字改成了自己真名，就成功了。</p>
+<p><strong>总之跟着他说的一步一步修改就可以了</strong></p>
+</blockquote>
+<p>​    </p>
+<p>​    </p>
 
       </div>
       <div class="post-tags-categories">
         
         <div class="tags">
           
+            <a href="/tags/Github/" class="">
+              Github
+            </a>
+          
             <a href="/tags/%E6%95%99%E7%A8%8B/" class="">
               教程
-            </a>
-          
-            <a href="/tags/%E7%AB%9E%E8%B5%9B/" class="">
-              竞赛
-            </a>
-          
-            <a href="/tags/%E6%A8%A1%E6%9D%BF/" class="">
-              模板
             </a>
           
         </div>
@@ -717,7 +641,7 @@
     </li>
     <li class="post-copyright-link">
     <strong>文章链接:  </strong>
-    <a href="/2024/TICUP_article/" target="_blank" title="2022年全国大学生电子设计大赛B题思路">https://bisucrose.github.io/2024/TICUP_article/</a>
+    <a href="/2024/Github_Education_Pack_Freeoffer/" target="_blank" title="GitHub Education Pack白嫖教程">https://bisucrose.github.io/2024/Github_Education_Pack_Freeoffer/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明:   </strong>
@@ -735,41 +659,21 @@
 
 
 
-  
-  <div class="post-nav-prev post-nav-item">
-    <div class="post-nav-img" style="background-size: cover; 
-      background-position: center center;">
-      <img class="lazyload lazyload" src="https://picx.zhimg.com/80/v2-b44931ea513e5f7b3b06f2703f79653c_1440w.webp" class="lazyload" data-srcset="https://picx.zhimg.com/80/v2-b44931ea513e5f7b3b06f2703f79653c_1440w.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="">
-    </div>
-    <a href="/2024/STM32LearningNote/" class="post-nav-link">
-      <div class="title">
-        <i class="fas fa-angle-left"></i> 上一篇:
-        <div class="title-text">STM32学习笔记（一）【施工中】</div>
-      </div>
-      
-      <!-- <div class="content">
-        STM32学习笔记（一）【施工中】前言细数自己的STM32学习之路，可谓是无比艰辛。各种硬件软件上的问题层出不穷，借来的
-      </div> -->
-    </a>
-  </div>
-
 
 
   
   <div class="post-nav-next post-nav-item">
     <div class="post-nav-img" style="background-size: cover; 
       background-position: center center;">
-      <img class="lazyload lazyload" src="/medias/Wallpaper/3.jpg" class="lazyload" data-srcset="/medias/Wallpaper/3.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" src="" alt="">
+      <img class="lazyload lazyload" src="https://pic3.zhimg.com/80/v2-e5c15010b8ba4608a1974403a02a2da0_1440w.webp" class="lazyload" data-srcset="https://pic3.zhimg.com/80/v2-e5c15010b8ba4608a1974403a02a2da0_1440w.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" src="" alt="">
     </div>
-    <a href="/2024/jlu_webpage_navi/" class="post-nav-link">
+    <a href="/2024/WSL_Troubleshooting&DailyCommand/" class="post-nav-link">
       <div class="title">
         下一篇: <i class="fas fa-angle-right"></i>
-        <div class="title-text">吉林大学常用网站导航</div>
+        <div class="title-text">WSL使用指南&amp;常用命令（持续更新）</div>
       </div>
       <!-- <div class="content">
-        常用网站校内办公 oa.jlu.edu.cn
-教务管理系统 iedu.jlu.edu.cn
-吉林大学VPN vpn.jl
+        WSL使用指南WSL的图形化文件管理WSL2是有图形化文件管理界面的，在安装完WSL后在此电脑左边的导航栏里面应该有个L
       </div> -->
     </a>
   </div>
@@ -985,7 +889,7 @@
   <div class='content'>
     <div class="toc-main">
       <div class="toc-content">
-        <!-- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#2022%E5%B9%B4%E5%85%A8%E5%9B%BD%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%94%B5%E5%AD%90%E8%AE%BE%E8%AE%A1%E5%A4%A7%E8%B5%9BB%E9%A2%98%E6%80%9D%E8%B7%AF"><span class="toc-text">2022年全国大学生电子设计大赛B题思路</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%91%98%E8%A6%81"><span class="toc-text">摘要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95"><span class="toc-text">目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E7%B3%BB%E7%BB%9F%E6%96%B9%E6%A1%88"><span class="toc-text">1.系统方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E7%94%B5%E7%BC%86%E9%95%BF%E5%BA%A6%E8%AF%86%E5%88%AB%E6%96%B9%E5%BC%8F%E7%9A%84%E8%AE%BA%E8%AF%81%E4%B8%8E%E9%80%89%E6%8B%A9"><span class="toc-text">1.1 电缆长度识别方式的论证与选择</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E7%94%B5%E5%AE%B9%E7%94%B5%E9%98%BB%E6%B5%8B%E9%87%8F%E6%96%B9%E5%BC%8F%E7%9A%84%E8%AE%BA%E8%AF%81%E4%B8%8E%E9%80%89%E6%8B%A9"><span class="toc-text">1.2 电容电阻测量方式的论证与选择</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F%E7%9A%84%E8%AE%BA%E8%AF%81%E4%B8%8E%E9%80%89%E6%8B%A9"><span class="toc-text">1.3 控制系统的论证与选择</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E7%B3%BB%E7%BB%9F%E7%90%86%E8%AE%BA%E5%88%86%E6%9E%90%E4%B8%8E%E8%AE%A1%E7%AE%97"><span class="toc-text">2系统理论分析与计算</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E7%94%B5%E7%BC%86%E5%86%85%E9%A9%BB%E6%B3%A2%E7%9A%84%E5%88%86%E6%9E%90"><span class="toc-text">2.1  电缆内驻波的分析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-1-%E7%BB%88%E7%AB%AF%E5%BC%80%E8%B7%AF%E6%97%B6%E7%94%B5%E7%BC%86%E5%86%85%E9%83%A8%E9%A9%BB%E6%B3%A2%E7%9A%84%E5%88%86%E6%9E%90"><span class="toc-text">2.1.1 终端开路时电缆内部驻波的分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-2-%E5%8A%A0%E4%B8%8A%E7%94%B5%E5%AE%B9%E4%BB%A5%E5%90%8E%E5%86%85%E9%83%A8%E9%A9%BB%E6%B3%A2%E7%9A%84%E5%88%86%E6%9E%90%EF%BC%88%E7%94%B5%E5%AE%B9%E8%AE%A1%E7%AE%97%E6%B3%95%EF%BC%89"><span class="toc-text">2.1.2 加上电容以后内部驻波的分析（电容计算法）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-3-%E7%94%B5%E9%98%BB%E7%94%B5%E5%AE%B9%E7%9A%84%E5%88%A4%E6%96%AD%E6%96%B9%E5%BC%8F"><span class="toc-text">2.1.3 电阻电容的判断方式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E7%94%B5%E7%BC%86%E9%95%BF%E5%BA%A6%E7%9A%84%E8%AE%A1%E7%AE%97"><span class="toc-text">2.2 电缆长度的计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E7%BB%88%E7%AB%AF%E5%99%A8%E4%BB%B6%E5%8F%82%E6%95%B0%E7%9A%84%E8%AE%A1%E7%AE%97"><span class="toc-text">2.3 终端器件参数的计算</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-1-%E7%94%B5%E5%AE%B9%E5%99%A8%E7%9A%84%E5%8F%82%E6%95%B0%E8%AE%A1%E7%AE%97"><span class="toc-text">2.3.1 电容器的参数计算</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-2%E7%94%B5%E9%98%BB%E7%9A%84%E5%8F%82%E6%95%B0%E8%AE%A1%E7%AE%97"><span class="toc-text">2.3.2电阻的参数计算</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E7%94%B5%E8%B7%AF%E4%B8%8E%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1"><span class="toc-text">3电路与程序设计</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1%E7%94%B5%E8%B7%AF%E7%9A%84%E8%AE%BE%E8%AE%A1"><span class="toc-text">3.1电路的设计</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-1%E7%B3%BB%E7%BB%9F%E6%80%BB%E4%BD%93%E6%A1%86%E5%9B%BE"><span class="toc-text">3.1.1系统总体框图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-2-%E6%BF%80%E5%8A%B1%E4%BF%A1%E5%8F%B7%E5%8F%91%E7%94%9F%E7%94%B5%E8%B7%AF%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1"><span class="toc-text">3.1.2 激励信号发生电路系统设计</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-3-%E4%BF%A1%E5%8F%B7%E6%A3%80%E6%B5%8B%E5%8F%8A%E5%A4%84%E7%90%86%E7%94%B5%E8%B7%AF%E7%B3%BB%E7%BB%9F%E6%A1%86%E5%9B%BE%E4%B8%8E%E7%94%B5%E8%B7%AF%E5%8E%9F%E7%90%86%E5%9B%BE"><span class="toc-text">3.1.3 信号检测及处理电路系统框图与电路原理图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-4%E7%94%B5%E6%BA%90"><span class="toc-text">3.1.4电源</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2%E7%A8%8B%E5%BA%8F%E7%9A%84%E8%AE%BE%E8%AE%A1"><span class="toc-text">3.2程序的设计</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-1%E7%A8%8B%E5%BA%8F%E5%8A%9F%E8%83%BD%E6%8F%8F%E8%BF%B0%E4%B8%8E%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF"><span class="toc-text">3.2.1程序功能描述与设计思路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-2%E7%A8%8B%E5%BA%8F%E6%B5%81%E7%A8%8B"><span class="toc-text">3.2.2程序流程</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4%E6%B5%8B%E8%AF%95%E6%96%B9%E6%A1%88%E4%B8%8E%E6%B5%8B%E8%AF%95%E7%BB%93%E6%9E%9C"><span class="toc-text">4测试方案与测试结果</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1%E6%B5%8B%E8%AF%95%E6%96%B9%E6%A1%88"><span class="toc-text">4.1测试方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-%E6%B5%8B%E8%AF%95%E6%9D%A1%E4%BB%B6%E4%B8%8E%E4%BB%AA%E5%99%A8"><span class="toc-text">4.2 测试条件与仪器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-%E6%B5%8B%E8%AF%95%E7%BB%93%E6%9E%9C%E5%8F%8A%E5%88%86%E6%9E%90"><span class="toc-text">4.3 测试结果及分析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-3-1%E6%B5%8B%E8%AF%95%E7%BB%93%E6%9E%9C-%E6%95%B0%E6%8D%AE"><span class="toc-text">4.3.1测试结果(数据)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-3-2%E6%B5%8B%E8%AF%95%E5%88%86%E6%9E%90%E4%B8%8E%E7%BB%93%E8%AE%BA"><span class="toc-text">4.3.2测试分析与结论</span></a></li></ol></li></ol></li></ol></li></ol> -->
+        <!-- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#GitHub-Education-Pack-%E7%99%BD%E5%AB%96%E6%95%99%E7%A8%8B"><span class="toc-text">GitHub Education Pack 白嫖教程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8EGitHub%E5%AD%A6%E7%94%9F%E6%9D%83%E7%9B%8A"><span class="toc-text">关于GitHub学生权益</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%B3%E8%AF%B7%E6%9D%A1%E4%BB%B6"><span class="toc-text">申请条件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E6%9D%90%E6%96%99"><span class="toc-text">准备材料</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%B3%E8%AF%B7%E6%96%B9%E6%B3%95"><span class="toc-text">申请方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3"><span class="toc-text">问题解决</span></a></li></ol></li></ol> -->
         <div class="toc"></div>
       </div>
     </div>
@@ -1206,59 +1110,6 @@
 		height: 100%;
 	}
 </style>
-
-
-  <script>
-  // https://github.com/theme-next/hexo-theme-next/blob/master/layout/_third-party/math/mathjax.swig
-  if (typeof MathJax === 'undefined') {
-    window.MathJax = {
-      loader: {
-        source: {
-          '[tex]/amsCd': '[tex]/amscd',
-          '[tex]/AMScd': '[tex]/amscd'
-        }
-      },
-      tex: {
-        inlineMath: {'[+]': [['$', '$']]},
-        tags: 'ams'
-      },
-      options: {
-        renderActions: {
-          findScript: [10, doc => {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-              const display = !!node.type.match(/; *mode=display/);
-              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              const text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {node: text, delim: '', n: 0};
-              math.end = {node: text, delim: '', n: 0};
-              doc.math.push(math);
-            });
-          }, '', false],
-          insertedScript: [200, () => {
-            document.querySelectorAll('mjx-container').forEach(node => {
-              let target = node.parentNode;
-              if (target.nodeName.toLowerCase() === 'li') {
-                target.parentNode.classList.add('has-jax');
-              }
-            });
-          }, '', false]
-        }
-      }
-    };
-    (function () {
-      var script = document.createElement('script');
-      script.src = 'https://unpkg.com/mathjax@3.0/es5/tex-mml-chtml.js';
-      script.defer = true;
-      document.head.appendChild(script);
-    })();
-  } else {
-    // 文章章节标题不能为 “MathJax” ，否则会报错。
-    MathJax.startup.document.state(0);
-    MathJax.texReset();
-    MathJax.typeset();
-  }
-</script>
 
 
 
