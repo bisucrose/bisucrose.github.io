@@ -655,6 +655,9 @@
 
   <div id="myComment">
     
+      <div id="gitment-container"></div>
+
+    
   </div>
 
 
@@ -739,60 +742,6 @@
 
   <div class="layout_sticky">    
     
-      
-        
-    <section class="widget side_category">
-      
-  <header>
-    
-      <a style="color: " href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
-    
-  </header>
-
-
-      <div class='content'>
-        <ul class="entry navigation">
-          
-            <li><a class="flat-box"
-              title="/categories/Archived/" href="/categories/Archived/"
-              id="categoriesArchived"
-              ><div class='name'>Archived</div><div class='badge'>(1)</div></a></li>
-          
-            <li><a class="flat-box"
-              title="/categories/Github/" href="/categories/Github/"
-              id="categoriesGithub"
-              ><div class='name'>Github</div><div class='badge'>(1)</div></a></li>
-          
-            <li><a class="flat-box"
-              title="/categories/To-Do-List/" href="/categories/To-Do-List/"
-              id="categoriesTo-Do-List"
-              ><div class='name'>To-Do List</div><div class='badge'>(1)</div></a></li>
-          
-            <li><a class="flat-box"
-              title="/categories/%E5%90%89%E6%9E%97%E5%A4%A7%E5%AD%A6/" href="/categories/%E5%90%89%E6%9E%97%E5%A4%A7%E5%AD%A6/"
-              id="categoriesE59089E69E97E5A4A7E5ADA6"
-              ><div class='name'>吉林大学</div><div class='badge'>(2)</div></a></li>
-          
-            <li><a class="flat-box"
-              title="/categories/%E5%B7%A5%E5%85%B7%E9%85%8D%E7%BD%AE/" href="/categories/%E5%B7%A5%E5%85%B7%E9%85%8D%E7%BD%AE/"
-              id="categoriesE5B7A5E585B7E9858DE7BDAE"
-              ><div class='name'>工具配置</div><div class='badge'>(1)</div></a></li>
-          
-            <li><a class="flat-box"
-              title="/categories/%E6%AF%94%E8%B5%9B%E6%95%99%E7%A8%8B/" href="/categories/%E6%AF%94%E8%B5%9B%E6%95%99%E7%A8%8B/"
-              id="categoriesE6AF94E8B59BE69599E7A88B"
-              ><div class='name'>比赛教程</div><div class='badge'>(1)</div></a></li>
-          
-            <li><a class="flat-box"
-              title="/categories/%E7%A7%91%E6%99%AE/" href="/categories/%E7%A7%91%E6%99%AE/"
-              id="categoriesE7A791E699AE"
-              ><div class='name'>科普</div><div class='badge'>(2)</div></a></li>
-          
-        </ul>
-      </div>
-    </section>
-  
-  
       
       
         
@@ -921,7 +870,7 @@
 
       
         <div class="webinfo-item">
-          <div>已稳定运行：</div>
+          <div>居然已经稳定运行：</div>
           <div id="webinfo-runtime-count" publish_date="03/24/2020 21:34:09"></div>
         </div>
         <script>
@@ -929,7 +878,7 @@
           var today = new Date();
           var timeold = (today.getTime() - BirthDay.getTime());
           var daysold = Math.floor(timeold / (24 * 60 * 60 * 1000));
-          document.getElementById('webinfo-runtime-count').innerHTML = daysold + ' 日';
+          document.getElementById('webinfo-runtime-count').innerHTML = daysold + ' 天';
         </script>
       
 
@@ -963,7 +912,7 @@
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Wed Nov 20 2024 15:28:33 GMT+0800 (中国标准时间)</div>
+            <div id="last-update" style="display: none;">Wed Nov 20 2024 18:24:01 GMT+0800 (中国标准时间)</div>
             <div id="last-update-show">2024-11-20 </div>
           
         </div>
@@ -1919,6 +1868,69 @@
 <!-- 评论所需js -->
 
   
+        <script type="text/javascript">
+  var utteranceComment = {};
+
+  function check_utterance() {
+    let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('false');
+    if (isDark) {
+      utteranceComment.Theme = 'github-dark';
+    } else {
+      utteranceComment.Theme = 'github-light';
+    }
+
+    return document.getElementById("gitment-container");
+  }
+  comment_el = '#gitment-container';
+  load_utterance = function () {
+    if ($(comment_el).length) {
+      // 匿名函数，防止污染全局变量
+      const HEAD = check_utterance();
+
+      var utterances = document.createElement('script');
+      utterances.type = 'text/javascript';
+      utterances.async = true;
+      utterances.setAttribute('issue-term', 'title')
+      utterances.setAttribute('theme', utteranceComment.Theme)
+      utterances.setAttribute('repo', 'bisucrose/bisucrose.github.io')
+      utterances.crossorigin = 'anonymous';
+      utterances.src = 'https://utteranc.es/client.js';
+      // content 是要插入评论的地方
+      document.getElementById('gitment-container').appendChild(utterances);
+
+    }
+  }
+
+  function dark_utterance() {
+    const HEAD = check_utterance();
+    if (!HEAD) return;
+    const message = {
+      type: 'set-theme',
+      theme: utteranceComment.Theme
+    };
+    const utteranceIframe = document.querySelector('iframe');
+    utteranceIframe.contentWindow.postMessage(message, 'https://utteranc.es');
+  }
+
+  $(document).ready(load_utterance);
+  document.addEventListener('pjax:complete', function () {
+    load_utterance();
+  });
+
+  $('.dark').click(function () {
+    setTimeout(() => {
+      dark_utterance();
+    });
+  })
+
+</script>
+
+<style>
+  .utterances {
+    max-width: inherit !important;
+  }
+</style>
+      
 
 
 <!-- 鼠标点击特效 -->

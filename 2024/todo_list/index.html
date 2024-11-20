@@ -558,8 +558,8 @@
 <li><input disabled type="checkbox"> opencore基础配置</li>
 <li><input disabled type="checkbox"> markdown基本语法</li>
 <li><input disabled type="checkbox"> opencore legacy patcher的使用方式</li>
-<li><input disabled type="checkbox"> 白嫖Github Education Pack的方式</li>
-<li><input disabled type="checkbox"> 保研过程指南</li>
+<li><input checked disabled type="checkbox"> 白嫖Github Education Pack的方式</li>
+<li><input checked disabled type="checkbox"> 保研过程指南</li>
 <li><input disabled type="checkbox"> IPA Chart 语言语音学习笔记</li>
 <li><input disabled type="checkbox"> 手机Root和必备软件安装</li>
 </ul>
@@ -744,6 +744,9 @@
     <!-- 评论 -->
 
   <div id="myComment">
+    
+      <div id="gitment-container"></div>
+
     
   </div>
 
@@ -1832,6 +1835,69 @@
 <!-- 评论所需js -->
 
   
+        <script type="text/javascript">
+  var utteranceComment = {};
+
+  function check_utterance() {
+    let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('false');
+    if (isDark) {
+      utteranceComment.Theme = 'github-dark';
+    } else {
+      utteranceComment.Theme = 'github-light';
+    }
+
+    return document.getElementById("gitment-container");
+  }
+  comment_el = '#gitment-container';
+  load_utterance = function () {
+    if ($(comment_el).length) {
+      // 匿名函数，防止污染全局变量
+      const HEAD = check_utterance();
+
+      var utterances = document.createElement('script');
+      utterances.type = 'text/javascript';
+      utterances.async = true;
+      utterances.setAttribute('issue-term', 'title')
+      utterances.setAttribute('theme', utteranceComment.Theme)
+      utterances.setAttribute('repo', 'bisucrose/bisucrose.github.io')
+      utterances.crossorigin = 'anonymous';
+      utterances.src = 'https://utteranc.es/client.js';
+      // content 是要插入评论的地方
+      document.getElementById('gitment-container').appendChild(utterances);
+
+    }
+  }
+
+  function dark_utterance() {
+    const HEAD = check_utterance();
+    if (!HEAD) return;
+    const message = {
+      type: 'set-theme',
+      theme: utteranceComment.Theme
+    };
+    const utteranceIframe = document.querySelector('iframe');
+    utteranceIframe.contentWindow.postMessage(message, 'https://utteranc.es');
+  }
+
+  $(document).ready(load_utterance);
+  document.addEventListener('pjax:complete', function () {
+    load_utterance();
+  });
+
+  $('.dark').click(function () {
+    setTimeout(() => {
+      dark_utterance();
+    });
+  })
+
+</script>
+
+<style>
+  .utterances {
+    max-width: inherit !important;
+  }
+</style>
+      
 
 
 <!-- 鼠标点击特效 -->
