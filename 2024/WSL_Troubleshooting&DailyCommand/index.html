@@ -538,12 +538,12 @@
 <p><img src="/2024/WSL_Troubleshooting&DailyCommand/image-20241115052611042.png" class="lazyload" data-srcset="/2024/WSL_Troubleshooting&DailyCommand/image-20241115052611042.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20241115052611042"></p>
 <h2 id="WSL中的GUI界面中文显示为方框-乱码"><a href="#WSL中的GUI界面中文显示为方框-乱码" class="headerlink" title="WSL中的GUI界面中文显示为方框&#x2F;乱码"></a>WSL中的GUI界面中文显示为方框&#x2F;乱码</h2><p>在安装了一些图形化界面后可能会出现缺少字体导致字体全是方框，无法正常显示。此为缺少字体导致</p>
 <p>Ubuntu的字体存储在&#x2F;usr&#x2F;share&#x2F;fonts目录下，精简安装的时候很多字体都被阉割了，可以把Windows里面的字体复制粘贴到Ubuntu里面。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo mkdir /usr/share/fonts/windows<br>sudo cp /mnt/c/Windows/Fonts/* /usr/share/fonts/windows<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> <span class="hljs-built_in">mkdir</span> /usr/share/fonts/windows<br><span class="hljs-built_in">sudo</span> <span class="hljs-built_in">cp</span> /mnt/c/Windows/Fonts/* /usr/share/fonts/windows<br></code></pre></td></tr></table></figure>
 
 <p>此后重启一下WSL应该就可以正常显示字体了。</p>
 <h2 id="WSL在Linux里面运行wsl指令"><a href="#WSL在Linux里面运行wsl指令" class="headerlink" title="WSL在Linux里面运行wsl指令"></a>WSL在Linux里面运行wsl指令</h2><p>在Linux系统环境下也可以直接执行wsl命令，只是需要输入 <code>wsl.exe</code>才能够执行</p>
 <p>例如：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell">bisucrose@DESKTOP-F2U79D7:~$ wsl --update<br>wsl: command not found<br>bisucrose@DESKTOP-F2U79D7:~$ wsl.exe --update<br>正在检查更新。<br>已安装最新版本的适用于 Linux 的 Windows 子系统。<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">bisucrose@DESKTOP-F2U79D7:~$ wsl --update<br>wsl: <span class="hljs-built_in">command</span> not found<br>bisucrose@DESKTOP-F2U79D7:~$ wsl.exe --update<br>正在检查更新。<br>已安装最新版本的适用于 Linux 的 Windows 子系统。<br></code></pre></td></tr></table></figure>
 
 
 
@@ -575,7 +575,7 @@
     </li>
     <li class="post-copyright-link">
     <strong>文章链接:  </strong>
-    <a href="/2024/WSL_Troubleshooting&DailyCommand/" target="_blank" title="WSL使用指南&amp;常用命令（持续更新）">https://bisucrose.github.io/2024/WSL_Troubleshooting&DailyCommand/</a>
+    <a href="/2024/WSL_Troubleshooting&DailyCommand/" target="_blank" title="WSL使用指南&amp;常用命令（持续更新）">https://www.bisucrose.top/2024/WSL_Troubleshooting&DailyCommand/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明:   </strong>
@@ -877,6 +877,48 @@
             
 
             <div class="post-img-box">
+              <a href="/2024/Windows_Powershell_Policy/" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload" style="width:100%;height:100%;object-fit:cover;" data-src="https://pic3.zhimg.com/80/v2-5f7cb7e900b9dcf5354c3d4d2c5cc3c2_1440w.webp" class="lazyload" data-srcset="https://pic3.zhimg.com/80/v2-5f7cb7e900b9dcf5354c3d4d2c5cc3c2_1440w.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                
+                  <span class="post-date">12-17</span>
+                
+              </div>
+              <a class="post-title" href="/2024/Windows_Powershell_Policy/">Windows下使用powershell的时候显示此系统上禁止运行脚本</a>
+            </div>
+          </div>
+        
+          <div class="aside-list-item">
+            
+            
+            
+
+            <div class="post-img-box">
+              <a href="/2024/hexo_blog_tutorial/" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload" style="width:100%;height:100%;object-fit:cover;" data-src="https://pic4.zhimg.com/80/v2-83ea273b88e119d9615aed0d89aad4ab_1440w.webp" class="lazyload" data-srcset="https://pic4.zhimg.com/80/v2-83ea273b88e119d9615aed0d89aad4ab_1440w.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                
+                  <span class="post-date">12-17</span>
+                
+              </div>
+              <a class="post-title" href="/2024/hexo_blog_tutorial/">教程：使用hexo搭建你的博客</a>
+            </div>
+          </div>
+        
+          <div class="aside-list-item">
+            
+            
+            
+
+            <div class="post-img-box">
               <a href="/2024/SteamDeck_Windows_Post_Installation/" class="post-img " style="background-size: cover; 
                 background-position: center center;">
                 <img class="lazyload lazyload" style="width:100%;height:100%;object-fit:cover;" data-src="https://pic3.zhimg.com/80/v2-5f7cb7e900b9dcf5354c3d4d2c5cc3c2_1440w.webp" class="lazyload" data-srcset="https://pic3.zhimg.com/80/v2-5f7cb7e900b9dcf5354c3d4d2c5cc3c2_1440w.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="">
@@ -889,48 +931,6 @@
                 
               </div>
               <a class="post-title" href="/2024/SteamDeck_Windows_Post_Installation/">SteamDeck Tools</a>
-            </div>
-          </div>
-        
-          <div class="aside-list-item">
-            
-            
-            
-
-            <div class="post-img-box">
-              <a href="/2024/SteamDeck_DualBoot_Installation/" class="post-img " style="background-size: cover; 
-                background-position: center center;">
-                <img class="lazyload lazyload" style="width:100%;height:100%;object-fit:cover;" data-src="https://pic4.zhimg.com/80/v2-83ea273b88e119d9615aed0d89aad4ab_1440w.webp" class="lazyload" data-srcset="https://pic4.zhimg.com/80/v2-83ea273b88e119d9615aed0d89aad4ab_1440w.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="">
-              </a>
-            </div>
-            <div class="post-date-title">
-              <div>
-                
-                  <span class="post-date">12-13</span>
-                
-              </div>
-              <a class="post-title" href="/2024/SteamDeck_DualBoot_Installation/">SteamDeck单盘双系统安装指南</a>
-            </div>
-          </div>
-        
-          <div class="aside-list-item">
-            
-            
-            
-
-            <div class="post-img-box">
-              <a href="/2024/Github_Education_Pack_Freeoffer/" class="post-img " style="background-size: cover; 
-                background-position: center center;">
-                <img class="lazyload lazyload" style="width:100%;height:100%;object-fit:cover;" data-src="https://picx.zhimg.com/80/v2-85c31120acff76826ab53ea8934ef4bb_1440w.webp" class="lazyload" data-srcset="https://picx.zhimg.com/80/v2-85c31120acff76826ab53ea8934ef4bb_1440w.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="">
-              </a>
-            </div>
-            <div class="post-date-title">
-              <div>
-                
-                  <span class="post-date">11-18</span>
-                
-              </div>
-              <a class="post-title" href="/2024/Github_Education_Pack_Freeoffer/">GitHub Education Pack白嫖教程</a>
             </div>
           </div>
         
