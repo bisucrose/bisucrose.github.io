@@ -1161,7 +1161,7 @@
         :data="listData"
         :class-option="classOption"
         class="warp"
-        style="height: 90px"
+        style="height: 60px"
       >
         <ul class="index-notice-content__ul">
           
@@ -1178,23 +1178,6 @@
                 
                   <div class="index-notice-content__date" style="color:green">
                     2024-10-08
-                  </div>
-                
-              
-            </li>
-          
-            <li>
-              
-                <div class="index-notice-content__title">
-                  
-                    <a target="_blank" rel="noopener" href="http://glasswarm.github.io/" title="#琉璃姐姐也是一位很厉害的人呢，大家可以去她的博客看一看" style="color:red">
-                      #琉璃姐姐也是一位很厉害的人呢，大家可以去她的博客看一看
-                    </a>
-                  
-                </div>
-                
-                  <div class="index-notice-content__date" style="color:red">
-                    2024-10-16
                   </div>
                 
               
@@ -1230,7 +1213,7 @@
 <script>
   var seamless = JSON.parse('false');
   seamless = seamless ? 0 : 30;
-  var listData = '[object Object],[object Object],[object Object]' || '';
+  var listData = '[object Object],[object Object]' || '';
   listData = listData.split(',');
   var vm = new Vue({
     el: '#appIndexNotice',
@@ -2488,8 +2471,8 @@
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Tue Dec 17 2024 20:08:31 GMT+0800 (中国标准时间)</div>
-            <div id="last-update-show">2024-12-17 </div>
+            <div id="last-update" style="display: none;">Sun Mar 23 2025 18:11:13 GMT+0800 (中国标准时间)</div>
+            <div id="last-update-show">2025-03-23 </div>
           
         </div>
         
@@ -2539,7 +2522,7 @@
           try {
             document.getElementById('last-update-show').innerHTML = timeago(new Date(lastUpDate));
           } catch (error) {
-            document.getElementById('last-update-show').innerHTML = '2024-12-17 ';
+            document.getElementById('last-update-show').innerHTML = '2025-03-23 ';
           }
         </script>
         
