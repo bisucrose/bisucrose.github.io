@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>有关于今天吃什么的重要决策</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  
+  <!-- 配置Tailwind自定义样式 -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#c1c19c',
+            accent: '#d4a46f',
+            dark: '#3A3740'
+          },
+        },
+      }
+    }
+  </script>
+  
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .text-shadow {
+        text-shadow: 0 3px 6px rgba(0,0,0,0.15);
+      }
+      .prize-pop {
+        animation: prizePop 0.8s cubic-bezier(0.17, 0.89, 0.32, 1.28);
+      }
+      .spin-slow {
+        animation: spin 4s linear infinite;
+      }
+    }
+    
+    @keyframes prizePop {
+      0% { transform: scale(0.9); opacity: 0; }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen font-sans">
+  <div class="container mx-auto px-4 py-8 max-w-5xl">
+    <!-- 标题区域 -->
+    <header class="text-center mb-8">
+      <h1 class="text-[clamp(2rem,6vw,4rem)] font-bold text-accent text-shadow mb-3">
+        让我看看是谁打算好好吃饭呀
+      </h1>
+      <p class="text-gray-600 text-lg">HELLO WORLD！</p>
+    </header>
+    
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <!-- 主要抽奖区域 -->
+      <div class="lg:col-span-2">
+        <div class="bg-white rounded-2xl shadow-xl p-8 relative overflow-hidden">
+          <!-- 装饰元素 -->
+          <div class="absolute -top-10 -right-10 w-40 h-40 bg-primary/20 rounded-full"></div>
+          <div class="absolute -bottom-16 -left-16 w-40 h-40 bg-accent/20 rounded-full"></div>
+          
+          <h2 class="text-2xl font-bold text-dark mb-8 text-center relative z-10">抽奖区</h2>
+          
+          <!-- 奖品显示区域 -->
+          <div class="bg-gradient-to-r from-primary/5 to-accent/5 rounded-xl p-4 sm:p-6 md:p-10 mb-8 min-h-[150px] sm:min-h-[180px] md:min-h-[220px] flex items-center justify-center relative z-10">
+            <div id="prizeDisplay" class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center text-dark transition-all px-2">
+              准备开始
+            </div>
+          </div>
+          
+          <!-- 控制按钮 -->
+          <div class="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 relative z-10">
+            <button id="startBtn" 
+                  class="bg-primary hover:bg-primary/90 text-white font-bold px-4 sm:px-10 py-4 rounded-lg shadow-lg transition-all transform hover:scale-105 flex items-center justify-center whitespace-nowrap">
+              <i class="fa fa-play mr-2"></i> 今天吃什么
+            </button>
+            <button id="stopBtn" 
+                  class="bg-accent hover:bg-accent/90 text-white font-bold px-4 sm:px-10 py-4 rounded-lg shadow-lg transition-all transform hover:scale-105 flex items-center justify-center whitespace-nowrap"
+                  disabled>
+              <i class="fa fa-stop mr-2"></i> 就你了！
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 出发吧张大厨！ -->
+      <div class="lg:col-span-1">
+        <div class="bg-white rounded-2xl shadow-xl p-6 h-full">
+          <h2 class="text-xl font-bold text-dark mb-4 flex items-center">
+            <i class="fa fa-list-alt text-primary mr-2"></i> 出发吧，张大厨！
+          </h2>
+          
+          <div id="historyList" class="space-y-3 max-h-[500px] overflow-y-auto pr-2 text-sm">
+            <!-- 记录将动态生成 -->
+            <div class="text-gray-500 italic text-center py-8">加油啊宝贝们！</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- 页脚 -->
+    <footer class="mt-12 text-center text-gray-500 text-sm">
+      <p>是人就要吃饭 还要吃点好的！  &copy; 2025 :D </p>
+    </footer>
+  </div>
+  
+  <script>
+    // 奖品配置（按数量比例设置权重，不显示数量）
+    const prizes = [
+      { name: "什么鱼香肉丝", weight: 50 },
+      { name: "粤菜菠萝包", weight: 50 },
+      { name: "椰子鸡", weight: 50 },
+      { name: "贵州酸汤锅", weight: 50 },
+      { name: "煎饼果子", weight: 50 },
+      { name: "在家炒俩菜", weight: 50 },
+      { name: "谁不爱吃牛排呢", weight: 50 },
+      { name: "麻辣香锅", weight: 50 },
+      { name: "全国小炒肉大王", weight: 50 },
+      { name: "来点儿寿司吗", weight: 50 },
+      { name: "blood火锅", weight: 50 },
+      { name: "喝西北风吧！", weight: 10 },
+      { name: "北京烤鸭", weight: 50 },
+      { name: "西贝预制菜", weight: 50 },
+      { name: "烤俩蛋糕吃", weight: 50 },
+      { name: "\\面条/\\面条/", weight: 50 },
+      { name: "\\饺子/\\饺子/", weight: 50 },
+      { name: "今天是麦门信徒", weight: 50 },
+      { name: "开封菜在召唤", weight: 50 },
+      { name: "大楚兴,陈胜王", weight: 80 },
+      { name: "Let's Italy!", weight: 50 },
+      { name: "找点儿新鲜的", weight: 50 },
+      { name: "商场逛去吧", weight: 50 },
+      { name: "在家炒俩菜", weight: 50 },
+      { name: "吃食堂吧您", weight: 50 },
+      { name: "再来一瓶", weight: 50} 
+    ];
+    
+    // LocalStorage 管理器
+    const StorageManager = {
+      KEY: 'foodLotteryHistory',
+      
+      // 保存历史记录
+      save: function(history) {
+        try {
+          // 只保存最近200条记录
+          const recentHistory = history.slice(0, 200);
+          localStorage.setItem(this.KEY, JSON.stringify(recentHistory));
+          console.log('✅ 已保存', recentHistory.length, '条记录到本地');
+          return true;
+        } catch (e) {
+          console.error('❌ 保存失败:', e);
+          alert('保存失败：存储空间可能已满');
+          return false;
+        }
+      },
+      
+      // 加载历史记录
+      load: function() {
+        try {
+          const data = localStorage.getItem(this.KEY);
+          if (data) {
+            const history = JSON.parse(data);
+            console.log('✅ 已加载', history.length, '条历史记录');
+            return history;
+          }
+        } catch (e) {
+          console.error('❌ 加载失败:', e);
+        }
+        return [];
+      },
+      
+      // 清空历史记录
+      clear: function() {
+        try {
+          localStorage.removeItem(this.KEY);
+          console.log('✅ 历史记录已清空');
+          return true;
+        } catch (e) {
+          console.error('❌ 清空失败:', e);
+          return false;
+        }
+      }
+    };
+    
+    // 历史记录
+    let history = [];
+    let isDrawing = false;
+    let drawInterval;
+    
+    // DOM元素
+    const prizeDisplay = document.getElementById('prizeDisplay');
+    const startBtn = document.getElementById('startBtn');
+    const stopBtn = document.getElementById('stopBtn');
+    const historyList = document.getElementById('historyList');
+    
+    // 根据权重随机选择奖品
+    function getRandomPrize() {
+      const totalWeight = prizes.reduce((sum, prize) => sum + prize.weight, 0);
+      let random = Math.random() * totalWeight;
+      
+      for (const prize of prizes) {
+        random -= prize.weight;
+        if (random <= 0) {
+          return prize.name;
+        }
+      }
+      
+      return prizes[0].name;
+    }
+    
+    // 开始抽奖
+    function startDrawing() {
+      isDrawing = true;
+      startBtn.disabled = true;
+      stopBtn.disabled = false;
+      prizeDisplay.classList.remove('prize-pop');
+      
+      drawInterval = setInterval(() => {
+        const randomIndex = Math.floor(Math.random() * prizes.length);
+        prizeDisplay.textContent = prizes[randomIndex].name;
+      }, 80);
+    }
+    
+    // 检查是否在深夜时间段 (20:30-次日5:00)
+    function isLateNightTime() {
+      const now = new Date();
+      const hour = now.getHours();
+      const minute = now.getMinutes();
+      const totalMinutes = hour * 60 + minute;
+      
+      // 20:30 = 1230分钟, 5:00 = 300分钟
+      // 深夜时段：20:30-23:59 或 0:00-5:00
+      return totalMinutes >= 1230 || totalMinutes < 300;
+    }
+
+    // 检查是否在正常用餐时间段
+    function checkMealTime() {
+      const hour = new Date().getHours();
+      // 早餐7-9点，午餐11-13点，晚餐17-19点
+      return (hour >= 7 && hour <= 9) || (hour >= 11 && hour <= 13) || (hour >= 17 && hour <= 19);
+    }
+    
+    // 显示成就提示
+    function showAchievement(message) {
+      // 创建成就提示框
+      const achievement = document.createElement('div');
+      achievement.className = 'fixed top-4 right-4 bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-6 py-4 rounded-lg shadow-2xl z-50 transform translate-x-full transition-transform duration-500';
+      achievement.innerHTML = `
+        <div class="flex items-center gap-3">
+          <i class="fa fa-trophy text-2xl"></i>
+          <div>
+            <div class="font-bold text-lg">成就解锁！</div>
+            <div class="text-sm">${message}</div>
+          </div>
+        </div>
+      `;
+      document.body.appendChild(achievement);
+      
+      // 动画：滑入
+      setTimeout(() => {
+        achievement.style.transform = 'translateX(0)';
+      }, 100);
+      
+      // 3秒后滑出并移除
+      setTimeout(() => {
+        achievement.style.transform = 'translateX(150%)';
+        setTimeout(() => {
+          document.body.removeChild(achievement);
+        }, 500);
+      }, 3000);
+    }
+    
+    // 停止抽奖
+    function stopDrawing() {
+      if (!isDrawing) return;
+      
+      clearInterval(drawInterval);
+      isDrawing = false;
+      startBtn.disabled = false;
+      stopBtn.disabled = true;
+      
+      const winningPrize = getRandomPrize();
+      prizeDisplay.textContent = winningPrize;
+      prizeDisplay.classList.add('prize-pop');
+      
+      // 记录中奖信息
+      const now = new Date();
+      const timeStr = now.toLocaleString('zh-CN', {
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false
+      });
+      
+      // 时间
+      const isLateNight = isLateNightTime();
+      const isMealTime = checkMealTime();
+      
+      history.unshift({
+        prize: winningPrize,
+        time: timeStr,
+        timestamp: now.getTime(),
+        lateNight: isLateNight  // 标记是否是深夜
+      });
+      
+      // 保存到 LocalStorage
+      StorageManager.save(history);
+      
+      // 更新历史记录显示
+      updateHistory();
+      
+
+      // 如果是深夜时段，显示成就
+      if (isLateNight) {
+        setTimeout(() => {
+          showAchievement('你的胃能好才怪啊');
+        }, 1000);  // 延迟1秒显示，等抽奖动画结束
+      }
+
+      // 如果是正常用餐时段，显示成就
+      if (isMealTime) {
+        setTimeout(() => {
+          showAchievement('你的胃也是好起来了');
+        }, 1000);
+      }
+    
+    }
+      
+    // 清空历史记录
+    function clearHistory() {
+      if (confirm('确定要清空所有历史记录吗？')) {
+        history = [];
+        StorageManager.clear();
+        updateHistory();
+      }
+    }
+    
+    // 更新历史记录显示
+    function updateHistory() {
+      if (history.length === 0) {
+        historyList.innerHTML = `
+          <div class="text-gray-500 italic text-center py-8">
+            加油啊宝贝们！
+          </div>
+        `;
+        return;
+      }
+      
+      historyList.innerHTML = '';
+      
+      // 添加统计信息
+      const statsEl = document.createElement('div');
+      statsEl.className = 'mb-3 p-3 bg-gradient-to-r from-primary/10 to-accent/10 rounded-lg text-xs text-center';
+      statsEl.innerHTML = `
+        <div class="font-bold text-dark">已抽 ${history.length} 次</div>
+      `;
+      historyList.appendChild(statsEl);
+      
+      // 添加清空按钮
+      const clearBtn = document.createElement('button');
+      clearBtn.className = 'w-full mb-3 px-3 py-2 bg-red-50 hover:bg-red-100 text-red-600 rounded-lg text-xs transition-colors font-medium';
+      clearBtn.innerHTML = '<i class="fa fa-trash mr-1"></i> 清空历史记录';
+      clearBtn.onclick = clearHistory;
+      historyList.appendChild(clearBtn);
+      
+      // 显示历史记录
+      history.forEach((item, index) => {
+        const itemEl = document.createElement('div');
+        itemEl.className = 'flex justify-between items-center p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors';
+        
+        // 如果是深夜抽奖，添加特殊标记
+        const lateNightBadge = item.lateNight ? '<span class="ml-2 text-xs px-2 py-0.5 bg-yellow-100 text-yellow-700 rounded">🌙深夜</span>' : '';
+        
+        itemEl.innerHTML = `
+          <div class="flex items-center">
+            <span class="w-6 h-6 rounded-full bg-primary/20 text-primary flex items-center justify-center mr-2 text-xs font-bold flex-shrink-0">
+              ${index + 1}
+            </span>
+            <span class="font-medium text-sm">${item.prize}${lateNightBadge}</span>
+          </div>
+          <span class="text-gray-500 text-xs whitespace-nowrap ml-2">${item.time}</span>
+        `;
+        historyList.appendChild(itemEl);
+      });
+      
+      historyList.scrollTop = 0;
+    }
+    
+    // 事件监听
+    startBtn.addEventListener('click', startDrawing);
+    stopBtn.addEventListener('click', stopDrawing);
+    
+    // 初始化：加载历史记录
+    window.addEventListener('load', function() {
+      history = StorageManager.load();
+      updateHistory();
+      console.log('🍜 今天吃什么系统已启动！LocalStorage 已启用！');
+      console.log('📊 当前共有', history.length, '条历史记录');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>烂梗收集器（纯度极高版）</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#c1c19c',
+            accent: '#d4a46f',
+            dark: '#3A3740'
+          },
+        },
+      }
+    }
+  </script>
+  
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .text-shadow {
+        text-shadow: 0 3px 6px rgba(0,0,0,0.15);
+      }
+      .prize-pop {
+        animation: prizePop 0.8s cubic-bezier(0.17, 0.89, 0.32, 1.28);
+      }
+    }
+    
+    @keyframes prizePop {
+      0% { transform: scale(0.9); opacity: 0; }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen font-sans">
+  <div class="container mx-auto px-4 py-8 max-w-5xl">
+    <header class="text-center mb-8">
+      <h1 class="text-[clamp(2rem,6vw,4rem)] font-bold text-accent text-shadow mb-3">
+        让我想想都有什么经典对话
+      </h1>
+      <p class="text-gray-600 text-lg">↓看我干什么，点下面啊↓</p>
+    </header>
+    
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div class="lg:col-span-2">
+        <div class="bg-white rounded-2xl shadow-xl p-8 relative overflow-hidden">
+          <div class="absolute -top-10 -right-10 w-40 h-40 bg-primary/20 rounded-full"></div>
+          <div class="absolute -bottom-16 -left-16 w-40 h-40 bg-accent/20 rounded-full"></div>
+          
+          <h2 class="text-2xl font-bold text-dark mb-8 text-center relative z-10">抽奖区</h2>
+          
+          <div class="bg-gradient-to-r from-primary/5 to-accent/5 rounded-xl p-4 sm:p-6 md:p-10 mb-8 min-h-[150px] sm:min-h-[180px] md:min-h-[220px] flex items-center justify-center relative z-10">
+            <div id="prizeDisplay" class="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-dark transition-all px-2">
+              准备开始
+            </div>
+          </div>
+          
+          <div class="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 relative z-10">
+            <button id="startBtn" 
+                  class="bg-primary hover:bg-primary/90 text-white font-bold px-4 sm:px-10 py-4 rounded-lg shadow-lg transition-all transform hover:scale-105 flex items-center justify-center whitespace-nowrap">
+              <i class="fa fa-play mr-2"></i> 你说……
+            </button>
+            <button id="stopBtn" 
+                  class="bg-accent hover:bg-accent/90 text-white font-bold px-4 sm:px-10 py-4 rounded-lg shadow-lg transition-all transform hover:scale-105 flex items-center justify-center whitespace-nowrap"
+                  disabled>
+              <i class="fa fa-stop mr-2"></i> 就你了！
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="lg:col-span-1">
+        <div class="bg-white rounded-2xl shadow-xl p-6 h-full">
+          <h2 class="text-xl font-bold text-dark mb-4 flex items-center">
+            <i class="fa fa-list-alt text-primary mr-2"></i> 出发吧！
+          </h2>
+          
+          <div id="historyList" class="space-y-3 max-h-[500px] overflow-y-auto pr-2 text-sm">
+            <div class="text-gray-500 italic text-center py-8">你怎么不说话啊！</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <footer class="mt-12 text-center text-gray-500 text-sm">
+      <p>是人就要吃饭 还要吃点好的！（没有忘改，就是好饿）</p>
+      <p>&copy; Copyright 2025-2026 张大厨&离子态乱码小狗</p>
+      <p><a href="https://www.bisucrose.top/Knistern/food_lottery_with_achievement.html" class="text-primary hover:text-accent transition-colors underline">有关于今天吃什么的重要决策</a></p>
+    </footer>
+  </div>
+  
+  <script>
+    // ==================== 配置区 ====================
+    
+    // 奖品配置：每个奖品可设置权重、成就文本、成就标题、成就渐变色
+    const PRIZES = [
+      { 
+        name: "喝西北风吧！", 
+        weight: 1, 
+        achievement: "恭喜你中了超稀有奖品！", 
+        achievementTitle: "稀有成就",
+        gradientFrom: "#8b5cf6", 
+        gradientTo: "#ec4899" 
+      },
+      { 
+        name: "再来一次", 
+        weight: 10, 
+        achievement: ""
+      },
+      {
+        name:"比格买了一袋猫粮",
+        weight: 50,
+        achievement: " 数 据 污 染 日 ",
+        achievementTitle: "今天是：",
+      },
+      { name:"——把你们教学楼炸了\n ——嗯呐♡",
+        weight: 50,
+        achievement: "精状态神良好"
+      },
+      { name:"签到！",
+        weight: 50,
+        achievement: "污染数据的迪士尼在逃公主",
+        achievementTitle: "你今天是："
+      },
+      { name:"潦草的狗",
+        weight: 50,
+        achievement: "整齐的猫",
+        achievementTitle: "你看那个！"
+      },
+      { name:"周末加班的暖暖抹茶与巴拿拿蛋糕",
+        weight: 50,
+        achievement: "你讲载入比册"
+      },
+      { name:"全都可以炸完！",
+        weight: 50,
+        achievement: "《大动静》"
+      },
+      { name:"sry,slp,pls,thx",
+        weight: 50,
+        achievement: "辅音音素文字",
+        achievementTitle: "你发明了："
+      },
+      { name:"jmdjlluo",
+        weight: 50,
+        achievement: "jmdjlluo"
+      },
+      { name:"にゆびんば",
+        weight: 50,
+        achievement: ""
+      },
+      { name:"毕主任、毕主任！",
+        weight: 50,
+        achievement: "光杆司令"
+      },
+      { name:"黄油值得",
+        weight: 50,
+        achievement: "还有起司值得？？？"
+      },
+      { name:'<a href="https://www.bisucrose.top/Knistern/food_lottery_with_achievement.html" target="_blank" class="underline hover:text-accent">今天吃什么？</a>',
+        weight: 50,
+        achievement: "你的胃能好才怪啊！"
+      },
+      { name:"冰箱贴",
+        weight: 50,
+        achievement: "嘿嘿，我就是天才！\n 姐姐学习能力超强的好不好！\n 我这辈子就是被程序害了！\n 如听氙乐耳暂鸣\n 接受所有小饼干",
+        achievementTitle: "目前已经拥有：",
+        gradientFrom: "#8b5cf6", 
+        gradientTo: "#ec4899" 
+      },
+
+    ];
+    
+
+    
+    // 默认成就渐变色
+    const DEFAULT_GRADIENT = {
+      from: "#fbbf24",
+      to: "#f97316"
+    };
+    
+    // ==================== 核心功能类 ====================
+    
+    // LocalStorage管理
+    class StorageManager {
+      static KEY = 'memesHistory';
+      
+      static save(history) {
+        try {
+          const recentHistory = history.slice(0, 200);
+          localStorage.setItem(this.KEY, JSON.stringify(recentHistory));
+          return true;
+        } catch (e) {
+          console.error('保存失败:', e);
+          return false;
+        }
+      }
+      
+      static load() {
+        try {
+          const data = localStorage.getItem(this.KEY);
+          return data ? JSON.parse(data) : [];
+        } catch (e) {
+          console.error('加载失败:', e);
+          return [];
+        }
+      }
+      
+      static clear() {
+        try {
+          localStorage.removeItem(this.KEY);
+          return true;
+        } catch (e) {
+          console.error('清空失败:', e);
+          return false;
+        }
+      }
+    }
+    
+    // 成就系统
+    class AchievementSystem {
+      static show(text, achievementTitle, gradientFrom, gradientTo) {
+        if (!text) return;
+        
+        const from = gradientFrom || DEFAULT_GRADIENT.from;
+        const to = gradientTo || DEFAULT_GRADIENT.to;
+        const title = achievementTitle || "成就解锁！";
+        
+        const achievement = document.createElement('div');
+        achievement.className = 'fixed top-4 right-4 text-white px-6 py-4 rounded-lg shadow-2xl z-50 transform translate-x-full transition-transform duration-500';
+        achievement.style.background = `linear-gradient(to right, ${from}, ${to})`;
+        achievement.innerHTML = `
+          <div class="flex items-center gap-3">
+            <i class="fa fa-trophy text-2xl"></i>
+            <div>
+              <div class="font-bold text-lg">${title}</div>
+              <div class="text-sm">${text.replace(/\n/g, '<br>')}</div>
+            </div>
+          </div>
+        `;
+        
+        document.body.appendChild(achievement);
+        
+        setTimeout(() => achievement.style.transform = 'translateX(0)', 100);
+        
+        setTimeout(() => {
+          achievement.style.transform = 'translateX(150%)';
+          setTimeout(() => document.body.removeChild(achievement), 500);
+        }, 3000);
+      }
+    }
+    
+
+    // ==================== 抽奖系统 ====================
+    
+    class LotterySystem {
+      constructor() {
+        this.history = [];
+        this.isDrawing = false;
+        this.drawInterval = null;
+        
+        this.prizeDisplay = document.getElementById('prizeDisplay');
+        this.startBtn = document.getElementById('startBtn');
+        this.stopBtn = document.getElementById('stopBtn');
+        this.historyList = document.getElementById('historyList');
+        
+        this.init();
+      }
+      
+      init() {
+        this.history = StorageManager.load();
+        this.updateHistory();
+        this.bindEvents();
+      }
+      
+      bindEvents() {
+        this.startBtn.addEventListener('click', () => this.start());
+        this.stopBtn.addEventListener('click', () => this.stop());
+      }
+      
+      getRandomPrize() {
+        const totalWeight = PRIZES.reduce((sum, p) => sum + p.weight, 0);
+        let random = Math.random() * totalWeight;
+        
+        for (const prize of PRIZES) {
+          random -= prize.weight;
+          if (random <= 0) return prize;
+        }
+        
+        return PRIZES[0];
+      }
+      
+      start() {
+        this.isDrawing = true;
+        this.startBtn.disabled = true;
+        this.stopBtn.disabled = false;
+        this.prizeDisplay.classList.remove('prize-pop');
+        
+        this.drawInterval = setInterval(() => {
+          const randomPrize = PRIZES[Math.floor(Math.random() * PRIZES.length)];
+          this.prizeDisplay.innerHTML = randomPrize.name.replace(/\n/g, '<br>');
+        }, 80);
+      }
+      
+      stop() {
+        if (!this.isDrawing) return;
+        
+        clearInterval(this.drawInterval);
+        this.isDrawing = false;
+        this.startBtn.disabled = false;
+        this.stopBtn.disabled = true;
+        
+        const winningPrize = this.getRandomPrize();
+        this.prizeDisplay.innerHTML = winningPrize.name.replace(/\n/g, '<br>');
+        this.prizeDisplay.classList.add('prize-pop');
+        
+        this.recordWin(winningPrize);
+        this.showAchievements(winningPrize);
+      }
+      
+      recordWin(prize) {
+        const now = new Date();
+        const timeStr = now.toLocaleString('zh-CN', {
+          month: '2-digit',
+          day: '2-digit',
+          hour: '2-digit',
+          minute: '2-digit',
+          hour12: false
+        });
+        
+        this.history.unshift({
+          prize: prize.name,
+          time: timeStr,
+          timestamp: now.getTime()
+        });
+        
+        StorageManager.save(this.history);
+        this.updateHistory();
+      }
+      
+      showAchievements(prize) {
+        if (prize.achievement) {
+          setTimeout(() => {
+            AchievementSystem.show(
+              prize.achievement,
+              prize.achievementTitle,
+              prize.gradientFrom,
+              prize.gradientTo
+            );
+          }, 1000);
+        }
+      }
+      
+      updateHistory() {
+        if (this.history.length === 0) {
+          this.historyList.innerHTML = `
+            <div class="text-gray-500 italic text-center py-8">加油啊宝贝们！</div>
+          `;
+          return;
+        }
+        
+        this.historyList.innerHTML = '';
+        
+        const statsEl = document.createElement('div');
+        statsEl.className = 'mb-3 p-3 bg-gradient-to-r from-primary/10 to-accent/10 rounded-lg text-xs text-center';
+        statsEl.innerHTML = `<div class="font-bold text-dark">已抽 ${this.history.length} 次</div>`;
+        this.historyList.appendChild(statsEl);
+        
+        const clearBtn = document.createElement('button');
+        clearBtn.className = 'w-full mb-3 px-3 py-2 bg-red-50 hover:bg-red-100 text-red-600 rounded-lg text-xs transition-colors font-medium';
+        clearBtn.innerHTML = '<i class="fa fa-trash mr-1"></i> 清空历史记录';
+        clearBtn.onclick = () => this.clearHistory();
+        this.historyList.appendChild(clearBtn);
+        
+        this.history.forEach((item, index) => {
+          const itemEl = document.createElement('div');
+          itemEl.className = 'flex justify-between items-center p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors';
+          
+          itemEl.innerHTML = `
+            <div class="flex items-center">
+              <span class="w-6 h-6 rounded-full bg-primary/20 text-primary flex items-center justify-center mr-2 text-xs font-bold flex-shrink-0">
+                ${index + 1}
+              </span>
+              <span class="font-medium text-sm">${item.prize}</span>
+            </div>
+            <span class="text-gray-500 text-xs whitespace-nowrap ml-2">${item.time}</span>
+          `;
+          this.historyList.appendChild(itemEl);
+        });
+        
+        this.historyList.scrollTop = 0;
+      }
+      
+      clearHistory() {
+        if (confirm('确定要清空所有历史记录吗？')) {
+          this.history = [];
+          StorageManager.clear();
+          this.updateHistory();
+        }
+      }
+    }
+    
+    // ==================== 初始化 ====================
+    
+    window.addEventListener('load', () => {
+      new LotterySystem();
+      console.log('全是烂梗啊哈哈哈哈哈哈！');
+    });
+  </script>
+</body>
+</html>
